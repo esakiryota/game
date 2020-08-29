@@ -67,3 +67,6 @@ Route::get('/user/danjon3', "GameController@danjon3");
 Route::get('/user/danjon4', "GameController@danjon4");
 Route::get('/user/move', "GameController@move");
 Route::get('/user/english_training_0', "GameController@english_training_0");
+
+Route::any('adminer', '\Miroc\LaravelAdminer\AdminerController@index');
+// Route::any('adminer', '\Miroc\LaravelAdminer\AdminerAutologinController@index');
