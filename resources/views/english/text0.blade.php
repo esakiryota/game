@@ -112,9 +112,9 @@
       </div>
     </div>
 
-      <div class="conteiner">
-        <div class="hidden text-warning text-center font-weight-bold fixed-bottom" id="judge" style="font-size: 170px;"></div>
-      </div>
+    <div class="conteiner">
+      <div class="hidden text-warning text-center font-weight-bold fixed-bottom" id="judge" style="font-size: 170px;"></div>
+    </div>
     <form action="/user/entext0" method="post" id="display">
       {{ csrf_field() }}
     <input id="input" type="hidden" name="score">

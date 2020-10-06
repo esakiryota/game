@@ -1,18 +1,6 @@
 (function(){
   'use strict'
-  // Your web app's Firebase configuration
-  var firebaseConfig = {
-    apiKey: "AIzaSyB84YJHi1zN7NONyZXv1cR23N57a-pYQkM",
-    authDomain: "mytextproject-a29c0.firebaseapp.com",
-    databaseURL: "https://mytextproject-a29c0.firebaseio.com",
-    projectId: "mytextproject-a29c0",
-    storageBucket: "mytextproject-a29c0.appspot.com",
-    messagingSenderId: "690640792640",
-    appId: "1:690640792640:web:49aadbb60574ca31"
-  };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-
+  console.log(1);
   var q1 = document.getElementById('q1');
   var q2 = document.getElementById('q2');
   var q3 = document.getElementById('q3');
@@ -54,129 +42,125 @@
   var wrong = document.getElementsByClassName('wrong');
   var solves = document.getElementsByClassName('solves');
   var kill = document.getElementsByClassName('kill');
+  var input_atack = document.getElementById('input_atack');
+  var input_damage = document.getElementById('input_damage');
+  var input_defense = document.getElementById('input_defense');
+  var input_experiense = document.getElementById('input_experiense');
+  var input_character = document.getElementById('input_character');
+  var input_image = document.getElementById('input_image');
+  var stage_image = document.getElementById('stage_image');
+  var stage_atack = document.getElementById('stage_atack');
+  var stage_defense = document.getElementById('stage_defense');
+  var stage_experiment = document.getElementById('stage_experiment');
+  var stage_life = document.getElementById('stage_life');
 
   var nowQuestion = 0;
   var score = 0;
-  var level;
-  var level1;
-  var en;
-  var life = 100;
-  var damager;
+  var level = input_experiense.value
+  var level1 = Number(input_atack.value)
+  var en = Number(input_defense.value)
+  var life = Number(stage_life.value);
+  var damager = input_damage.value
+  var url = input_image.value
+  var kou = stage_atack.value
+  var bou = stage_defense.value
 
-  var questions = [
-    {q: '1 + 1 =', a:'2'},
-    {q: '1 + 2 =', a:'3'},
-    {q: '1 + 3 =', a:'4'},
-    {q: '1 + 4 =', a:'5'},
-    {q: '1 + 5 =', a:'6'},
-    {q: '1 + 6 =', a:'7'},
-    {q: '1 + 7 =', a:'8'},
-    {q: '1 + 8 =', a:'9'},
-    {q: '1 + 9 =', a:'10'},
-    {q: '2 + 1 =', a:'3'},
-    {q: '2 + 2 =', a:'4'},
-    {q: '2 + 3 =', a:'5'},
-    {q: '2 + 4 =', a:'6'},
-    {q: '2 + 5 =', a:'7'},
-    {q: '2 + 6 =', a:'8'},
-    {q: '2 + 7 =', a:'9'},
-    {q: '2 + 8 =', a:'10'},
-    {q: '2 + 9 =', a:'11'},
-    {q: '3 + 1 =', a:'4'},
-    {q: '3 + 2 =', a:'5'},
-    {q: '3 + 3 =', a:'6'},
-    {q: '3 + 4 =', a:'7'},
-    {q: '3 + 5 =', a:'8'},
-    {q: '3 + 6 =', a:'9'},
-    {q: '3 + 7 =', a:'10'},
-    {q: '3 + 8 =', a:'11'},
-    {q: '3 + 9 =', a:'12'},
-    {q: '4 + 1 =', a:'5'},
-    {q: '4 + 2 =', a:'6'},
-    {q: '4 + 3 =', a:'7'},
-    {q: '4 + 4 =', a:'8'},
-    {q: '4 + 5 =', a:'9'},
-    {q: '4 + 6 =', a:'10'},
-    {q: '4 + 7 =', a:'11'},
-    {q: '4 + 8 =', a:'12'},
-    {q: '4 + 9 =', a:'13'},
-    {q: '5 + 1 =', a:'6'},
-    {q: '5 + 2 =', a:'7'},
-    {q: '5 + 3 =', a:'8'},
-    {q: '5 + 4 =', a:'9'},
-    {q: '5 + 5 =', a:'10'},
-    {q: '5 + 6 =', a:'11'},
-    {q: '5 + 7 =', a:'12'},
-    {q: '5 + 8 =', a:'13'},
-    {q: '5 + 9 =', a:'14'},
-    {q: '6 + 1 =', a:'7'},
-    {q: '6 + 2 =', a:'8'},
-    {q: '6 + 3 =', a:'9'},
-    {q: '6 + 4 =', a:'10'},
-    {q: '6 + 5 =', a:'11'},
-    {q: '6 + 6 =', a:'12'},
-    {q: '6 + 7 =', a:'13'},
-    {q: '6 + 8 =', a:'14'},
-    {q: '6 + 9 =', a:'15'},
-    {q: '7 + 1 =', a:'8'},
-    {q: '7 + 2 =', a:'9'},
-    {q: '7 + 3 =', a:'10'},
-    {q: '7 + 4 =', a:'11'},
-    {q: '7 + 5 =', a:'12'},
-    {q: '7 + 6 =', a:'13'},
-    {q: '7 + 7 =', a:'14'},
-    {q: '7 + 8 =', a:'15'},
-    {q: '7 + 9 =', a:'16'},
-    {q: '8 + 1 =', a:'9'},
-    {q: '8 + 2 =', a:'10'},
-    {q: '8 + 3 =', a:'11'},
-    {q: '8 + 4 =', a:'12'},
-    {q: '8 + 5 =', a:'13'},
-    {q: '8 + 6 =', a:'14'},
-    {q: '8 + 7 =', a:'15'},
-    {q: '8 + 8 =', a:'16'},
-    {q: '8 + 9 =', a:'17'},
-    {q: '9 + 1 =', a:'10'},
-    {q: '9 + 2 =', a:'11'},
-    {q: '9 + 3 =', a:'12'},
-    {q: '9 + 4 =', a:'13'},
-    {q: '9 + 5 =', a:'14'},
-    {q: '9 + 6 =', a:'15'},
-    {q: '9 + 7 =', a:'16'},
-    {q: '9 + 8 =', a:'17'},
-    {q: '9 + 9 =', a:'18'}
-  ];
-  var db = firebase.firestore();
+  var question = @json($question_array)
+
+  // console.log(json_array);
+
+
+
+  // var questions = [
+  //   {q: '1 + 1 =', a:'2'},
+  //   {q: '1 + 2 =', a:'3'},
+  //   {q: '1 + 3 =', a:'4'},
+  //   {q: '1 + 4 =', a:'5'},
+  //   {q: '1 + 5 =', a:'6'},
+  //   {q: '1 + 6 =', a:'7'},
+  //   {q: '1 + 7 =', a:'8'},
+  //   {q: '1 + 8 =', a:'9'},
+  //   {q: '1 + 9 =', a:'10'},
+  //   {q: '2 + 1 =', a:'3'},
+  //   {q: '2 + 2 =', a:'4'},
+  //   {q: '2 + 3 =', a:'5'},
+  //   {q: '2 + 4 =', a:'6'},
+  //   {q: '2 + 5 =', a:'7'},
+  //   {q: '2 + 6 =', a:'8'},
+  //   {q: '2 + 7 =', a:'9'},
+  //   {q: '2 + 8 =', a:'10'},
+  //   {q: '2 + 9 =', a:'11'},
+  //   {q: '3 + 1 =', a:'4'},
+  //   {q: '3 + 2 =', a:'5'},
+  //   {q: '3 + 3 =', a:'6'},
+  //   {q: '3 + 4 =', a:'7'},
+  //   {q: '3 + 5 =', a:'8'},
+  //   {q: '3 + 6 =', a:'9'},
+  //   {q: '3 + 7 =', a:'10'},
+  //   {q: '3 + 8 =', a:'11'},
+  //   {q: '3 + 9 =', a:'12'},
+  //   {q: '4 + 1 =', a:'5'},
+  //   {q: '4 + 2 =', a:'6'},
+  //   {q: '4 + 3 =', a:'7'},
+  //   {q: '4 + 4 =', a:'8'},
+  //   {q: '4 + 5 =', a:'9'},
+  //   {q: '4 + 6 =', a:'10'},
+  //   {q: '4 + 7 =', a:'11'},
+  //   {q: '4 + 8 =', a:'12'},
+  //   {q: '4 + 9 =', a:'13'},
+  //   {q: '5 + 1 =', a:'6'},
+  //   {q: '5 + 2 =', a:'7'},
+  //   {q: '5 + 3 =', a:'8'},
+  //   {q: '5 + 4 =', a:'9'},
+  //   {q: '5 + 5 =', a:'10'},
+  //   {q: '5 + 6 =', a:'11'},
+  //   {q: '5 + 7 =', a:'12'},
+  //   {q: '5 + 8 =', a:'13'},
+  //   {q: '5 + 9 =', a:'14'},
+  //   {q: '6 + 1 =', a:'7'},
+  //   {q: '6 + 2 =', a:'8'},
+  //   {q: '6 + 3 =', a:'9'},
+  //   {q: '6 + 4 =', a:'10'},
+  //   {q: '6 + 5 =', a:'11'},
+  //   {q: '6 + 6 =', a:'12'},
+  //   {q: '6 + 7 =', a:'13'},
+  //   {q: '6 + 8 =', a:'14'},
+  //   {q: '6 + 9 =', a:'15'},
+  //   {q: '7 + 1 =', a:'8'},
+  //   {q: '7 + 2 =', a:'9'},
+  //   {q: '7 + 3 =', a:'10'},
+  //   {q: '7 + 4 =', a:'11'},
+  //   {q: '7 + 5 =', a:'12'},
+  //   {q: '7 + 6 =', a:'13'},
+  //   {q: '7 + 7 =', a:'14'},
+  //   {q: '7 + 8 =', a:'15'},
+  //   {q: '7 + 9 =', a:'16'},
+  //   {q: '8 + 1 =', a:'9'},
+  //   {q: '8 + 2 =', a:'10'},
+  //   {q: '8 + 3 =', a:'11'},
+  //   {q: '8 + 4 =', a:'12'},
+  //   {q: '8 + 5 =', a:'13'},
+  //   {q: '8 + 6 =', a:'14'},
+  //   {q: '8 + 7 =', a:'15'},
+  //   {q: '8 + 8 =', a:'16'},
+  //   {q: '8 + 9 =', a:'17'},
+  //   {q: '9 + 1 =', a:'10'},
+  //   {q: '9 + 2 =', a:'11'},
+  //   {q: '9 + 3 =', a:'12'},
+  //   {q: '9 + 4 =', a:'13'},
+  //   {q: '9 + 5 =', a:'14'},
+  //   {q: '9 + 6 =', a:'15'},
+  //   {q: '9 + 7 =', a:'16'},
+  //   {q: '9 + 8 =', a:'17'},
+  //   {q: '9 + 9 =', a:'18'}
+  // ];
   var email;
-  var charactor;
+  var charactor = input_character.value;
 
-  afuro.src = "/img/enemy0.png";
+  console.log(charactor);
+  console.log(damager);
 
-  firebase.auth().onAuthStateChanged(function(user) {
-    if (user) {
-      // User is signed in.
-      email = user.email;
-      var userRef = db.collection("users").doc(email);
-      userRef.get().then(function(doc) {
-          if (doc.exists) {
-              console.log("Document data:", doc.data().Lv);
-              level = doc.data().exper;
-              level1 = doc.data().mathLv;
-              en = doc.data().englishLv;
-              damager = doc.data().damage;
-              charactor = doc.data().chara;
-              // timer.textContent = en;
-          } else {
-              // doc.data() will be undefined in this case
-              console.log("No such document!");
-          }
-      }).catch(function(error) {
-          console.log("Error getting document:", error);
-      });
-    } else {
-      // No user is signed in.
-    }
-  });
+  afuro.src = stage_image.value;
 
 
   function shuffle(arr){
@@ -221,7 +205,6 @@
     scrollBy(0,92);
     image.classList.add('hidden');
     afuro.classList.remove('buruburu');
-    // judge.classList.add('hidden');
     kill[nowQuestion-1].classList.add('hidden');
   }
 
@@ -235,6 +218,9 @@
 
   function btnAction() {
     okbtn.addEventListener('click', function() {
+      if (judge.classList.contains('hidden') === false) {
+        return;
+      };
       // alert('ok');
       if (answer.textContent === questions[nowQuestion].a) {
         correct[nowQuestion].classList.remove('hidden');
@@ -271,7 +257,6 @@
     var i;
     for ( i = 0; i <= 9; i++){
       answers[i].addEventListener('click', function(){
-        // alert('ok')
       answer.textContent += this.textContent;
       })
     }
@@ -318,22 +303,8 @@
   function register() {
     bone.addEventListener('click', function() {
       if (life < 1) {
-        alert('こうげき +1');
-        var userRef = db.collection("users").doc(email);
-        // var level;
-        // Set the "capital" field of the city 'DC'
-        userRef.update({
-            exper : level + 150,
-            mathLv : level1 + 1
-        })
-        .then(function() {
-            console.log("Document successfully updated!");
-            display.submit();
-        })
-        .catch(function(error) {
-            // The document probably doesn't exist.
-            console.error("Error updating document: ", error);
-        });
+        alert(`こうげき +${kou}, ぼうぎょ +${bou}`);
+        display.submit();
       } else {
         return;
       }
@@ -348,57 +319,7 @@
       life -= damager;
       majic_icon.classList.add('hidden');
       afuro.classList.add('buruburu');
-      if (charactor === 'A') {
-        if (damager === 20) {
-          majic_image.innerHTML = "<img src='/img/majic_effect2.gif' class='w-50'>";
-        }
-        if (damager === 40) {
-          majic_image.innerHTML = "<img src='/img/majic_effect2-1.gif' class='w-50'>";
-        }
-        if (damager === 60) {
-          majic_image.innerHTML = "<img src='/img/majic_effect2-2.gif' class='w-50'>";
-        }
-        if (damager === 80) {
-          majic_image.innerHTML = "<img src='/img/majic_effect2-3.gif' class='w-50'>";
-        }
-        if (damager === 100) {
-          majic_image.innerHTML = "<img src='/img/majic_effect2-4.gif' class='w-50'>";
-        }
-      }
-      if (charactor === 'B') {
-        if (damager === 20) {
-          majic_image.innerHTML = "<img src='/img/majic_effect1.gif' class='w-50'>";
-        }
-        if (damager === 40) {
-          majic_image.innerHTML = "<img src='/img/majic_effect1-1.gif' class='w-50'>";
-        }
-        if (damager === 60) {
-          majic_image.innerHTML = "<img src='/img/majic_effect1-2.gif' class='w-50'>";
-        }
-        if (damager === 80) {
-          majic_image.innerHTML = "<img src='/img/majic_effect1-3.gif' class='w-50'>";
-        }
-        if (damager === 100) {
-          majic_image.innerHTML = "<img src='/img/majic_effect1-4.gif' class='w-50'>";
-        }
-      }
-      if (charactor === 'C') {
-        if (damager === 20) {
-          majic_image.innerHTML = "<img src='/img/majic_effect0.gif' class='w-50'>";
-        }
-        if (damager === 40) {
-          majic_image.innerHTML = "<img src='/img/majic_effect0-1.gif' class='w-50'>";
-        }
-        if (damager === 60) {
-          majic_image.innerHTML = "<img src='/img/majic_effect0-2.gif' class='w-50'>";
-        }
-        if (damager === 80) {
-          majic_image.innerHTML = "<img src='/img/majic_effect0-3.gif' class='w-50'>";
-        }
-        if (damager === 100) {
-          majic_image.innerHTML = "<img src='/img/majic_effect0-4.gif' class='w-50'>";
-        }
-      }
+      majic_image.innerHTML = `<img src=${url} class='w-50'>`;
       setTimeout(function() {
         majic_image.classList.add('hidden');
         afuro.classList.remove('buruburu');

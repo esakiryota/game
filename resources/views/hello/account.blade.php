@@ -23,7 +23,11 @@
           <div class="col mx-5 my-3" style="font-size: 80px; font-weight: bold;">なまえ（ひらがな、カタカナ）</div>
         </div>
         <div class="row">
-          <div class="col mx-5 my-3 py-5"><input type="text" class="form-control" placeholder="なまえ" id="nameid" style="height: 100px; font-size: 50px;"></div>
+          <form  action="/account" method="post" id="form_control">
+              {{ csrf_field() }}
+            <div class="col mx-5 my-3 py-5"><input type="text" name="name" class="form-control" placeholder="なまえ" id="nameid" style="height: 100px; font-size: 50px;"></div>
+            <div class="col mx-5 my-3 py-5"><input type="hidden" name="character" value="" class="form-control" id="character" style=""></div>
+          </form>
         </div>
       </div>
     </header>
@@ -57,10 +61,6 @@
       </div>
     </main>
     <footer>
-      <form  action="/account" method="post" id="form_control">
-        {{ csrf_field() }}
-        <input type="hidden" name="hidden" value="">
-      </form>
     </footer>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>

@@ -5,7 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="jQuery.css" media="all">
+    <!-- <link rel="stylesheet" type="text/css" href="jQuery.css" media="all"> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -82,10 +83,37 @@
           75% {transform: translate(4px, 0px) rotateZ(-10deg)}
           100% {transform: translate(0px, 0px) rotateZ(0deg)}
         }
-        /* #back {
-            background-image: url(/img/battle-back0-1.jpg);
-            background-size:  cover;
-        } */
+        .box {
+          position: absolute;
+          left: 35%;
+          /* -webkit-transform: translate(-50%, -50%); */
+          /* -ms-transform: translate(-50%, -50%); */
+        }
+        .but {
+          display: inline-block;
+          /* padding: 20px; */
+          padding: 0.5em 1em;
+          margin: 5px;
+          width: 25%;
+          text-decoration: none;
+          background: #668ad8;
+          color: #FFF;
+          border-bottom: solid 4px #627295;
+          border-radius: 30px;
+        }
+        .but:active {
+          -webkit-transform: translateY(4px);
+          transform: translateY(4px);
+          box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);
+          border-bottom: none;
+        }
+        #clear_modal {
+          background:url(/img/after_battle.png) center no-repeat;
+          background-size:cover;
+          height: 280px;
+          font-family: 'Myfont';
+        }
+
     </style>
 
     <body>
@@ -97,9 +125,13 @@
             <div class="questions col text-center my-1" id=""><img class="w-50" id="afuro"></div>
             <!-- <div class="questions col-2 text-center my-1" id=""><img src="/img/candle0.png" class="w-50" id="afuro"></div> -->
           </div>
-          <div class="row py">
+          <!-- <div class="box" id="meter1" style="margin: auto;   width:30%; height:30px; background:linear-gradient(to bottom, #99ccff, #0059b3);border-radius:5%;"></div> -->
+          <div class="box" id="meter1" style="margin: auto;   width:30%; height:30px; background:rgba(0,0,255,0.1) ;border-radius:5%;"></div>
+          <div class="box" id="meter2" style="margin: auto;   width:20%; height:30px; border-radius:5%; "></div>
+          <!-- <div class="row py">
             <div class="questions col text-center my-1" id=""><meter value="1.0" id="meter"></meter></div>
-          </div>
+          </div> -->
+
         </div>
           <div class="conteiner">
             <div class="hidden text-warning text-center font-weight-bold fixed-top py-1"  id="judge"></div>
@@ -121,235 +153,76 @@
       </div>
       <div class="conteiner fixed-top mt-5">
         <div class="row mt-5">
-          <div class="questions col text-center mt-5" id=""><img src="/img/rotate-sord.gif" class="hidden" id="bone" width="100px" height="100px"></div>
+          <a class="questions col text-center mt-5" data-toggle="modal" data-target="#exampleModalCenter"><img src="/img/rotate-sord.gif" class="hidden" id="bone" width="100px" height="100px"></a>
         </div>
           <div class="row">
             <div class="col-4" style="font-family: 'Myfont'; font-size: 50px; font-weight: bold;"><img src="/img/majic-icon0.png" class="w-50"  id="majic_icon"></div>
             <div class="col-8" style="font-family: 'Myfont'; font-size: 50px; font-weight: bold;"></div>
         </div>
       </div>
-      <div class="conteiner text-light">
-          <div class="damys row py-3">
-            <div class="questions col-8 text-center" id="">問題</div>
-          </div>
-          <div class="damys row py-3">
-            <div class="questions col-8 text-center" id="">問題</div>
-          </div>
-          <div class="damys row py-2">
-            <div class="questions col-8 text-center" id="">問題</div>
-          </div>
-        <div class="kill row py-3">
-          <div class="questions correct hidden text-warning col-1 text-center">○</div>
-          <div class="questions wrong hidden text-warning col-1 text-center">X</div>
-          <div class="questions col-8 text-center" id="q1">問題</div>
-          <div class="solves col-2  text-center"></div>
-        </div>
-        <div class="kill row py-3">
-          <div class="questions correct hidden text-warning col-1 text-center">○</div>
-          <div class="questions wrong hidden text-warning col-1 text-center">X</div>
-          <div class="questions col-8 text-center" id="q2">問題</div>
-          <div class="solves col-2  text-center"></div>
-        </div>
-        <div class="kill row py-3">
-          <div class="questions correct hidden text-warning col-1 text-center">○</div>
-          <div class="questions wrong hidden text-warning col-1 text-center">X</div>
-          <div class="questions col-8 text-center" id="q3">問題</div>
-          <div class="solves col-2  text-center"></div>
-        </div>
-        <div class="kill row py-3">
-          <div class="questions correct hidden text-warning col-1 text-center">○</div>
-          <div class="questions wrong hidden text-warning col-1 text-center">X</div>
-          <div class="questions col-8 text-center" id="q4">問題</div>
-          <div class="solves col-2  text-center"></div>
-        </div>
-        <div class="kill row py-3">
-          <div class="questions correct hidden text-warning col-1 text-center">○</div>
-          <div class="questions wrong hidden text-warning col-1 text-center">X</div>
-          <div class="questions col-8 text-center" id="q5">問題</div>
-          <div class="solves col-2  text-center"></div>
-        </div>
-        <div class="kill row py-3">
-          <div class="questions correct hidden text-warning col-1 text-center">○</div>
-          <div class="questions wrong hidden text-warning col-1 text-center">X</div>
-          <div class="questions col-8 text-center" id="q6">問題</div>
-          <div class="solves col-2  text-center"></div>
-        </div>
-        <div class="kill row py-3">
-          <div class="questions correct hidden text-warning col-1 text-center">○</div>
-          <div class="questions wrong hidden text-warning col-1 text-center">X</div>
-          <div class="questions col-8 text-center" id="q7">問題</div>
-          <div class="solves col-2  text-center"></div>
-        </div>
-        <div class="kill row py-3">
-          <div class="questions correct hidden text-warning col-1 text-center">○</div>
-          <div class="questions wrong hidden text-warning col-1 text-center">X</div>
-          <div class="questions col-8 text-center" id="q8">問題</div>
-          <div class="solves col-2  text-center"></div>
-        </div>
-        <div class="kill row py-3">
-          <div class="questions correct hidden text-warning col-1 text-center">○</div>
-          <div class="questions wrong hidden text-warning col-1 text-center">X</div>
-          <div class="questions col-8 text-center" id="q9">問題</div>
-          <div class="solves col-2  text-center"></div>
-        </div>
-        <div class="kill row py-3">
-          <div class="questions correct hidden text-warning col-1 text-center">○</div>
-          <div class="questions wrong hidden text-warning col-1 text-center">X</div>
-          <div class="questions col-8 text-center" id="q10">問題</div>
-          <div class="solves col-2  text-center"></div>
-        </div>
-        <div class="kill row py-3">
-          <div class="questions correct hidden text-warning col-1 text-center">○</div>
-          <div class="questions wrong hidden text-warning col-1 text-center">X</div>
-          <div class="questions col-8 text-center" id="q11">問題</div>
-          <div class="solves col-2  text-center"></div>
-        </div>
-        <div class="kill row py-3">
-          <div class="questions correct hidden text-warning col-1 text-center">○</div>
-          <div class="questions wrong hidden text-warning col-1 text-center">X</div>
-          <div class="questions col-8 text-center" id="q12">問題</div>
-          <div class="solves col-2  text-center"></div>
-        </div>
-        <div class="kill row py-3">
-          <div class="questions correct hidden text-warning col-1 text-center">○</div>
-          <div class="questions wrong hidden text-warning col-1 text-center">X</div>
-          <div class="questions col-8 text-center" id="q13">問題</div>
-          <div class="solves col-2  text-center"></div>
-        </div>
-        <div class="kill row py-3">
-          <div class="questions correct hidden text-warning col-1 text-center">○</div>
-          <div class="questions wrong hidden text-warning col-1 text-center">X</div>
-          <div class="questions col-8 text-center" id="q14">問題</div>
-          <div class="solves col-2  text-center"></div>
-        </div>
-        <div class="kill row py-3">
-          <div class="questions correct hidden text-warning col-1 text-center">○</div>
-          <div class="questions wrong hidden text-warning col-1 text-center">X</div>
-          <div class="questions col-8 text-center" id="q15">問題</div>
-          <div class="solves col-2  text-center"></div>
-        </div>
-        <div class="kill row py-3">
-          <div class="questions correct hidden text-warning col-1 text-center">○</div>
-          <div class="questions wrong hidden text-warning col-1 text-center">X</div>
-          <div class="questions col-8 text-center" id="q16">問題</div>
-          <div class="solves col-2  text-center"></div>
-        </div>
-        <div class="kill row py-3">
-          <div class="questions correct hidden text-warning col-1 text-center">○</div>
-          <div class="questions wrong hidden text-warning col-1 text-center">X</div>
-          <div class="questions col-8 text-center" id="q17">問題</div>
-          <div class="solves col-2  text-center"></div>
-        </div>
-        <div class="kill row py-3">
-          <div class="questions correct hidden text-warning col-1 text-center">○</div>
-          <div class="questions wrong hidden text-warning col-1 text-center">X</div>
-          <div class="questions col-8 text-center" id="q18">問題</div>
-          <div class="solves col-2  text-center"></div>
-        </div>
-        <div class="kill row py-3">
-          <div class="questions correct hidden text-warning col-1 text-center">○</div>
-          <div class="questions wrong hidden text-warning col-1 text-center">X</div>
-          <div class="questions col-8 text-center" id="q19">問題</div>
-          <div class="solves col-2  text-center"></div>
-        </div>
-        <div class="kill row py-3">
-          <div class="questions correct hidden text-warning col-1 text-center">○</div>
-          <div class="questions wrong hidden text-warning col-1 text-center">X</div>
-          <div class="questions col-8 text-center" id="q20">問題</div>
-          <div class="solves col-2  text-center"></div>
-        </div>
-        <div class="row py-3">
-          <div class="correct hidden text-warning col-1 text-center">○</div>
-          <div class="wrong hidden text-warning col-1 text-center">X</div>
-          <div class="col-8 text-center"></div>
-          <div class="solves col-2  text-center"></div>
-        </div>
-        <div class="row py-3">
-          <div class="correct hidden text-warning col-1 text-center">○</div>
-          <div class="wrong hidden text-warning col-1 text-center">X</div>
-          <div class="col-8 text-center"></div>
-          <div class="solves col-2  text-center"></div>
-        </div>
-        <div class="row py-3">
-          <div class="correct hidden text-warning col-1 text-center">○</div>
-          <div class="wrong hidden text-warning col-1 text-center">X</div>
-          <div class="col-8 text-center"></div>
-          <div class="solves col-2  text-center"></div>
-        </div>
-        <div class="row py-3">
-          <div class="correct hidden text-warning col-1 text-center">○</div>
-          <div class="wrong hidden text-warning col-1 text-center">X</div>
-          <div class="hidden col-8 text-center" id="lastScore"></div>
-          <div class="solves col-2  text-center"></div>
-        </div>
-        <div class="row py-3">
-          <div class="correct hidden text-warning col-1 text-center">○</div>
-          <div class="wrong hidden text-warning col-1 text-center">X</div>
-          <div class="col-8 text-center"></div>
-          <div class="solves col-2  text-center"></div>
-        </div>
-        <div class="row py-3">
-          <div class="correct hidden text-warning col-1 text-center">○</div>
-          <div class="wrong hidden text-warning col-1 text-center">X</div>
-          <div class="col-8 text-center"></div>
-          <div class="solves col-2  text-center"></div>
-        </div>
-        <div class="row py-3">
-          <div class="correct hidden text-warning col-1 text-center">○</div>
-          <div class="wrong hidden text-warning col-1 text-center">X</div>
-          <div class="col-8 text-center"></div>
-          <div class="solves col-2  text-center"></div>
-        </div>
-        <div class="row py-3">
-          <div class="correct hidden text-warning col-1 text-center">○</div>
-          <div class="wrong hidden text-warning col-1 text-center">X</div>
-          <div class="col-8 text-center"></div>
-          <div class="solves col-2  text-center"></div>
-        </div>
-        <div class="row py-3">
-          <div class="correct hidden text-warning col-1 text-center">○</div>
-          <div class="wrong hidden text-warning col-1 text-center">X</div>
-          <div class="col-8 text-center"></div>
-          <div class="solves col-2  text-center"></div>
-        </div>
-        <div class="row py-3">
-          <div class="correct hidden text-warning col-1 text-center">○</div>
-          <div class="wrong hidden text-warning col-1 text-center">X</div>
-          <div class="col-8 text-center"></div>
-          <div class="solves col-2  text-center"></div>
-        </div>
-        <div class="row py-3">
-          <div class="correct hidden text-warning col-1 text-center">○</div>
-          <div class="wrong hidden text-warning col-1 text-center">X</div>
-          <div class="col-8 text-center"></div>
-          <div class="solves col-2  text-center"></div>
+      <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-body" id="clear_modal">
+              <div class="" id="modal_1"  style="">
+                <div class="">
+                  こうげきが <span id="ko_spa"></span> あがった<br>
+                  ぼうぎょが <span id="bo_spa"></span> あがった<br>
+                  けいけんちが <span id="ex_spa"></span> あがった
+                </div>
+                <div class="" id="next_btn" style="position: absolute; top: 80%; left: 40%">
+                  つぎにすすむ
+                </div>
+              </div>
+              <div class="" id="modal_2" style="">
+                <div class="" style="position: absolute; top: 5%;">
+                  てきににげられた。
+                </div>
+                <a href="{{$stage_lv[0]->url}}" style="color: black; text-decoration: none;">
+                <div class="" id="replay_btn" style="position: absolute; top: 80%; left: 40%">
+                  もういちどたたかう
+                </div>
+                </a>
+                <a href="/math" style="color: black; text-decoration: none;">
+                  <div class="" id="back_btn" style="position: absolute; top: 80%; left: 70%">
+                  もどる
+                  </div>
+                </a>
+              </div>
+            </div>
+         </div>
         </div>
       </div>
     </main>
     <footer>
       <div class="conteiner fixed-bottom" id="tabber">
         <div class="row">
+          <div class="label mb-1" style=" width:90%; height:30px; background:rgba(0,0,255,1) ; position: relative; left: 30px;border-radius: 15px;" id="timer"></div>
+        </div>
+        <div class="row">
+          <!-- <div class="box" id="meter" style="margin: auto;   width:30%; height:30px; background:rgba(0,0,255,0.1) ;border-radius:5%;" id="timer"></div> -->
+          <div class="label text-center" style=" color: #fff; margin: auto;   width:90%; height:40px; background: #668ad8 ;border-radius:5px;"><span id="question"></span><span id="answer"></span></div>
         @yield('form')
         </div>
-        <div class="row">
-          <div class="answers col border border-dark text-dark  text-center bg-light">1</div>
-          <div class="answers col border border-dark text-dark text-center bg-light">2</div>
-          <div class="answers col border border-dark text-dark text-center bg-light">3</div>
+        <div class="row d-flex justify-content-around">
+          <div class="answers but text-center " width="">1</div>
+          <div class="answers but text-center" width="">2</div>
+          <div class="answers but text-center" width="">3</div>
         </div>
-        <div class="row">
-          <div class="answers col border border-dark text-dark text-center bg-light">4</div>
-          <div class="answers col border border-dark text-dark text-center bg-light">5</div>
-          <div class="answers col border border-dark text-dark text-center bg-light">6</div>
+        <div class="row d-flex justify-content-around">
+          <div class="answers but text-center" width="">4</div>
+          <div class="answers but text-center" width="">5</div>
+          <div class="answers but text-center" width="">6</div>
         </div>
-        <div class="row">
-          <div class="answers col border border-dark text-dark text-center bg-light">7</div>
-          <div class="answers col border border-dark text-dark text-center bg-light">8</div>
-          <div class="answers col border border-dark text-dark text-center bg-light">9</div>
+        <div class="row d-flex justify-content-around">
+          <div class="answers but text-center" width="">7</div>
+          <div class="answers but text-center" width="">8</div>
+          <div class="answers but text-center" width="">9</div>
         </div>
-        <div class="row">
-          <div class="answers col border border-dark text-dark text-center bg-light">0</div>
-          <div class="answers col border border-dark text-dark text-center bg-light" id="okbtn">OK</div>
-          <div class="answers col border border-dark text-dark text-center bg-light " id="vanish">X</div>
+        <div class="row d-flex justify-content-around">
+          <div class="answers but text-center">0</div>
+          <div class="answers but text-center" id="okbtn">OK</div>
+          <div class="answers but text-center" id="vanish">X</div>
         </div>
       </div>
     </footer>

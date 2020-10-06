@@ -2,7 +2,7 @@
 @section('title', '生徒')
 @section('background', '/img/start-bg-marin.jpg')
 @section('main-color', 'black')
-@section('color', 'black')
+@section('color', 'white')
 @section('content')
 <div class="container">
   <div class="row">

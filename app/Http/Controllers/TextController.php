@@ -1,0 +1,51 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+
+class TextController extends Controller
+{
+    public function index($level){
+
+      $url = user_chara()[0]->image;
+      $tech = user_tech()[0]->technique;
+      $damage = user_tech()[0]->damage;
+      $image = user_tech()[0]->image;
+      $sql = user_info();
+      $stage_lv = stage_info($level);
+      $question_array = math_question($level);
+
+      return view('math.text0', compact("sql", "url", "tech", "damage", "image", "stage_lv", "question_array"));
+    }
+
+    public function englishindex($level){
+
+      $url = user_chara()[0]->image;
+      $tech = user_tech()[0]->technique;
+      $damage = user_tech()[0]->damage;
+      $image = user_tech()[0]->image;
+      $sql = user_info();
+      $stage_lv = english_stage_info($level);
+      $question_array = engQuestion($level);
+
+      return view('english.startenglish', compact("sql", "url", "tech", "damage", "image", "stage_lv", "question_array"));
+    }
+
+    public function update(Request $request) {
+      $atack = user_info()[0]->atack;
+      $defense = user_info()[0]->defense;
+      $stage_atack = $request->stage_atack;
+      $stage_defense = $request->stage_defense;
+      $stage_experience = $request->stage_experiment;
+      user_update($atack, $stage_atack, $defense, $stage_defense);
+      updateEx($stage_experience);
+      $page = $_SERVER['REQUEST_URI'];
+      $stage_lv_str = explode("/", $page);
+      $url = "/" . $stage_lv_str[1];
+      $stage_max = user_stage()[0][$stage_lv_str[1]];
+      $stage_id = $request->stage_id;
+      updateStage($stage_max, $stage_id, $stage_lv_str[1]);
+      return redirect($url);
+    }
+}

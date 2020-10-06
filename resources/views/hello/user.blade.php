@@ -28,35 +28,35 @@ body:before{
 @section('content')
 <div class="conteiner my-3 mx-3 border-bottom">
   <div class="row my-2">
-    <div id="level" class="col mt-5" style="font-size: 30px; font-weight: bold;"></div>
-    <div class="col mt-5 py-3"><meter id="experi" value="0.0"></meter></div>
-    <div class="col mt-5" id="char"><img id="tmp"></div>
+    <div id="level" class="col mt-5 text-light" style="font-size: 30px; font-weight: bold;">Lv {{$sql[0]->level}}</div>
+    <div class="col mt-5 py-3"><meter id="experi" value="{{$sql[0]->experience/100}}"></meter></div>
+    <div class="col mt-5" id="char"><img id="tmp" src="{{$url}}" class="w-50"></div>
   </div>
   <div class="row mt-2">
-    <div class="col-6" style="font-size: 35px; font-weight: bold;">ぼうぎょ：</div>
-    <div id="enlevel" class="col-3" style="font-size: 35px; font-weight: bold;"></div>
-    <div class="col-3"><img src="/img/wear0.png" class="w-100"></div>
+    <div class="col-6 text-light" style="font-size: 35px; font-weight: bold;">ぼうぎょ：</div>
+    <div id="enlevel" class="col-3 text-light" style="font-size: 35px; font-weight: bold;">{{$sql[0]->defense}}</div>
+    <div class="col-3 text-light"><img src="/img/wear0.png" class="w-100"></div>
   </div>
   <div class="row">
-    <div class="col-6" style="font-size: 35px; font-weight: bold;">こうげき：</div>
-    <div id="mathlevel" class="col-3" style="font-size: 35px; font-weight: bold;" ></div>
+    <div class="col-6 text-light" style="font-size: 35px; font-weight: bold;">こうげき：</div>
+    <div id="mathlevel" class="col-3 text-light" style="font-size: 35px; font-weight: bold;" >{{$sql[0]->atack}}</div>
     <div class="col-3"><img src="/img/sord0.png" class="w-100"></div>
   </div>
 </div>
 <div class="conteiner my-3 mx-3 border-bottom">
   <div class="row my-2">
-    <div class="col" style="font-size: 35px; font-weight: bold;">わざ：</div>
-    <div id="majician" class="col" style="font-size: 35px; font-weight: bold;"></div>
+    <div class="col text-light" style="font-size: 35px; font-weight: bold;">わざ：</div>
+    <div id="majician" class="col text-light" style="font-size: 35px; font-weight: bold;">{{$tech}}</div>
   </div>
   <div class="row my-2">
-    <div class="col" style="font-size: 35px; font-weight: bold;">せつめい：</div>
-    <div class="majic col" style="font-size: 35px; font-weight: bold;">てきに<span id="damager"></span>のダメージ</div>
+    <div class="col text-light" style="font-size: 35px; font-weight: bold;">せつめい：</div>
+    <div class="majic col text-light" style="font-size: 35px; font-weight: bold;">てきに<span id="damager">{{$damage}}</span>のダメージ</div>
   </div>
 </div>
 <div class="container">
   <div class="row">
     <a href="/user/move">
-    <div class="col text-light" style="font-size: 50px; font-weight: bold;">
+    <div class="col " style="font-size: 50px; font-weight: bold;">
       いどう
     </div>
   </a>

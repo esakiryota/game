@@ -51,7 +51,7 @@
         <div class="col text-center" id="sub">ーけんじゃへのみちー</div>
       </div>
       <div class="row">
-        <div class="col text-center mt-3" id="login"><a href="/login" class="text-light">ぼうけん</a></div>
+        <div class="col text-center mt-3" id="login"><a href="/math" class="text-light">ぼうけん</a></div>
       </div>
       <div class="row">
         <div class="col text-center" id="start"><a href="/start" class="text-light">はじめて</a></div>

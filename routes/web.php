@@ -26,9 +26,7 @@ Route::get('/login', "GameController@login");
 Route::post('/login', "GameController@loginpost");
 Route::get('/create', "GameController@create");
 Route::post('/create', "GameController@createpost");
-Route::get('/user', "GameController@user");
-Route::get('/user/text0', "GameController@text0");
-Route::post('/user/text0', "GameController@text0post");
+Route::get('/user', "UserController@index");
 Route::get('/user/text1', "GameController@text1");
 Route::post('/user/text1', "GameController@text1post");
 Route::get('/user/text2', "GameController@text2");
@@ -39,8 +37,6 @@ Route::get('/user/text4', "GameController@text4");
 Route::post('/user/text4', "GameController@text4post");
 Route::get('/user/text5', "GameController@text5");
 Route::post('/user/text5', "GameController@text5post");
-Route::get('/account', "GameController@account");
-Route::post('/account', "GameController@accountpost");
 Route::get('/user/entext0', "GameController@entext0");
 Route::post('/user/entext0', "GameController@entext0post");
 Route::get('/user/practice0', "GameController@practice0");
@@ -61,7 +57,7 @@ Route::get('/user/practice7', "GameController@practice7");
 Route::post('/user/practice7', "GameController@practice7post");
 Route::get('/user/practice8', "GameController@practice8");
 Route::post('/user/practice8', "GameController@practice8post");
-Route::get('/user/danjon1', "GameController@danjon1");
+Route::get('/user/danjon1', "DanjonController@danjon1");
 Route::get('/user/danjon2', "GameController@danjon2");
 Route::get('/user/danjon3', "GameController@danjon3");
 Route::get('/user/danjon4', "GameController@danjon4");
@@ -70,3 +66,20 @@ Route::get('/user/english_training_0', "GameController@english_training_0");
 
 Route::any('adminer', '\Miroc\LaravelAdminer\AdminerController@index');
 // Route::any('adminer', '\Miroc\LaravelAdminer\AdminerAutologinController@index');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::group(['middleware' => ['auth']], function () {
+  Route::get('/math', "DanjonController@danjon1");
+  Route::get('/english', "DanjonController@danjon2");
+  Route::get('/english/{level}', "TextController@englishindex");
+  Route::post('/english/1-1', "TextController@update");
+  Route::get('/hometown', "DanjonController@danjon1");
+  Route::get('/math/{level}', "TextController@index");
+  Route::post('/math/1-1', "TextController@update");
+});
+
+Route::get('/account', "DataController@index");
+Route::post('/account', "DataController@store");

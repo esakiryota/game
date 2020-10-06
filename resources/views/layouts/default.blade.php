@@ -34,13 +34,13 @@
   </head>
   <body>
   <header>
-    @yield('header')
+    @yield('content')
     <div class="cover text-light text-center py-5">
      <h2 style="font-size: 80px; font-weight: bold;">@yield('person')</h2>
      </div>
   </header>
   <main class="text-light">
-     @yield('content')
+    @yield('header')
   </main>
   <footer>
   </footer>
