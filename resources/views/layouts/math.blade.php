@@ -92,14 +92,15 @@
         .but {
           display: inline-block;
           /* padding: 20px; */
-          padding: 0.5em 1em;
-          margin: 5px;
+          /* padding: 0.5em 1em; */
+          margin: 3px;
           width: 25%;
+          height: 30%;
           text-decoration: none;
           background: #668ad8;
           color: #FFF;
           border-bottom: solid 4px #627295;
-          border-radius: 30px;
+          border-radius: 25px;
         }
         .but:active {
           -webkit-transform: translateY(4px);
@@ -197,11 +198,11 @@
     <footer>
       <div class="conteiner fixed-bottom" id="tabber">
         <div class="row">
-          <div class="label mb-1" style=" width:90%; height:30px; background:rgba(0,0,255,1) ; position: relative; left: 30px;border-radius: 15px;" id="timer"></div>
+          <div class="label mb-1" style=" width:90%; height:15px; background:rgba(0,0,255,1) ; position: relative; left: 30px;border-radius: 15px;" id="timer"></div>
         </div>
         <div class="row">
           <!-- <div class="box" id="meter" style="margin: auto;   width:30%; height:30px; background:rgba(0,0,255,0.1) ;border-radius:5%;" id="timer"></div> -->
-          <div class="label text-center" style=" color: #fff; margin: auto;   width:90%; height:40px; background: #668ad8 ;border-radius:5px;"><span id="question"></span><span id="answer"></span></div>
+          <div class="label text-center" style=" color: #fff; margin: auto;   width:90%; height:30px; background: #668ad8 ;border-radius:5px; font-size: 25px;"><span id="question"></span><span id="answer"></span></div>
         @yield('form')
         </div>
         <div class="row d-flex justify-content-around">
