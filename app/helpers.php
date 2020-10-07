@@ -202,8 +202,9 @@ if (!function_exists('engQuestion')) {
         $db = app('db');
         $sql = $db->table('englishword')
                 ->where('level', $stage)->get();
-        for ($i=0; $i < 10; $i++) {
-          $rand_array = randArray($i, 0, 9);
+        $max = count($sql) - 1;
+        for ($i=0; $i < $max+1; $i++) {
+          $rand_array = randArray($i, 0, $max);
           $question = $sql[$rand_array[0]]->english;
           $answer = $sql[$rand_array[0]]->japanese;
           $dummy1 = $sql[$rand_array[1]]->japanese;

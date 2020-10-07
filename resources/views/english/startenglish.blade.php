@@ -72,7 +72,8 @@
 
   afuro.src = stage_image.value;
 
-  var questions = @json($question_array)
+  var questions = @json($question_array);
+  var questions_count = questions.length;
 
   function shuffle(arr){
     var i;
@@ -123,11 +124,15 @@
       image.classList.remove('hidden');
       judge.classList.remove('hidden');
       afuro.classList.add('buruburu');
+      nowQuestion += 1;
     } else {
+      nowQuestion += 1;
     };
     if (life > 1) {
-      nowQuestion += 1;
       setTimeout(hidden, 500);
+      if (nowQuestion === questions_count-1) {
+        nowQuestion = 0;
+      };
     } else {
       setTimeout(function() {
         timer.textContent = "";
@@ -139,10 +144,6 @@
         majic_image.classList.add('hidden0');
         majic_icon.classList.add('hidden0');
       }, 1000);
-
-      if (nowQuestion === 9) {
-        nowQuestion = 0;
-      };
     }
   }
   var timer_ber = 90;
