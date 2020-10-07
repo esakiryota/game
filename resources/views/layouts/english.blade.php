@@ -159,19 +159,19 @@
       @yield('form')
     <div class="conteiner fixed-bottom" style="font-size: 36px; background-image: url(/img/battle-back-marin.jpg)">
       <div class="row">
-        <div class="label mb-1" style=" width:90%; height:30px; background:rgba(0,0,255,1) ; position: relative; left: 30px;border-radius: 15px;" id="timer"></div>
+        <div class="label mb-1" style=" width:90%; height:15px; background:rgba(0,0,255,1) ; position: relative; left: 30px;border-radius: 15px;" id="timer"></div>
       </div>
       <div class="row text-center my-2" style="background: #668ad8; color: #FFF; border-bottom: solid 4px #627295; border-radius: 30px;">
-        <div class="col" id="question">問題</div>
+        <div class="col" id="question" style="font-size: 25px;">問題</div>
       </div>
       <div class="but row text-center my-2 mx-2 rounded">
-        <div class="answers col" id="answer1">回答</div>
+        <div class="answers col" id="answer1" style="font-size: 20px;">回答</div>
       </div>
       <div class="but row text-center my-2 mx-2 rounded">
-        <div class="answers col" id="answer2">回答</div>
+        <div class="answers col" id="answer2" style="font-size: 20px;">回答</div>
       </div>
       <div class="but row text-center my-2 mx-2 rounded">
-        <div class="answers col" id="answer3">回答</div>
+        <div class="answers col" id="answer3" style="font-size: 20px;">回答</div>
       </div>
     </div>
 
