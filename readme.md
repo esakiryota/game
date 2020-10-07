@@ -8,5 +8,5 @@ user: user
 password: password
 db: sample
 
-##ssh情報
+## ssh情報
 git pull ryota master でpullする
