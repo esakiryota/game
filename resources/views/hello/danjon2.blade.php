@@ -16,7 +16,7 @@
     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
       <div class="english">
         @foreach($stage as $array)
-        <a href="{{$array["url"]}}" id="searchLink" style="color: black; text-decoration: none;">
+        <a href="{{$array["url"]}}/practice" id="searchLink" style="color: black; text-decoration: none;">
         <div class="card mx-3 mb-2">
           <div class="card-header">
             Lv{{$array["level"]}}
@@ -35,7 +35,7 @@
     <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
       <div class="english">
         @foreach($en_stage as $array)
-        <a href="{{$array["url"]}}" id="searchLink" style="color: black; text-decoration: none;">
+        <a href="{{$array["url"]}}/practice" id="searchLink" style="color: black; text-decoration: none;">
         <div class="card mx-3 mb-2">
           <div class="card-header">
             Lv{{$array["level"]}}
