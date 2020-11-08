@@ -1,38 +1,55 @@
 @extends('layouts.person')
 @section('title', '生徒')
-@section('background', '/img/start-bg-marin.jpg')
-@section('main-color', 'black')
+@section('background', $main[0]->bg_image)
+@section('main-color', 'white')
 @section('color', 'white')
 @section('content')
-<div class="container">
-  <div class="row">
-    <div class="col" style="font-size: 30px;">
-      えいごのうみ
+  <ul class="nav nav-tabs mt-5" id="myTab" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">さんすう</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">えいご</a>
+    </li>
+  </ul>
+  <div class="tab-content mt-3" id="myTabContent">
+    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+      <div class="english">
+        @foreach($stage as $array)
+        <a href="{{$array["url"]}}" id="searchLink" style="color: black; text-decoration: none;">
+        <div class="card mx-3 mb-2">
+          <div class="card-header">
+            Lv{{$array["level"]}}
+            @if($array["stage_id"] < $stage_max)
+            clear
+            @endif
+          </div>
+          <div class="card-body" style="font-size: 25px; background-image: url({{$array["stage_bg"]}}); background-color:rgba(255,255,255,0.5);background-blend-mode:lighten;">
+            {{$array["name"]}}
+          </div>
+        </div>
+        </a>
+        @endforeach
+      </div>
+    </div>
+    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+      <div class="english">
+        @foreach($en_stage as $array)
+        <a href="{{$array["url"]}}" id="searchLink" style="color: black; text-decoration: none;">
+        <div class="card mx-3 mb-2">
+          <div class="card-header">
+            Lv{{$array["level"]}}
+            @if($array["stage_id"] < $en_stage_max)
+            clear
+            @endif
+          </div>
+          <div class="card-body" style="font-size: 25px; background-image: url({{$array["stage_bg"]}}); background-color:rgba(255,255,255,0.5);background-blend-mode:lighten;">
+            {{$array["name"]}}
+          </div>
+        </div>
+        </a>
+        @endforeach
+      </div>
     </div>
   </div>
-</div>
-<div class="container">
-  <div class="row my-3">
-   <div class="col-4 text-center font-weight-bold" id="english">Lv1-1</div>
-   <div class="col-4 text-center font-weight-bold" id="math">Lv1-2</div>
-   <div class="col-4 text-center font-weight-bold" id="eitan">Lv1-3</div>
-  </div>
-  <div class="row my-3">
-   <div class="doors col-4 text-center" id="english"><a href="/user/entext0" id="searchLink"><img src="/img/pointer.png" class="w-50" id="doortmp"></a></div>
-   <div class="doors col-4 text-center" id="math"><a href="" id="searchLink1"><img src="/img/pointer.png" class="w-50" id="doortmp1"></a></div>
-   <div class="doors col-4 text-center" id="eitan"><a href="" id="searchLink2"><img src="/img/pointer.png" class="w-50" id="doortmp2"></a></div>
-  </div>
-</div>
-<div class="container">
-  <div class="row my-3">
-   <div class="col-4 text-center font-weight-bold" id="english">Lv2-1</div>
-   <div class="col-4 text-center font-weight-bold" id="math">Lv2-2</div>
-   <div class="col-4 text-center font-weight-bold" id="eitan">Lv2-3</div>
-  </div>
-  <div class="row my-3">
-   <div class="doors col-4 text-center" id="english"><a href="" id="searchLink"><img src="/img/pointer.png" class="w-50" id="doortmp"></a></div>
-   <div class="doors col-4 text-center" id="math"><a href="" id="searchLink1"><img src="/img/pointer.png" class="w-50" id="doortmp1"></a></div>
-   <div class="doors col-4 text-center" id="eitan"><a href="" id="searchLink2"><img src="/img/pointer.png" class="w-50" id="doortmp2"></a></div>
-  </div>
-</div>
 @endsection

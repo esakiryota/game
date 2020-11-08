@@ -74,9 +74,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['middleware' => ['auth']], function () {
   Route::get('/math', "DanjonController@danjon1");
   Route::get('/english', "DanjonController@danjon2");
+  Route::get('/hometown', "DanjonController@danjon3");
   Route::get('/english/{level}', "TextController@englishindex");
   Route::post('/english/1-1', "TextController@update");
-  Route::get('/hometown', "DanjonController@danjon1");
   Route::get('/math/{level}', "TextController@index");
   Route::post('/math/1-1', "TextController@update");
 });

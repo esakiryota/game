@@ -30,11 +30,3 @@ docker-compose down
 http://localhost:8000/adminer
 
 -
-
-- eslint
-```
-// コード検証
-docker-compose exec app npm run lint
-// コード修正
-docker-compose exec app npm run fmt
-```
