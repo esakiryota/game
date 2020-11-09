@@ -32,6 +32,25 @@ class TextController extends Controller
       return view('english.startenglish', compact("sql", "url", "tech", "damage", "image", "stage_lv", "question_array"));
     }
 
+    public function praEnglishIndex($level){
+
+      $url = user_chara()[0]->image;
+      $tech = user_tech()[0]->technique;
+      $damage = user_tech()[0]->damage;
+      $image = user_tech()[0]->image;
+      $sql = user_info();
+      $stage_lv = english_stage_info($level);
+      $question_array = engQuestion($level);
+
+      return view('practice.en_practice', compact("sql", "url", "tech", "damage", "image", "stage_lv", "question_array"));
+    }
+
+    public function praceticeUpdate(Request $request) {
+      $stage_experience = $request->stage_experiment;
+      updateEx($stage_experience);
+      return redirect("/hometown");
+    }
+
     public function update(Request $request) {
       $atack = user_info()[0]->atack;
       $defense = user_info()[0]->defense;

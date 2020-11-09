@@ -79,7 +79,8 @@ Route::group(['middleware' => ['auth']], function () {
   Route::post('/english/1-1', "TextController@update");
   Route::get('/math/{level}', "TextController@index");
   Route::post('/math/1-1', "TextController@update");
-  Route::get('/english/{level}/practice', "TextController@englishindex");
+  Route::get('/english/{level}/practice', "TextController@praEnglishIndex");
+  Route::post('/english/practice', "TextController@praceticeUpdate");
 });
 
 Route::get('/account', "DataController@index");
