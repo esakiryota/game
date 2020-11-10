@@ -20,9 +20,7 @@
         <div class="card mx-3 mb-2">
           <div class="card-header">
             Lv{{$array["level"]}}
-            @if($array["stage_id"] < $stage_max)
-            clear
-            @endif
+            くんれん
           </div>
           <div class="card-body" style="font-size: 25px; background-image: url({{$array["stage_bg"]}}); background-color:rgba(255,255,255,0.5);background-blend-mode:lighten;">
             {{$array["name"]}}
@@ -39,9 +37,7 @@
         <div class="card mx-3 mb-2">
           <div class="card-header">
             Lv{{$array["level"]}}
-            @if($array["stage_id"] < $en_stage_max)
-            clear
-            @endif
+            くんれん
           </div>
           <div class="card-body" style="font-size: 25px; background-image: url({{$array["stage_bg"]}}); background-color:rgba(255,255,255,0.5);background-blend-mode:lighten;">
             {{$array["name"]}}

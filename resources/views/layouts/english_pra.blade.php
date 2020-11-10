@@ -114,10 +114,10 @@
       <div class="conteiner">
         <div class="conteiner py-2" id="back" style="">
           <div class="row py">
-            <div class="questions col text-center my-1" id=""><img class="w-50" id="afuro"></div>
+            <div class="questions col text-center my-1" id=""><img class="w-50" id="afuro" src="/img/yaichi_animation.gif"></div>
           </div>
           <div class="row py">
-            <div class="questions col text-center my-1" id="">解答:<span id="correct_answer">あ</span></div>
+            <div class="questions col text-center mt-5" id="">解答:<span id="correct_answer">あ</span></div>
           </div>
           <!-- <div class="box" id="meter1" style="margin: auto;   width:30%; height:30px; background:rgba(0,0,255,0.1) ;border-radius:5%;"></div> -->
           <!-- <div class="box" id="meter2" style="margin: auto;   width:20%; height:30px; border-radius:5%; "></div> -->

@@ -48,7 +48,7 @@
   console.log(charactor);
   console.log(damager);
 
-  afuro.src = stage_image.value;
+  // afuro.src = stage_image.value;
 
   var questions = @json($question_array);
 

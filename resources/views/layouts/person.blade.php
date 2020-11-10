@@ -104,7 +104,7 @@
           <span aria-hidden="true">&times;</span>
         </button>
             <a href="/english" style="color: black;"><div class="" style="font-size: 20px; position: absolute; top: 40px;">えいごのうみ</div></a>
-            <a href="/hometown" style="color: black;"><div class="" style="font-size: 20px; position: absolute; top: 120px; left: 70%;">しゅくだいのまち</div></a>
+            <a href="/hometown" style="color: black;"><div class="" style="font-size: 20px; position: absolute; top: 120px; left: 70%;">くんれんのまち</div></a>
             <a href="/math" style="color: black;"><div class="" style="font-size: 20px; position: absolute; top: 150px; left: 10%;">さんすうのゆきやま</div></a>
       </div>
    </div>
