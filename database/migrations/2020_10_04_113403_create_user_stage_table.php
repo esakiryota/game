@@ -13,6 +13,7 @@ class CreateUserStageTable extends Migration
      */
     public function up()
     {
+      if (!Schema::hasTable('user_stage')) {
         Schema::create('user_stage', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('email');
@@ -20,6 +21,7 @@ class CreateUserStageTable extends Migration
             $table->integer('english');
             $table->timestamps();
         });
+      }
     }
 
     /**
@@ -29,6 +31,6 @@ class CreateUserStageTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_stage');
+        // Schema::dropIfExists('user_stage');
     }
 }
