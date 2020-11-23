@@ -157,9 +157,12 @@
     </main>
     <footer>
       @yield('form')
-    <div class="conteiner fixed-bottom" style="font-size: 36px; background-image: url(/img/battle-back-marin.jpg)">
+    <div class="conteiner fixed-bottom" style="background: rgba(10, 0, 100, 0.4); background-size:cover;">
       <div class="row">
-        <div class="label mb-1" style=" width:90%; height:15px; background:rgba(0,0,255,1) ; position: relative; left: 30px;border-radius: 15px;" id="timer"></div>
+        <img src="/img/heart.png" alt="" style="position: fixed; bottom: 200px; left: 1px;">
+        <div class="pb-2" style="width:95%; height:20px; background:rgba(10, 0, 50, 0.4) ; position: fixed; left: 25px;border-radius: 15px; bottom: 200px; display: flex; padding: 5px 5px; box-shadow: 0px 2px 2px rgba(0,0,0,0.4);">
+          <div class="label mb-2" style=" width:95%; height:10px; background:linear-gradient(0deg, rgba(200, 255, 0, .8), rgba(220, 255, 161, .8)); left: 30px;border-radius: 15px; " id="timer"></div>
+        </div>
       </div>
       <div class="row text-center my-2" style="background: #668ad8; color: #FFF; border-bottom: solid 4px #627295; border-radius: 30px;">
         <div class="col" id="question" style="font-size: 25px;">問題</div>

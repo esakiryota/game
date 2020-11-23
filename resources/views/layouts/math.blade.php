@@ -196,9 +196,12 @@
       </div>
     </main>
     <footer>
-      <div class="conteiner fixed-bottom" id="tabber">
+      <div class="conteiner fixed-bottom" id="tabber" style="background: rgba(10, 0, 100, 0.4); background-size:cover;">
         <div class="row">
-          <div class="label mb-1" style=" width:90%; height:15px; background:rgba(0,0,255,1) ; position: relative; left: 30px;border-radius: 15px;" id="timer"></div>
+          <img src="/img/heart.png" alt="" style="position: fixed; bottom: 220px; left: 1px;">
+          <div class="pb-2" style="width:95%; height:20px; background:rgba(10, 0, 50, 0.4) ; position: fixed; left: 25px;border-radius: 15px; bottom: 220px; display: flex; padding: 5px 5px; box-shadow: 0px 2px 2px rgba(0,0,0,0.4);">
+            <div class="label mb-2" style=" width:95%; height:10px; background:linear-gradient(0deg, rgba(200, 255, 0, .8), rgba(220, 255, 161, .8)); left: 30px;border-radius: 15px; " id="timer"></div>
+          </div>
         </div>
         <div class="row">
           <!-- <div class="box" id="meter" style="margin: auto;   width:30%; height:30px; background:rgba(0,0,255,0.1) ;border-radius:5%;" id="timer"></div> -->

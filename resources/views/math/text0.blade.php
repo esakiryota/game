@@ -177,7 +177,7 @@
       timer_blue = timer_blue +-timer_color_per;
       timer_ber = timer_ber - timer_per/10;
       $('#timer').width(`${timer_ber}%`);
-      $('#timer').css('background-color', `rgba(${timer_red}, 0, ${timer_blue}, 1)`);
+      $('#timer').css('background', `linear-gradient(0deg, rgba(${timer_red}, 255, ${timer_blue}, .8), rgba(${timer_red}, 255, ${timer_blue}, 161, .8))`);
       if (i > en){
         clearInterval(timerId2);
         modal_1.classList.add('hidden0');
