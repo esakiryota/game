@@ -87,7 +87,7 @@
 
       $('#meter2').css('background-color', `rgba(${red}, ${blue}, 0, 1)`);
       $('#meter2').width(`${wid}%`);
-    }, 10)
+    }, 3)
   }
 
   afuro.src = stage_image.value;
