@@ -126,6 +126,7 @@
       afuro.classList.add('buruburu');
       nowQuestion += 1;
     } else {
+      enemyAtack();
       nowQuestion += 1;
     };
     if (life > 1) {
@@ -156,8 +157,9 @@
   var modal_1 = document.getElementById('modal_1');
   var modal_2 = document.getElementById('modal_2');
 
+  var i = 0;
+
   function Timer2() {
-    var i = 0;
     var timerId2 = setInterval(function(){
       i+=0.1;
       // timer.textContent = en - i;
@@ -234,6 +236,27 @@
         afuro.classList.remove('buruburu');
       }, 1000);
     })
+  }
+
+  function enemyAtack() {
+    $('#enemy_atack').removeClass('hidden0');
+    $('#enemy_atack').append("<img src='/img/enemy_atack3.gif' id='atack_img'>");
+    var j = 0;
+    var timerId = setInterval(function(){
+      j++;
+      var opa = 0.9 - j/10;
+      $('#enemy_atack').css('background-color', `rgba(255, 0, 0, ${opa})`);
+      if(j>4.5){
+        $('#enemy_atack').empty();
+      }
+      if(j > 10) {
+        clearInterval(timerId);
+        $('#enemy_atack').addClass('hidden0');
+        timer_ber = timer_ber - 50*timer_per/10;
+        i += 5
+        $('#timer').width(`${timer_ber}%`);
+      }
+    }, 100)
   }
 
   set();

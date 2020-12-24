@@ -111,6 +111,9 @@
     </style>
 
     <body>
+      <div class="hidden0" id="enemy_atack" style="width: 100%; height: 100%; position: fixed; z-index: 2147483647;">
+        <!-- <img src="/img/enemy_atack3.gif" alt=""> -->
+      </div>
       <main>
       <div class="conteiner">
         <div class="conteiner fixed-top py-2" id="back">
