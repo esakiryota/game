@@ -252,8 +252,8 @@
       if(j > 10) {
         clearInterval(timerId);
         $('#enemy_atack').addClass('hidden0');
-        timer_ber = timer_ber - 50*timer_per/10;
-        i += 5
+        timer_ber = timer_ber - 18;
+        i += en/5
         $('#timer').width(`${timer_ber}%`);
       }
     }, 100)
