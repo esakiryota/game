@@ -2,8 +2,8 @@
 
 namespace Crm\Providers;
 
-use User\Repositories\UserRepositoryInterface;
-use USer\Repositories\MySQL\UserMySQLRepository;
+use User\Repositories\StageRepositoryInterface;
+use USer\Repositories\MySQL\StageMySQLRepository;
 
 class RepositoryServiceProvider extends ServiceProvider
 {
@@ -14,7 +14,7 @@ class RepositoryServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bind(UserRepositoryInterface::class, UserMySQLRepository::class);
+        $this->app->bind(StageRepositoryInterface::class, StageMySQLRepository::class);
     }
 
     /**
