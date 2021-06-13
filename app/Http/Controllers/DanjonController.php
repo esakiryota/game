@@ -3,28 +3,40 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
-use App\User_info;
-use App\User_tech;
-use App\User_chara;
 use Auth;
+use Stage\Repositories\StageRepositoryInterface;
+use User\Repositories\UserRepositoryInterface;
 
 class DanjonController extends Controller
 {
 
+  public function __construct(
+    StageRepositoryInterface $stageRepository,
+    UserRepositoryInterface $userRepository
+    )
+   {
+      $this->stageRepository = $stageRepository;
+      $this->userRepository = $userRepository;
+   }
+
   public function danjon1(Request $request) {
-    $url = user_chara()[0]->image;
-    $tech = user_tech()[0]->technique;
-    $damage = user_tech()[0]->damage;
-    $sql = user_info();
+
+    // $url = $this->userRepository->getUserInfomation();
+    // var_dump($url);
+    // exit();
+    // $url = user_chara()[0]->image;
+    $url = $this->userRepository->getUserCharacter()[0]->image;
+    $tech = $this->userRepository->getUserTechnique()[0]->technique;
+    $damage = $this->userRepository->getUserTechnique()[0]->damage;
+    $sql = $this->userRepository->getUserInfomation();
     $page = $_SERVER['REQUEST_URI'];
     $name = explode("/", $page);
-    $stage_max = user_stage()[0][$name[1]];
-    $stage = stage_array($stage_max);
-    $main = main_info($name[1]);
-    $user_ex = user_info()[0]->experience;
-    $user_lv = user_info()[0]->level;
-    $lv_ex = level_ex($user_lv);
+    $stage_max = $this->userRepository->getUserStage()[0][$name[1]];
+    $stage = $this->stageRepository->getStageArray($stage_max);
+    $main = $this->stageRepository->getMain($name[1]);
+    $user_ex = $sql[0]->experience;
+    $user_lv = $sql[0]->level;
+    $lv_ex = $this->userRepository->getLevelEx($user_lv);
     $ex_value = $user_ex/$lv_ex;
 
 
@@ -32,18 +44,18 @@ class DanjonController extends Controller
   }
 
   public function danjon2(Request $request) {
-    $url = user_chara()[0]->image;
-    $tech = user_tech()[0]->technique;
-    $damage = user_tech()[0]->damage;
-    $sql = user_info();
+    $url = $this->userRepository->getUserCharacter()[0]->image;
+    $tech = $this->userRepository->getUserTechnique()[0]->technique;
+    $damage = $this->userRepository->getUserTechnique()[0]->damage;
+    $sql = $this->userRepository->getUserInfomation();
     $page = $_SERVER['REQUEST_URI'];
     $name = explode("/", $page);
-    $stage_max = user_stage()[0][$name[1]];
-    $stage = english_stage_array($stage_max);
-    $main = main_info($name[1]);
-    $user_ex = user_info()[0]->experience;
-    $user_lv = user_info()[0]->level;
-    $lv_ex = level_ex($user_lv);
+    $stage_max = $this->userRepository->getUserStage()[0][$name[1]];
+    $stage = $this->stageRepository->getEnglishStageArray($stage_max);
+    $main = $this->stageRepository->getMain($name[1]);
+    $user_ex = $sql[0]->experience;
+    $user_lv = $sql[0]->level;
+    $lv_ex = $this->userRepository->getLevelEx($user_lv);
     $ex_value = $user_ex/$lv_ex;
 
 
@@ -51,21 +63,21 @@ class DanjonController extends Controller
   }
 
   public function danjon3(Request $request) {
-    $url = user_chara()[0]->image;
-    $tech = user_tech()[0]->technique;
-    $damage = user_tech()[0]->damage;
-    $sql = user_info();
+    $url = $this->userRepository->getUserCharacter()[0]->image;
+    $tech = $this->userRepository->getUserTechnique()[0]->technique;
+    $damage = $this->userRepository->getUserTechnique()[0]->damage;
+    $sql = $this->userRepository->getUserInfomation();
     // $page = $_SERVER['REQUEST_URI'];
     // $name = explode("/", $page);
-    $en_stage_max = user_stage()[0]["english"];
-    $en_stage = english_stage_array($en_stage_max);
-    $en_main = main_info("english");
-    $stage_max = user_stage()[0]["math"];
-    $stage = stage_array($stage_max);
-    $main = main_info("math");
-    $user_ex = user_info()[0]->experience;
-    $user_lv = user_info()[0]->level;
-    $lv_ex = level_ex($user_lv);
+    $en_stage_max = $this->userRepository->getUserStage()[0]["english"];
+    $en_stage = $this->stageRepository->getEnglishStageArray($en_stage_max);
+    $en_main = $this->stageRepository->getMain("english");
+    $stage_max = $this->userRepository->getUserStage()[0]["math"];
+    $stage = $this->stageRepository->getStageArray($stage_max);
+    $main = $this->stageRepository->getMain("math");
+    $user_ex = $sql[0]->experience;
+    $user_lv = $sql[0]->level;
+    $lv_ex = $this->userRepository->getLevelEx($user_lv);
     $ex_value = $user_ex/$lv_ex;
 
 

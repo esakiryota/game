@@ -1,9 +1,9 @@
 <?php
 
-namespace Stage\Repositories\MySQL;
+namespace App\Repositories\MySQL;
 
-use Stage\Repositories\StageRepositoryInterface;
-use User\Repositories\MySQL\MySQLRepository;
+use App\Repositories\StageRepositoryInterface;
+use App\Repositories\MySQL\MySQLRepository;
 use Auth;
 
 /**

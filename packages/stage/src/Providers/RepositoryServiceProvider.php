@@ -1,9 +1,11 @@
 <?php
 
-namespace Crm\Providers;
+namespace Stage\Providers;
 
-use User\Repositories\StageRepositoryInterface;
-use USer\Repositories\MySQL\StageMySQLRepository;
+use Stage\Repositories\StageRepositoryInterface;
+use Stage\Repositories\MySQL\StageMySQLRepository;
+
+use Illuminate\Support\ServiceProvider;
 
 class RepositoryServiceProvider extends ServiceProvider
 {

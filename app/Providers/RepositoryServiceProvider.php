@@ -1,10 +1,11 @@
 <?php
 
-namespace User\Providers;
+namespace App\Providers;
 
-use User\Repositories\UserRepositoryInterface;
-use User\Repositories\MySQL\UserMySQLRepository;
-
+use App\Repositories\StageRepositoryInterface;
+use App\Repositories\MySQL\StageMySQLRepository;
+use App\Repositories\UserRepositoryInterface;
+use App\Repositories\MySQL\UserMySQLRepository;
 use Illuminate\Support\ServiceProvider;
 
 class RepositoryServiceProvider extends ServiceProvider
@@ -16,6 +17,7 @@ class RepositoryServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        $this->app->bind(StageRepositoryInterface::class, StageMySQLRepository::class);
         $this->app->bind(UserRepositoryInterface::class, UserMySQLRepository::class);
     }
 
