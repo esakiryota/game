@@ -147,8 +147,8 @@
       }, 1000);
     }
   }
-  var timer_ber = 90;
-  var timer_per = 90/en;
+  var timer_ber = 100;
+  var timer_per = 100/en;
   var timer_red = 0;
   var timer_blue = 255;
   var timer_color_per = 255/(en*10);
@@ -263,7 +263,8 @@
   Answer();
   majicDamage();
   register();
-  Timer2();
+  window.onload = Timer2;
+  // Timer2();
 })();
 </script>
 @endsection
