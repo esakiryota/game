@@ -1,8 +1,8 @@
 @extends('layouts.default')
 @section('content')
 <div class="" style="position: relative">
-  <img src="/img/serif.png" width="500px">
-  <div style="position: absolute; top: 30%; left: 30px; font-size: 50px; color: white;">
+  <img src="/img/serif.png" >
+  <div style="position: absolute; top: 10%; left: 30px; font-size: 50px; color: white;">
     ページがありません。ごめんなさい。
   </div>
 </div>
