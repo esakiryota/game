@@ -196,13 +196,13 @@
       </div> -->
       <div class="row mb-2">
   <div class="col-6">
-    <div class="card cards">
+    <div class="card cards" ontouchstart>
       <div class="card-body answers text-center" id="answer1" style="font-size: 15px;">
       </div>
     </div>
   </div>
   <div class="col-6">
-    <div class="card cards">
+    <div class="card cards" ontouchstart>
       <div class="card-body answers text-center" id="answer2" style="font-size: 15px;">
       </div>
     </div>
@@ -210,13 +210,13 @@
 </div>
       <div class="row mb-2">
   <div class="col-6" >
-    <div class="card cards">
+    <div class="card cards" ontouchstart>
       <div class="card-body answers text-center" id="answer3" style="font-size: 15px;">
       </div>
     </div>
   </div>
   <div class="col-6">
-    <div class="card cards">
+    <div class="card cards" ontouchstart>
       <div class="card-body answers text-center" style="font-size: 15px;">
         わからない
       </div>
