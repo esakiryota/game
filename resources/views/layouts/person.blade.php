@@ -33,15 +33,15 @@
       }
       header {
         content:"";
-        display:block;
-        position:fixed;
-        top:0;
+        /* display:block; */
+        /* position:fixed; */
+        /* top:0;
         left:0;
-        z-index:-1;
-        width:100vw;
+        z-index:-1; */
+        /* width:100vw; */
         /* height:100vh; */
-        background:url(/img/box_gray.png) top no-repeat;
-        background-size:cover;
+        background:url(/img/status_field3.png) no-repeat;
+        background-size:500px 100%;
       }
       #main {
         color: @yield('main-color');
@@ -50,43 +50,37 @@
     max-height:400px;
     overflow-y: auto;
 } */
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.1);
+}
 
 </style>
   </head>
   <body>
   <header class="fixed-top">
-    <table class="table table-borderless" style="color: white;">
-  <thead>
-    <tr>
-      <th scope="col" id="char"><img id="tmp" src="{{$url}}" class="w-70"></th>
-      <th scope="col"><div id="nameid" class="font-weight-bold" style="font-size: 20px; font-weight: bold;">{{$sql[0]->name}}</div></th>
-      <th scope="col"><div id="level" class="" style="font-size: 20px; font-weight: bold;">Lv{{$sql[0]->level}}</div></th>
-      <th scope="col"><meter class="mb-1" id="experi" value="{{$ex_value}}" style="font-size: 20px;"></meter></th>
-    </tr>
-  </thead>
-  <tbody style="font-weight: bold; font-size: 15px;">
-    <tr>
-      <td scope="row">ぼうぎょ：</td>
-      <td id="enlevel">{{$sql[0]->defense}}</td>
-      <td>こうげき：</td>
-      <td id="mathlevel">{{$sql[0]->atack}}</td>
-    </tr>
-    <tr>
-      <td scope="row">わざ：</td>
-      <td id="majician">{{$tech}}</td>
-      <td scope="row">せつめい：</td>
-      <td>てきに<span id="damager">{{$damage}}</span>のダメージ</td>
-    </tr>
-  </tbody>
-</table>
+    <div class="d-flex bd-highlight ml-2">
+    <div class="p-2 bd-highlight mr-5 ml-4" style="font-size: 20px;">{{$sql[0]->name}}</div>
+    <div class="p-2 bd-highlight ml-5 mr-5" style="font-size: 20px;">Lv{{$sql[0]->level}}</div>
+    <div class="p-2 bd-highlight ml-2"><meter class="mt-2" id="experi" value="{{$ex_value}}" style="font-size: 20px;"></meter></div>
+    </div>
+  <div class="d-flex bd-highlight mb">
+  <div class="p-2 bd-highlight  ml-4 mr-5"><img id="tmp" src="{{$url}}" style="width: 100px;"></div>
+  <div class="p-2 bd-highlight ml-5">
+    <div class="d-flex justify-content-start bd-highlight">
+     <div class="p-2 bd-highlight">ぼうぎょ：{{$sql[0]->defense}}</div>
+     <div class="p-2 bd-highlight">こうげき：{{$sql[0]->atack}}</div>
+    </div>
+    <div class="d-flex justify-content-start bd-highlight">
+     <div class="p-2 bd-highlight">わざ：{{$tech}}</div>
+    </div>
+    <div class="d-flex justify-content-end bd-highlight">
+      <div class="p-2 bd-highlight">せつめい：てきに<span id="damager">{{$damage}}</span>のダメージ</div>
+    </div>
+  </div>
+  </div>
   </header>
   <main class="" style="margin-top: 200px;" id="main">
-
-    <div class="container" style="position: fixed; top: 170px; z-index: 1;">
-      <div class="row">
-           <a data-toggle="modal" data-target="#exampleModalCenter"><img src="/img/skyport.gif" width="50px"></a>
-      </div>
-    </div
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -113,6 +107,26 @@
      @yield('content')
   </main>
   <footer>
+    <!-- <div > -->
+      <nav class='fixed-bottom' style="background-color: white; box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);">
+      <ul class="nav nav-pills nav-fill">
+   <li class="nav-item">
+     <!-- <a class="nav-link"　data-toggle="modal" data-target="#exampleModalCenter"><img src="/img/icon-map.png"></a> -->
+     <a class="nav-link"  data-toggle="modal" data-target="#exampleModalCenter"><img src="/img/skyport.gif"></a>
+   </li>
+   <li class="nav-item">
+     <a class="nav-link" href="#"><img src="/img/icon-book.png"></a>
+   </li>
+   <li class="nav-item">
+     <a class="nav-link" href="#"><img id="tmp" src="{{$url}}" class="w-70"></a>
+   </li>
+   <li class="nav-item">
+    <!-- <a class="nav-link"><img src="/img/skyport.gif"></a> -->
+    <a class="nav-link active"　data-toggle="modal"　data-target="#exampleModalCenter"><img src="/img/icon-map.png"></a>
+   </li>
+ </ul>
+     </nav>
+     <!-- </div> -->
   </footer>
 
 

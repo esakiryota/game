@@ -45,17 +45,17 @@
 </div>
 <div class="conteiner">
   <div class="row mx-2">
-    <div class="col font-weight-bold" style="font-size: 40px"><a href="/explain" class="text-light"><img src="/img/icon-book.png"> せつめいしょ</a></div>
-  </div>
-</div>
-<div class="conteiner">
-  <div class="row mx-2">
-    <div class="col font-weight-bold" style="font-size: 40px"><a href="/parents" class="text-light"><img src="/img/icon-mail.png"> おやごさまへ</a></div>
+    <div class="col font-weight-bold" style="font-size: 40px"><a href="/explain" class="text-light"><img src="/img/icon-book.png"> ぼうけんのしょ</a></div>
   </div>
 </div>
 <div class="conteiner">
   <div class="row mx-2">
     <div class="col font-weight-bold" style="font-size: 40px"><a href="/register" class="text-light"><img src="/img/icon-hat.png"> ぼうけんにでる</a></div>
+  </div>
+</div>
+<div class="conteiner">
+  <div class="row mx-2">
+    <div class="col font-weight-bold" style="font-size: 40px"><a href="/explain_web" class="text-light"><img src="/img/icon-mail.png"> サイトせつめい</a></div>
   </div>
 </div>
 <!-- The core Firebase JS SDK is always required and must be listed first -->

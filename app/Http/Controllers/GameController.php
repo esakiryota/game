@@ -15,6 +15,10 @@ class GameController extends Controller
       return view('hello.start');
     }
 
+    public function explainWeb() {
+      return view('hello.explain_web');
+    }
+
     public function startmath() {
       return view('math.starttext');
     }
@@ -49,6 +53,10 @@ class GameController extends Controller
 
     public function explainpost() {
       return redirect('/start');
+    }
+
+    public function system() {
+      return view('hello.system');
     }
 
     public function login() {

@@ -19,11 +19,14 @@ Route::get('/start/english', "GameController@startenglish");
 Route::post('/start/english', "GameController@startenglishpost");
 Route::get('/start/practice', "GameController@startpractice");
 Route::post('/start/practice', "GameController@startpracticepost");
+
 Route::get('/parents', "GameController@parents");
+Route::get('/explain_web', "GameController@explainWeb");
 Route::get('/explain', "GameController@explain");
 Route::post('/explain', "GameController@explainpost");
-Route::get('/login', "GameController@login");
-Route::post('/login', "GameController@loginpost");
+// Route::get('/login', "GameController@login");
+Route::get('/system', "GameController@system");
+// Route::post('/login', "GameController@loginpost");
 Route::get('/create', "GameController@create");
 Route::post('/create', "GameController@createpost");
 Route::get('/user', "UserController@index");
