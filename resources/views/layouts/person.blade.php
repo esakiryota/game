@@ -41,7 +41,7 @@
         /* width:100vw; */
         /* height:100vh; */
         background:url(/img/status_field3.png) no-repeat;
-        background-size:500px 100%;
+        background-size:100% 100%;
       }
       #main {
         color: @yield('main-color');
@@ -58,28 +58,30 @@
 </style>
   </head>
   <body>
-  <header class="fixed-top">
-    <div class="d-flex bd-highlight ml-2">
-    <div class="p-2 bd-highlight mr-5 ml-4" style="font-size: 20px;">{{$sql[0]->name}}</div>
-    <div class="p-2 bd-highlight ml-5 mr-5" style="font-size: 20px;">Lv{{$sql[0]->level}}</div>
-    <div class="p-2 bd-highlight ml-2"><meter class="mt-2" id="experi" value="{{$ex_value}}" style="font-size: 20px;"></meter></div>
+    <div class="row">
+      <header class="fixed-top col-12 col-md-6">
+        <div class="d-flex bd-highlight ml-2">
+        <div class="p-2 bd-highlight" style="font-size: 20px;">{{$sql[0]->name}}</div>
+        <div class="p-2 bd-highlight" style="font-size: 20px;">Lv{{$sql[0]->level}}</div>
+        <div class="p-2 bd-highlight"><meter class="mt-2" id="experi" value="{{$ex_value}}" style="font-size: 20px;"></meter></div>
+        </div>
+      <div class="d-flex bd-highlight mb">
+      <div class="p-2 bd-highlight"><img id="tmp" src="{{$url}}" style="width: 100px;"></div>
+      <div class="p-2 bd-highlight">
+        <div class="d-flex justify-content-start bd-highlight">
+         <div class="p-2 bd-highlight">ぼうぎょ：{{$sql[0]->defense}}</div>
+         <div class="p-2 bd-highlight">こうげき：{{$sql[0]->atack}}</div>
+        </div>
+        <div class="d-flex justify-content-start bd-highlight">
+         <div class="p-2 bd-highlight">わざ：{{$tech}}</div>
+        </div>
+        <div class="d-flex justify-content-end bd-highlight">
+          <div class="p-2 bd-highlight">せつめい：てきに<span id="damager">{{$damage}}</span>のダメージ</div>
+        </div>
+      </div>
+      </div>
+      </header>
     </div>
-  <div class="d-flex bd-highlight mb">
-  <div class="p-2 bd-highlight  ml-4 mr-5"><img id="tmp" src="{{$url}}" style="width: 100px;"></div>
-  <div class="p-2 bd-highlight ml-5">
-    <div class="d-flex justify-content-start bd-highlight">
-     <div class="p-2 bd-highlight">ぼうぎょ：{{$sql[0]->defense}}</div>
-     <div class="p-2 bd-highlight">こうげき：{{$sql[0]->atack}}</div>
-    </div>
-    <div class="d-flex justify-content-start bd-highlight">
-     <div class="p-2 bd-highlight">わざ：{{$tech}}</div>
-    </div>
-    <div class="d-flex justify-content-end bd-highlight">
-      <div class="p-2 bd-highlight">せつめい：てきに<span id="damager">{{$damage}}</span>のダメージ</div>
-    </div>
-  </div>
-  </div>
-  </header>
   <main class="" style="margin-top: 200px;" id="main">
 
 <!-- Modal -->
