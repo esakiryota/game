@@ -93,26 +93,29 @@
   function Answer(){
     var i;
     for ( i = 0; i <= 2; i++){
-      answers[i].addEventListener('mousedown', function(){
-        console.log("start");
-        $("#correct_answer").fadeIn();
-        check(this);
-      })
-      answers[i].addEventListener('mouseup', function(){
-        console.log("end");
-        $("#correct_answer").fadeOut();
-        nextQ()
-      })
-      answers[i].addEventListener('touchstart', function(){
-        console.log("start");
-        $("#correct_answer").fadeIn();
-        check(this);
-      })
-      answers[i].addEventListener('touchend', function(){
-        console.log("end");
-        $("#correct_answer").fadeOut();
-        nextQ()
-      })
+      if(navigator.userAgent.match(/(iPhone|iPad|iPod|Android)/i)){
+        answers[i].addEventListener('touchstart', function(){
+          console.log("start");
+          $("#correct_answer").fadeIn();
+          check(this);
+        })
+        answers[i].addEventListener('touchend', function(){
+          console.log("end");
+          $("#correct_answer").fadeOut();
+          nextQ()
+        })
+         } else {
+           answers[i].addEventListener('mousedown', function(){
+             console.log("start");
+             $("#correct_answer").fadeIn();
+             check(this);
+           })
+           answers[i].addEventListener('mouseup', function(){
+             console.log("end");
+             $("#correct_answer").fadeOut();
+             nextQ()
+           })
+        }
     }
   }
 
