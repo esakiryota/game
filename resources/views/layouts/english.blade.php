@@ -166,7 +166,6 @@
     </main>
     <footer>
       @yield('form')
-    <!-- <div class="container fixed-bottom" style="background: rgba(10, 0, 100, 0.4); background-size:cover;"> -->
     <div class="container fixed-bottom bg-light" style=" background-size:cover; box-shadow: 0px -10px 10px rgba(0, 0, 0, 0.4);">
       <div class="row">
         <img src="/img/heart.png" alt="" style="position: fixed; bottom: 240px; left: 1px;">
@@ -174,26 +173,11 @@
           <div class="label mb-2" style=" width:100%; height:10px; background:linear-gradient(0deg, rgba(200, 255, 0, .8), rgba(220, 255, 161, .8)); left: 30px;border-radius: 15px; " id="timer"></div>
         </div>
       </div>
-      <!-- <div class="row text-center my-2" style="background: #668ad8; color: #FFF; border-bottom: solid 4px #627295; border-radius: 30px;">
-        <div class="col" id="question" style="font-size: 25px;">問題</div>
-      </div> -->
       <div class="row mb-2">
         <div class="card col-12 text-center">
           <div class="col" id="question" style="font-size: 30px;">問題</div>
         </div>
       </div>
-
-      <!-- <div class="but row text-center my-2 mx-2 rounded">
-        <div class="answers col-6" id="answer1" style="font-size: 20px;">回答</div>
-        <div class="answers col-6" id="answer2" style="font-size: 20px;">回答</div>
-      </div>
-      <div class="but row text-center my-2 mx-2 rounded">
-        <div class="answers col-6" id="answer3" style="font-size: 20px;">回答</div>
-        <div class="answers col-6" id="answer4" style="font-size: 20px;">回答</div>
-      </div> -->
-      <!-- <div class="but row text-center my-2 mx-2 rounded">
-
-      </div> -->
       <div class="row mb-2">
   <div class="col-6">
     <div class="card cards" ontouchstart>

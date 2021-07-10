@@ -33,7 +33,7 @@
         <div class="col"><img id="tmp2"></div>
       </div>
     </div>
-    <div class="hidden container fixed-bottom mb-5 pb-5" id="box">
+    <!-- <div class="hidden container fixed-bottom mb-5 pb-5" id="box">
       <div class="row text-center bg-primary py-2 mx-1 rounded border border-dark">
         <div class="questions col">問題</div>
       </div>
@@ -46,12 +46,38 @@
       <div class="row bg-light  mb-5 py-2 mx-1 rounded border border-dark" >
         <div class="answers col text-center"id="answer3">回答</div>
       </div>
-    </div>
+    </div> -->
     <div class="container my-5">
       <div class="row">
         <div class="col text-center"><img id="tmp"></div>
       </div>
     </div>
+    <div class="row mb-2">
+      <div class="card col-12 text-center">
+        <div class="col" id="question" style="font-size: 30px;">問題</div>
+      </div>
+    </div>
+    <div class="row mb-2">
+<div class="col-6">
+  <div class="card cards" ontouchstart>
+    <div class="card-body answers text-center" id="answer1" style="font-size: 15px;">
+    </div>
+  </div>
+</div>
+<div class="col-6">
+  <div class="card cards" ontouchstart>
+    <div class="card-body answers text-center" id="answer2" style="font-size: 15px;">
+    </div>
+  </div>
+</div>
+</div>
+    <div class="row mb-2">
+<div class="col-6" >
+  <div class="card cards" ontouchstart>
+    <div class="card-body answers text-center" id="answer3" style="font-size: 15px;">
+    </div>
+  </div>
+</div>
     <div class="container  fixed-bottom my-2">
       <div class="row mr-2">
         <div class="col-10">

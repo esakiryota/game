@@ -93,8 +93,25 @@
   function Answer(){
     var i;
     for ( i = 0; i <= 2; i++){
-      answers[i].addEventListener('click', function(){
+      answers[i].addEventListener('mousedown', function(){
+        console.log("start");
+        $("#correct_answer").fadeIn();
         check(this);
+      })
+      answers[i].addEventListener('mouseup', function(){
+        console.log("end");
+        $("#correct_answer").fadeOut();
+        nextQ()
+      })
+      answers[i].addEventListener('touchstart', function(){
+        console.log("start");
+        $("#correct_answer").fadeIn();
+        check(this);
+      })
+      answers[i].addEventListener('touchend', function(){
+        console.log("end");
+        $("#correct_answer").fadeOut();
+        nextQ()
       })
     }
   }
@@ -107,7 +124,28 @@
     display.submit();
   }
 
+  var blue = 255;
+  var red = 0;
+  var color_per = 255/life;
+  $('#meter2').css('background-color', `rgba(${red}, ${blue}, 0, 1)`);
+  $('#meter2').width('30%');
+  var timer_bar = 0;
 
+  var meter = function meterfunc (dar){
+    var timerId2 = setInterval(function(){
+      dar--;
+      if (dar < 0) {
+        clearInterval(timerId2);
+      }
+      timer_bar += 1;
+      $('#timer').width(`${timer_bar}%`);
+      $('#timer').css('background-color', `rgba(255, 0, 255, 1)`);
+    }, 3)
+  }
+
+  var dar = 100/ex;
+
+  console.log("dar");
 
   function check(node){
     if (life < 1) {
@@ -117,11 +155,16 @@
       $('#correct_answer').text(correctQuestion[nowQuestion].a[0])
       correct_questions.push(nowQuestion);
       console.log(correct_questions);
+      setTimeout(meter, 500, dar);
       nowQuestion += 1;
     } else {
       $('#correct_answer').text(correctQuestion[nowQuestion].a[0])
       nowQuestion += 1;
     };
+    // setTimeout(hidden, 500);
+  }
+
+  function nextQ() {
     var questions_count = questions.length;
     console.log(questions_count);
     if (nowQuestion === questions_count) {
@@ -135,8 +178,10 @@
       $('#clear_modal').append(`終了`);
       setTimeout(returnhome, 1000);
     }
-    setTimeout(hidden, 500);
+    hidden();
   }
+
+
 
 
 

@@ -4,19 +4,23 @@
 @section('main-color', 'white')
 @section('color', 'white')
 @section('content')
+<div class="row">
 @foreach($stage as $array)
-<a href="{{$array["url"]}}" id="searchLink" style="color: black; text-decoration: none;">
-<div class="card mx-3 mb-2">
-  <div class="card-header">
-    Lv{{$array["level"]}}
-    @if($array["stage_id"] < $stage_max)
-    clear
-    @endif
+  <div class="col-sm-4">
+    <a href="{{$array["url"]}}" id="searchLink" style="color: black; text-decoration: none;">
+    <div class="card mx-3 mb-2">
+      <div class="card-header">
+        Lv{{$array["level"]}}
+        @if($array["stage_id"] < $stage_max)
+        clear
+        @endif
+      </div>
+      <div class="card-body" style="font-size: 25px; background-image: url({{$array["stage_bg"]}}); background-color:rgba(255,255,255,0.5);background-blend-mode:lighten;">
+        {{$array["name"]}}
+      </div>
+    </div>
+    </a>
   </div>
-  <div class="card-body" style="font-size: 25px; background-image: url({{$array["stage_bg"]}}); background-color:rgba(255,255,255,0.5);background-blend-mode:lighten;">
-    {{$array["name"]}}
-  </div>
-</div>
-</a>
 @endforeach
+</div>
 @endsection

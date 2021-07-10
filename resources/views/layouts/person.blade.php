@@ -117,10 +117,10 @@
      <a class="nav-link"  data-toggle="modal" data-target="#exampleModalCenter"><img src="/img/skyport.gif"></a>
    </li>
    <li class="nav-item">
-     <a class="nav-link" href="#"><img src="/img/icon-book.png"></a>
+     <a class="nav-link" href="/words"><img src="/img/icon-book.png"></a>
    </li>
    <li class="nav-item">
-     <a class="nav-link" href="#"><img id="tmp" src="{{$url}}" class="w-70"></a>
+     <a class="nav-link" href="/hometown"><img src="/img/sord0.png"></a>
    </li>
    <li class="nav-item">
     <!-- <a class="nav-link"><img src="/img/skyport.gif"></a> -->

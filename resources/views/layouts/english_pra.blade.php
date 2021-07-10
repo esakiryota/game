@@ -107,60 +107,50 @@
           background-size:cover;
           height: 280px; */
         }
+
+        .cards:active {
+          background-color: gray;
+        }
     </style>
 
     <body>
       <main>
-      <div class="conteiner">
-        <div class="conteiner py-2" id="back" style="">
-          <div class="row py">
-            <div class="questions col text-center my-1" id=""><img class="w-50" id="afuro" src="/img/yaichi_animation.gif"></div>
-          </div>
-          <div class="row py">
-            <div class="questions col text-center mt-5" id="">解答:<span id="correct_answer">あ</span></div>
-          </div>
-          <!-- <div class="box" id="meter1" style="margin: auto;   width:30%; height:30px; background:rgba(0,0,255,0.1) ;border-radius:5%;"></div> -->
-          <!-- <div class="box" id="meter2" style="margin: auto;   width:20%; height:30px; border-radius:5%; "></div> -->
-        <!-- </div>
-          <div class="conteiner">
-            <div class="hidden text-warning text-center font-weight-bold fixed-top py-1"  id="judge"></div>
-          </div> -->
-      </div>
-    </div>
-      <!-- <div class="conteiner">
-        <div class="conteiner fixed-top py-4">
-          <div class="row py-1">
-            <div class="questions col text-center my-4" id=""><img src="/img/effect0.gif" class="w-50 hidden" id="image"></div>
-          </div>
-        </div>
-      </div>
-      <div class="conteiner">
-        <div class="conteiner fixed-top py-4">
-          <div class="row py-1">
-            <div id="majic_image" class="questions col text-center my-4"></div>
-          </div>
-        </div>
-      </div> -->
-      <!-- <div class="conteiner fixed-top mt-5">
-        <div class="row mt-5">
-          <a class="questions col text-center mt-5" data-toggle="modal" data-target="#exampleModalCenter"><img src="/img/rotate-guard.gif" class="hidden" id="bone" width="100px" height="100px"></a>
-        </div>
-          <div class="row">
-            <div class="col-4" style="font-family: 'Myfont'; font-size: 50px; font-weight: bold;"><img src="/img/majic-icon0.png" class="w-50"  id="majic_icon"></div>
-            <div class="col-8" style="font-family: 'Myfont'; font-size: 50px; font-weight: bold;"></div>
-        </div>
-      </div> -->
+        <div class="d-flex justify-content-center bd-highlight mb-3">
+         <div class="p-2 bd-highlight"></div>
+         <div class="p-2 bd-highlight"></div>
+         <div class="p-2 bd-highlight"></div>
+       </div>
+        <div class="d-flex justify-content-center bd-highlight mb-3">
+         <div class="p-2 bd-highlight"></div>
+         <div class="p-2 bd-highlight"><div class="card" style="width: 18rem;">
+           <div class="card-header">
+             こたえ
+           </div>
+           <ul class="list-group list-group-flush">
+             <li class="list-group-item" id="correct_answer"></li>
+           </ul>
+         </div></div>
+         <div class="p-2 bd-highlight"></div>
+       </div>
     </main>
     <footer>
       @yield('form')
-    <div class="conteiner fixed-bottom" style="font-size: 36px;">
-      <!-- <div class="row">
-        <div class="label mb-1" style=" width:90%; height:15px; background:rgba(0,0,255,1) ; position: relative; left: 30px;border-radius: 15px;" id="timer"></div>
-      </div> -->
-      <div class="row text-center my-2" style="background: #668ad8; color: #FFF; border-bottom: solid 4px #627295; border-radius: 30px;">
-        <div class="col" id="question" style="font-size: 40px;">問題</div>
+    <div class="container fixed-bottom bg-light" style=" background-size:cover; box-shadow: 0px -10px 10px rgba(0, 0, 0, 0.4);">
+      <div class="row">
+        <img src="/img/heart.png" alt="" style="position: fixed; bottom: 240px; left: 1px;">
+        <div class="pb-2" style="width:95%; height:20px; background:rgba(10, 0, 50, 0.4) ; position: fixed; left: 25px;border-radius: 15px; bottom: 240px; display: flex; padding: 5px 5px; box-shadow: 0px 2px 2px rgba(0,0,0,0.4);">
+          <div class="label mb-2" style=" width:0%; height:10px; background:linear-gradient(0deg, rgba(200, 255, 0, .8), rgba(220, 255, 161, .8)); left: 30px;border-radius: 15px; " id="timer"></div>
+        </div>
       </div>
-      <div class="but row text-center my-2 mx-2 rounded">
+      <!-- <div class="row text-center my-2" style="background: #668ad8; color: #FFF; border-bottom: solid 4px #627295; border-radius: 30px;">
+        <div class="col" id="question" style="font-size: 40px;">問題</div>
+      </div> -->
+      <div class="row mb-2">
+        <div class="card col-12 text-center">
+          <div class="col" id="question" style="font-size: 30px;">問題</div>
+        </div>
+      </div>
+      <!-- <div class="but row text-center my-2 mx-2 rounded">
         <div class="answers col" id="answer1" style="font-size: 35px;">回答</div>
       </div>
       <div class="but row text-center my-2 mx-2 rounded">
@@ -168,8 +158,37 @@
       </div>
       <div class="but row text-center my-2 mx-2 rounded">
         <div class="answers col" id="answer3" style="font-size: 35px;">回答</div>
-      </div>
+      </div> -->
+    <div class="row mb-2">
+<div class="col-6">
+  <div class="card cards" ontouchstart>
+    <div class="card-body answers text-center" id="answer1" style="font-size: 15px;">
     </div>
+  </div>
+</div>
+<div class="col-6">
+  <div class="card cards" ontouchstart>
+    <div class="card-body answers text-center" id="answer2" style="font-size: 15px;">
+    </div>
+  </div>
+</div>
+</div>
+    <div class="row mb-2">
+<div class="col-6" >
+  <div class="card cards" ontouchstart>
+    <div class="card-body answers text-center" id="answer3" style="font-size: 15px;">
+    </div>
+  </div>
+</div>
+<div class="col-6">
+  <div class="card cards" ontouchstart>
+    <div class="card-body answers text-center" style="font-size: 15px;">
+      わからない
+    </div>
+  </div>
+</div>
+</div>
+</div>
 
     <div class="conteiner">
       <div class="hidden text-warning text-center font-weight-bold fixed-bottom" id="judge" style="font-size: 170px;"></div>
