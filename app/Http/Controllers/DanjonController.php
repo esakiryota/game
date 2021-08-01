@@ -108,6 +108,9 @@ class DanjonController extends Controller
   }
 
   public function experience(Request $request) {
+    if (Auth::check()) {
+      return redirect('/math');
+    }
     return view('hello.experience');
   }
 

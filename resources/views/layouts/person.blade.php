@@ -143,17 +143,16 @@
       <ul class="nav nav-pills nav-fill">
    <li class="nav-item">
      <!-- <a class="nav-link"　data-toggle="modal" data-target="#exampleModalCenter"><img src="/img/icon-map.png"></a> -->
-     <a class="nav-link"  data-toggle="modal" data-target="#exampleModalCenter"><img src="/img/skyport.gif"></a>
+     <a class="nav-link"  data-toggle="modal" data-target="#exampleModalCenter" style="color: black;"><img src="/img/skyport.gif" width="30px"><br>いどう</a>
    </li>
    <li class="nav-item">
-     <a class="nav-link" href="/words"><img src="/img/icon-book.png"></a>
+     <a class="nav-link" href="/words"　style="color: black;"><img src="/img/icon-book.png" width="30px"><br><span style="color: black;">ずかん</span></a>
    </li>
    <li class="nav-item">
-     <a class="nav-link" href="/hometown"><img src="/img/sord0.png"></a>
+     <a class="nav-link" href="/hometown" style="color: black;"><img src="/img/sord0.png" width="30px"><br>くんれん</a>
    </li>
    <li class="nav-item">
-    <!-- <a class="nav-link"><img src="/img/skyport.gif"></a> -->
-    <a class="nav-link active"　data-toggle="modal"　data-target="#exampleModalCenter"><img src="/img/icon-map.png"></a>
+    <a class="nav-link"　href="/hometown"　style="color: black;" ><img src="/img/icon-map.png" width="30px"><br><span style="color: black;">まち</span></a>
    </li>
  </ul>
      </nav>
