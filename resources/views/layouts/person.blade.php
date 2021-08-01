@@ -58,6 +58,7 @@
 </style>
   </head>
   <body>
+    @if (Auth::check())
     <div class="row">
       <header class="fixed-top col-12 col-md-6">
         <div class="d-flex bd-highlight ml-2">
@@ -82,6 +83,33 @@
       </div>
       </header>
     </div>
+    @else
+    <div class="row">
+      <header class="fixed-top col-12 col-md-6">
+        <div class="d-flex bd-highlight ml-2">
+        <div class="p-2 bd-highlight" style="font-size: 20px;">たいけん</div>
+        <div class="p-2 bd-highlight" style="font-size: 20px;">Lv１</div>
+        <div class="p-2 bd-highlight"><meter class="mt-2" id="experi" value="200" style="font-size: 20px;"></meter></div>
+        </div>
+      <div class="d-flex bd-highlight mb">
+      <div class="p-2 bd-highlight"><img id="tmp" src="/img/chara0.gif" style="width: 100px;"></div>
+      <div class="p-2 bd-highlight">
+        <div class="d-flex justify-content-start bd-highlight">
+         <div class="p-2 bd-highlight">ぼうぎょ：50</div>
+         <div class="p-2 bd-highlight">こうげき：50</div>
+        </div>
+        <div class="d-flex justify-content-start bd-highlight">
+         <div class="p-2 bd-highlight">わざ：いあいぎり</div>
+        </div>
+        <div class="d-flex justify-content-end bd-highlight">
+          <div class="p-2 bd-highlight">せつめい：てきに<span id="damager">100</span>のダメージ</div>
+        </div>
+      </div>
+      </div>
+      </header>
+    </div>
+    @endif
+
   <main class="" style="margin-top: 200px;" id="main">
 
 <!-- Modal -->
@@ -108,6 +136,7 @@
 </div>
      @yield('content')
   </main>
+  @if (Auth::check())
   <footer>
     <!-- <div > -->
       <nav class='fixed-bottom' style="background-color: white; box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);">
@@ -130,6 +159,7 @@
      </nav>
      <!-- </div> -->
   </footer>
+  @endif
 
 
 

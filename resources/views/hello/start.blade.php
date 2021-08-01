@@ -12,48 +12,22 @@
 @endsection
 @section('header')
 <link href="https://fonts.googleapis.com/css?family=Kosugi+Maru|Press+Start+2P|Sawarabi+Gothic&display=swap" rel="stylesheet">
-<div class="conteiner">
+<div class="container">
   <div class="row mx-2">
-    <div class="col font-weight-bold navbar-toggler" style="font-size: 40px" data-toggle="collapse" data-target="#exper">
-      <img src="/img/icon-yumi.png"> たいけん
-    </div>
+    <div class="col font-weight-bold" style="font-size: 40px"><a href="/experience" class="text-light"><img src="/img/icon-yumi.png"> たいけん</a></div>
   </div>
 </div>
-<div class="conteiner pb-2 collapse navbar-collapse" id="exper">
-  <div class="row mx-2">
-    <button class="btn text-light col " style="font-size: 30px">
-      さんすう
-    </button>
-    <button class="btn text-light col" style="font-size: 30px">
-      えいご
-    </button>
-    <button class="btn text-light col" style="font-size: 30px">
-      くんれん
-    </button>
-  </div>
-<div class="row mx-2">
-  <div class="col">
-    <a href="/start/math"><img src="/img/door-open-1.png" class="w-100"></a>
-  </div>
-  <div class="col">
-    <a href="/start/english"><img src="/img/door-open-1.png" class="w-100"></a>
-  </div>
-  <div class="col">
-    <a href="/start/practice"><img src="/img/door-open-1.png" class="w-100"></a>
-  </div>
-</div>
-</div>
-<div class="conteiner">
+<div class="container">
   <div class="row mx-2">
     <div class="col font-weight-bold" style="font-size: 40px"><a href="/explain" class="text-light"><img src="/img/icon-book.png"> ぼうけんのしょ</a></div>
   </div>
 </div>
-<div class="conteiner">
+<div class="container">
   <div class="row mx-2">
     <div class="col font-weight-bold" style="font-size: 40px"><a href="/register" class="text-light"><img src="/img/icon-hat.png"> ぼうけんにでる</a></div>
   </div>
 </div>
-<div class="conteiner">
+<div class="container">
   <div class="row mx-2">
     <div class="col font-weight-bold" style="font-size: 40px"><a href="/explain_web" class="text-light"><img src="/img/icon-mail.png"> サイトせつめい</a></div>
   </div>

@@ -106,4 +106,39 @@ class DanjonController extends Controller
 
     return view('words.word', compact("sql", "url", "tech", "damage", "stage","en_stage", "main", "en_main", "ex_value", "stage_max", "en_stage_max", "englishWords"));
   }
+
+  public function experience(Request $request) {
+    return view('hello.experience');
+  }
+
+  public function csvImport(Request $request) {
+    // アップロードファイルのファイルパスを取得
+    $file_path = $request->file('csv')->path();
+    // CSV取得
+    $file = new \SplFileObject($file_path);
+    $file->setFlags(
+        \SplFileObject::READ_CSV |           // CSV 列として行を読み込む
+        \SplFileObject::READ_AHEAD |       // 先読み/巻き戻しで読み出す。
+        \SplFileObject::SKIP_EMPTY |         // 空行は読み飛ばす
+        \SplFileObject::DROP_NEW_LINE    // 行末の改行を読み飛ばす
+      );
+    // 一行ずつ処理
+    $words = [];
+    $i = 0;
+    foreach($file as $line)
+    {
+        $data = [
+            "en"     => $line[0],
+            "jp"   => $line[1],
+            "level" => $line[2]
+        ];
+        $words[$i] = $data;
+        $i++;
+    }
+
+    $this->englishWordsRepository->importWords($words);
+    return redirect('/');
+
+
+  }
 }

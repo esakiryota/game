@@ -230,12 +230,20 @@
               <div class="" style="position: absolute; top: 5%;">
                 てきににげられた。
               </div>
+              @if (Auth::check())
               <a href="{{$stage_lv[0]->url}}" style="color: black; text-decoration: none;">
-              <div class="" id="replay_btn" style="position: absolute; top: 80%; left: 40%">
-                もういちどたたかう
-              </div>
-              </a>
-              <a href="/english" style="color: black; text-decoration: none;">
+                <div class="" id="replay_btn" style="position: absolute; top: 80%; left: 40%">
+                  もういちどたたかう
+                </div>
+                </a>
+              @else
+              <a href="/experience/1-0" style="color: black; text-decoration: none;">
+                <div class="" id="replay_btn" style="position: absolute; top: 80%; left: 40%">
+                  もういちどたたかう
+                </div>
+                </a>
+              @endif
+              <a href="/experience" style="color: black; text-decoration: none;">
                 <div class="" id="back_btn" style="position: absolute; top: 80%; left: 70%">
                 もどる
                 </div>

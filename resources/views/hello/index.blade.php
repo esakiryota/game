@@ -57,7 +57,7 @@
         <div class="col text-center" id="start"><a href="/start" class="text-light">はじめて</a></div>
       </div>
       <div class="row">
-        <div class="col text-center" id="start"><a href="/system" class="text-light">システム</a></div>
+        <div class="col text-center" id="start"><a href="/import" class="text-light">システム</a></div>
       </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

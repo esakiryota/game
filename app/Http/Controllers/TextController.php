@@ -67,4 +67,13 @@ class TextController extends Controller
       updateStage($stage_max, $stage_id, $stage_lv_str[1]);
       return redirect($url);
     }
+
+    public function experienceStage() {
+      $question_array = engQuestion('1-1');
+      return view('experience.experience_stage', compact("question_array"));
+    }
+
+    public function experienceBack() {
+      return redirect('/experience');
+    }
 }

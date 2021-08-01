@@ -11,6 +11,12 @@ class UserStageTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+      DB::table('user_stage')->insert([
+         [
+              'email' => 'demo@example.com',
+              'math' => 1,
+              'english' => 1
+           ]
+      ]);
     }
 }

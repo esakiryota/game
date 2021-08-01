@@ -85,7 +85,19 @@ Route::group(['middleware' => ['auth']], function () {
   Route::get('/english/{level}/practice', "TextController@praEnglishIndex");
   Route::post('/english/practice', "TextController@praceticeUpdate");
   Route::get('/words', "DanjonController@wordsIndex");
+  Route::get('/import', function () {
+        $user = \Auth::user();
+        if ($user->hasPermissionTo('admin')) {
+          return view('admin.import');
+        } else {
+          return view('errors.no_permission');
+        }
+    });
+  Route::post('/import', "DanjonController@csvImport");
 });
 
 Route::get('/account', "DataController@index");
 Route::post('/account', "DataController@store");
+Route::get('/experience', "DanjonController@experience");
+Route::get('/experience/1-0', "TextController@experienceStage");
+Route::post('/experience/1-0', "TextController@experienceBack");

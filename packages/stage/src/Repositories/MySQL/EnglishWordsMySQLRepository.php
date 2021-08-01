@@ -25,4 +25,10 @@ class EnglishWordsMySQLRepository extends MySQLRepository implements EnglishWord
       return $result;
 
   }
+
+  public function importWords(array $data) {
+    foreach ($data as $key => $value) {
+      $this->db->table('englishword')->insert(['english' => $value["en"],'japanese' => $value["jp"],'level' => $value["level"]]);
+    }
+  }
 }

@@ -3,6 +3,7 @@
 namespace User\Repositories\MySQL;
 
 use Carbon\Carbon;
+use Auth;
 
 /**
  * Class MySQLRepository

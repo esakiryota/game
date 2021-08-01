@@ -54,6 +54,4 @@ class StageMySQLRepository extends MySQLRepository implements StageRepositoryInt
         $sql = array_reverse($sql);
         return $sql;
     }
-
-
 }
