@@ -18,5 +18,12 @@ class UserStageTableSeeder extends Seeder
               'english' => 1
            ]
       ]);
+      DB::table('user_stage')->insert([
+         [
+              'email' => 'esaki1217@gmail.com',
+              'math' => 1,
+              'english' => 1
+           ]
+      ]);
     }
 }
