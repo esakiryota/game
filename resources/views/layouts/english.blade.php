@@ -118,6 +118,15 @@
 
     <body>
       <div class="hidden0" id="enemy_atack" style="width: 100%; height: 100%; position: fixed; z-index: 2147483647; text-align: center;">
+        @foreach($image_list as $key => $value)
+        <img class="hidden" src='/img/enemy_atack/{{ $value }}' id='{{ $key }}' style="
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%)">
+        @endforeach
       </div>
       <main>
       <div class="container">

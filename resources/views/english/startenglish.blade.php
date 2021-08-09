@@ -243,18 +243,19 @@
 
   function enemyAtack() {
     $('#enemy_atack').removeClass('hidden0');
-    $('#enemy_atack').append(`<img src='/img/enemy_atack/${image_list[0]}' id='atack_img'>`);
-    var l = 0;
+    var l = 1;
 
     var animation_timer = setInterval(function(){
+      var pre_id = image_list[l-1]
+      var id = image_list[l]
+      console.log($(`#${pre_id}ds`));
       if (l >= image_list.length-1) {
-        $('#enemy_atack').empty();
+        $(`#${l}`).removeClass('hidden');
         clearInterval(animation_timer);
-      } else {
-        l++;
-        $('#enemy_atack').empty();
-        $('#enemy_atack').append(`<img src='/img/enemy_atack/${image_list[l]}' id='atack_img'>`);
       }
+      $(`#${l-1}`).addClass('hidden');
+      $(`#${l}`).removeClass('hidden');
+      l++;
     }, 50)
     var j = 0;
     var timerId = setInterval(function(){
