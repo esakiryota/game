@@ -122,10 +122,10 @@
       </div>
       <main>
       <div class="container">
-        <div class="container fixed-top py-2" id="back">
+        <div class="container fixed-top mt-5" id="back">
           <div class="row py">
             <!-- <div class="questions col-2 text-center my-1" id=""><img src="/img/candle0.png" class="w-100" id="afuro"></div> -->
-            <div class="questions col text-center my-3" id=""><img class="" id="afuro" width="500px"></div>
+            <div class="questions col text-center mt-3" id=""><img class="" id="afuro" width="100%" height="100%" style="max-width: 533px; max-height: 250px; "></div>
             <!-- <div class="questions col-2 text-center my-1" id=""><img src="/img/candle0.png" class="w-50" id="afuro"></div> -->
           </div>
           <!-- <div class="box" id="meter1" style="margin: auto;   width:30%; height:30px; background:linear-gradient(to bottom, #99ccff, #0059b3);border-radius:5%;"></div> -->
