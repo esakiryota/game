@@ -29,7 +29,17 @@ class TextController extends Controller
       $stage_lv = english_stage_info($level);
       $question_array = engQuestion($level);
 
-      return view('english.startenglish', compact("sql", "url", "tech", "damage", "image", "stage_lv", "question_array"));
+      $enemy_atacks = "img/enemy_atack";
+      $path= public_path($enemy_atacks);
+      $files = \File::files($path);
+      $image_list = [];
+      $i = 0;
+      foreach ($files as $v) {
+        $image_list[$i] = $v->getfileName();
+        $i++;
+     }
+
+      return view('english.startenglish', compact("sql", "url", "tech", "damage", "image", "stage_lv", "question_array", "image_list"));
     }
 
     public function lastIndex($level){

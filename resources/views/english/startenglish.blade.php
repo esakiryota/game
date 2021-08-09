@@ -73,6 +73,7 @@
   afuro.src = stage_image.value;
 
   var questions = @json($question_array);
+  console.log(image_list);
   var questions_count = questions.length;
 
   function shuffle(arr){
@@ -238,21 +239,32 @@
     })
   }
 
+  var image_list = @json($image_list);
+
   function enemyAtack() {
     $('#enemy_atack').removeClass('hidden0');
-    $('#enemy_atack').append("<img src='/img/enemy_atack3.gif' id='atack_img'>");
+    $('#enemy_atack').append(`<img src='/img/enemy_atack/${image_list[0]}' id='atack_img'>`);
+    var l = 0;
+
+    var animation_timer = setInterval(function(){
+      if (l >= image_list.length-1) {
+        $('#enemy_atack').empty();
+        clearInterval(animation_timer);
+      } else {
+        l++;
+        $('#enemy_atack').empty();
+        $('#enemy_atack').append(`<img src='/img/enemy_atack/${image_list[l]}' id='atack_img'>`);
+      }
+    }, 50)
     var j = 0;
     var timerId = setInterval(function(){
       j++;
       var opa = 0.9 - j/10;
       $('#enemy_atack').css('background-color', `rgba(255, 0, 0, ${opa})`);
-      if(j>4.5){
-        $('#enemy_atack').empty();
-      }
       if(j > 10) {
         clearInterval(timerId);
         $('#enemy_atack').addClass('hidden0');
-        timer_ber = timer_ber - 18;
+        timer_ber = timer_ber;
         i += en/5
         $('#timer').width(`${timer_ber}%`);
       }

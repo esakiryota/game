@@ -117,8 +117,7 @@
     </style>
 
     <body>
-      <div class="hidden0" id="enemy_atack" style="width: 100%; height: 100%; position: fixed; z-index: 2147483647;">
-        <!-- <img src="/img/enemy_atack3.gif" alt=""> -->
+      <div class="hidden0" id="enemy_atack" style="width: 100%; height: 100%; position: fixed; z-index: 2147483647; text-align: center;">
       </div>
       <main>
       <div class="container">
