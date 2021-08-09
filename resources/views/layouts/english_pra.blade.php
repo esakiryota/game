@@ -36,7 +36,7 @@
         z-index:-1;
         width:100%;
         height: 100%;
-        background:#ddd url(/img/tougijo640.jpg) no-repeat center center;
+        background:#ddd url(/img/training.jpg) no-repeat center center;
         background-size:cover;
 }
 

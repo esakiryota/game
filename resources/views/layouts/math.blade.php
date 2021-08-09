@@ -34,8 +34,8 @@
         top:0;
         left:0;
         z-index:-1;
-        width:100%;
-        height:70vh;
+        width:100vw;
+        height:100vh;
         background:url(/img/battle-back-snow.jpg) center no-repeat;
         background-size:cover;
 }
@@ -89,30 +89,21 @@
           /* -webkit-transform: translate(-50%, -50%); */
           /* -ms-transform: translate(-50%, -50%); */
         }
-        .but {
-          display: inline-block;
-          /* padding: 20px; */
-          /* padding: 0.5em 1em; */
-          margin: 3px;
-          width: 25%;
-          height: 30%;
-          text-decoration: none;
-          background: #668ad8;
-          color: #FFF;
-          border-bottom: solid 4px #627295;
-          border-radius: 25px;
-        }
-        .but:active {
-          -webkit-transform: translateY(4px);
-          transform: translateY(4px);
-          box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);
-          border-bottom: none;
-        }
         #clear_modal {
           background:url(/img/after_battle.png) center no-repeat;
           background-size:cover;
           height: 280px;
           font-family: 'Myfont';
+        }
+
+        .cards {
+          height: 30px;
+        }
+        .cards:active {
+          background-color: gray;
+        }
+        .cards:hover {
+          background-color: gray;
         }
 
     </style>
@@ -123,7 +114,7 @@
         <div class="conteiner fixed-top py-2" id="back">
           <div class="row py">
             <!-- <div class="questions col-2 text-center my-1" id=""><img src="/img/candle0.png" class="w-100" id="afuro"></div> -->
-            <div class="questions col text-center my-1" id=""><img class="w-50" id="afuro"></div>
+            <div class="questions col text-center my-1" id=""><img width="300px" id="afuro"></div>
             <!-- <div class="questions col-2 text-center my-1" id=""><img src="/img/candle0.png" class="w-50" id="afuro"></div> -->
           </div>
           <!-- <div class="box" id="meter1" style="margin: auto;   width:30%; height:30px; background:linear-gradient(to bottom, #99ccff, #0059b3);border-radius:5%;"></div> -->
@@ -141,7 +132,7 @@
       <div class="conteiner">
         <div class="conteiner fixed-top py-4">
           <div class="row py-1">
-            <div class="questions col text-center my-4" id=""><img src="/img/effect0.gif" class="w-50 hidden" id="image"></div>
+            <div class="questions col text-center my-4" id=""><img src="/img/effect0.gif" width="300px" class="hidden" id="image"></div>
           </div>
         </div>
       </div>
@@ -157,7 +148,7 @@
           <a class="questions col text-center mt-5" data-toggle="modal" data-target="#exampleModalCenter"><img src="/img/rotate-sord.gif" class="hidden" id="bone" width="100px" height="100px"></a>
         </div>
           <div class="row">
-            <div class="col-4" style="font-family: 'Myfont'; font-size: 50px; font-weight: bold;"><img src="/img/majic-icon0.png" class="w-50"  id="majic_icon"></div>
+            <div class="col-4" style="font-family: 'Myfont'; font-size: 50px; font-weight: bold;"><img src="/img/majic-icon0.png" width="100px"  id="majic_icon"></div>
             <div class="col-8" style="font-family: 'Myfont'; font-size: 50px; font-weight: bold;"></div>
         </div>
       </div>
@@ -196,38 +187,63 @@
       </div>
     </main>
     <footer>
-      <div class="conteiner fixed-bottom" id="tabber" style="background: rgba(10, 0, 100, 0.4); background-size:cover;">
+      <div class="container fixed-bottom bg-light" style=" background-size:cover; box-shadow: 0px -10px 10px rgba(0, 0, 0, 0.4);" id="tabbar">
         <div class="row">
           <img src="/img/heart.png" alt="" style="position: fixed; bottom: 220px; left: 1px;">
           <div class="pb-2" style="width:95%; height:20px; background:rgba(10, 0, 50, 0.4) ; position: fixed; left: 25px;border-radius: 15px; bottom: 220px; display: flex; padding: 5px 5px; box-shadow: 0px 2px 2px rgba(0,0,0,0.4);">
             <div class="label mb-2" style=" width:95%; height:10px; background:linear-gradient(0deg, rgba(200, 255, 0, .8), rgba(220, 255, 161, .8)); left: 30px;border-radius: 15px; " id="timer"></div>
           </div>
         </div>
-        <div class="row">
-          <!-- <div class="box" id="meter" style="margin: auto;   width:30%; height:30px; background:rgba(0,0,255,0.1) ;border-radius:5%;" id="timer"></div> -->
-          <div class="label text-center" style=" color: #fff; margin: auto;   width:90%; height:30px; background: #668ad8 ;border-radius:5px; font-size: 25px;"><span id="question"></span><span id="answer"></span></div>
+        <div class="row mb-2">
+          <div class="card col-12 text-center">
+            <div class="col" style="font-size: 30px;"><span id="question">もんだい</span><span id="answer"></span></div>
+          </div>
+        </div>
         @yield('form')
-        </div>
-        <div class="row d-flex justify-content-around">
-          <div class="answers but text-center " width="">1</div>
-          <div class="answers but text-center" width="">2</div>
-          <div class="answers but text-center" width="">3</div>
-        </div>
-        <div class="row d-flex justify-content-around">
-          <div class="answers but text-center" width="">4</div>
-          <div class="answers but text-center" width="">5</div>
-          <div class="answers but text-center" width="">6</div>
-        </div>
-        <div class="row d-flex justify-content-around">
-          <div class="answers but text-center" width="">7</div>
-          <div class="answers but text-center" width="">8</div>
-          <div class="answers but text-center" width="">9</div>
-        </div>
-        <div class="row d-flex justify-content-around">
-          <div class="answers but text-center">0</div>
-          <div class="answers but text-center" id="okbtn">OK</div>
-          <div class="answers but text-center" id="vanish">X</div>
-        </div>
+        <div class="row mb-2">
+          <div class="col-4">
+            <div class="card cards text-center answers" ontouchstart>1</div>
+          </div>
+    <div class="col-4">
+      <div class="card cards text-center answers" ontouchstart>2</div>
+    </div>
+    <div class="col-4">
+      <div class="card cards text-center answers"　answers>3</div>
+    </div>
+  </div>
+        <div class="row mb-2">
+          <div class="col-4">
+            <div class="card cards text-center answers" ontouchstart>4</div>
+          </div>
+    <div class="col-4">
+      <div class="card cards text-center answers" ontouchstart>5</div>
+    </div>
+    <div class="col-4">
+      <div class="card cards text-center answers" ontouchstart>6</div>
+    </div>
+  </div>
+        <div class="row mb-2">
+          <div class="col-4">
+            <div class="card cards text-center answers" ontouchstart>7</div>
+          </div>
+          <div class="col-4">
+            <div class="card cards text-center answers" ontouchstart>8</div>
+          </div>
+          <div class="col-4">
+            <div class="card cards text-center answers" ontouchstart>9</div>
+          </div>
+  </div>
+        <div class="row mb-2">
+          <div class="col-4">
+            <div class="card cards text-center answers" ontouchstart>0</div>
+          </div>
+          <div class="col-4">
+            <div class="card cards text-center answers" id="okbtn" ontouchstart>OK</div>
+          </div>
+          <div class="col-4">
+            <div class="card cards text-center answers" id="vanish" ontouchstart>X</div>
+          </div>
+  </div>
       </div>
     </footer>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

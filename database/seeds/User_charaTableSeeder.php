@@ -28,6 +28,9 @@ class User_charaTableSeeder extends Seeder
       DB::table('user_chara')->insert(['chara' => "A",'level' => '15','image' => '/img/chara1-2.gif']);
       DB::table('user_chara')->insert(['chara' => "A",'level' => '16','image' => '/img/chara1-2.gif']);
       DB::table('user_chara')->insert(['chara' => "A",'level' => '17','image' => '/img/chara1-2.gif']);
+      DB::table('user_chara')->insert(['chara' => "A",'level' => '18','image' => '/img/chara1-2.gif']);
+      DB::table('user_chara')->insert(['chara' => "A",'level' => '19','image' => '/img/chara1-2.gif']);
+      DB::table('user_chara')->insert(['chara' => "A",'level' => '20','image' => '/img/chara1-2.gif']);
 
       DB::table('user_chara')->insert(['chara' => "B",'level' => '1','image' => '/img/chara2.gif']);
       DB::table('user_chara')->insert(['chara' => "B",'level' => '2','image' => '/img/chara2.gif']);
@@ -46,6 +49,9 @@ class User_charaTableSeeder extends Seeder
       DB::table('user_chara')->insert(['chara' => "B",'level' => '15','image' => '/img/chara3-2.gif']);
       DB::table('user_chara')->insert(['chara' => "B",'level' => '16','image' => '/img/chara3-2.gif']);
       DB::table('user_chara')->insert(['chara' => "B",'level' => '17','image' => '/img/chara3-2.gif']);
+      DB::table('user_chara')->insert(['chara' => "B",'level' => '18','image' => '/img/chara3-2.gif']);
+      DB::table('user_chara')->insert(['chara' => "B",'level' => '19','image' => '/img/chara3-2.gif']);
+      DB::table('user_chara')->insert(['chara' => "B",'level' => '20','image' => '/img/chara3-2.gif']);
 
       DB::table('user_chara')->insert(['chara' => "C",'level' => '1','image' => '/img/chara0.gif']);
       DB::table('user_chara')->insert(['chara' => "C",'level' => '2','image' => '/img/chara0.gif']);
@@ -64,5 +70,8 @@ class User_charaTableSeeder extends Seeder
       DB::table('user_chara')->insert(['chara' => "C",'level' => '15','image' => '/img/chara2-2.gif']);
       DB::table('user_chara')->insert(['chara' => "C",'level' => '16','image' => '/img/chara2-2.gif']);
       DB::table('user_chara')->insert(['chara' => "C",'level' => '17','image' => '/img/chara2-2.gif']);
+      DB::table('user_chara')->insert(['chara' => "C",'level' => '18','image' => '/img/chara2-2.gif']);
+      DB::table('user_chara')->insert(['chara' => "C",'level' => '19','image' => '/img/chara2-2.gif']);
+      DB::table('user_chara')->insert(['chara' => "C",'level' => '20','image' => '/img/chara2-2.gif']);
     }
 }

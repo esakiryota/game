@@ -74,6 +74,12 @@ if (!function_exists('user_update')) {
         $email = $user->email;
         $atack = $atack + $stage_atack;
         $defense = $defense + $stage_defense;
+        if ($atack > 100) {
+          $atack = 100;
+        }
+        if ($defense > 100) {
+          $defense = 100;
+        }
         $db->table('user_info')->where('email', $email)->update(['atack' => $atack, 'defense' => $defense]);
     }
 }
@@ -97,9 +103,15 @@ if (!function_exists('updateEx')) {
         $all_ex = $user_ex + $update_ex;
         $lv_ex = level_ex($user_lv);
         $db = app('db');
+        if ($user_lv == 20) {
+          return;
+        }
         if ($all_ex >= $lv_ex) {
           $user_lv += 1;
           $ex = $all_ex - $lv_ex;
+          if ($user_lv == 20) {
+            $ex = 0;
+          }
           $db->table('user_info')->where('email', $email)->update(['level' => $user_lv, 'experience' => $ex]);
         } else {
           $db->table('user_info')->where('email', $email)->update(['experience' => $all_ex]);
@@ -136,6 +148,17 @@ if (!function_exists('english_stage_info')) {
         $db = app('db');
         $model = new Stage;
         $sql = $db->table('english_stage')
+                  ->where('level', $level)->get();
+        return $sql;
+    }
+}
+
+if (!function_exists('last_stage_info')) {
+    function last_stage_info(string $level)
+    {
+        $db = app('db');
+        $model = new Stage;
+        $sql = $db->table('last_stages')
                   ->where('level', $level)->get();
         return $sql;
     }
@@ -216,7 +239,35 @@ if (!function_exists('engQuestion')) {
     }
 }
 
-if (!function_exists('engQuestion')) {
+if (!function_exists('lastQuestion')) {
+    function lastQuestion()
+    {
+        $array = [];
+        $db = app('db');
+        $sql = $db->table('englishword')->get();
+        $sql = json_decode(json_encode($sql), true);
+        $sql_num = array_rand($sql, 50);
+
+        $base_array = [];
+
+        foreach ($sql_num as $key => $value) {
+          array_push($base_array, $sql[$value]);
+        }
+        $max = count($base_array) - 1;
+        for ($i=0; $i < $max+1; $i++) {
+          $rand_array = randArray($i, 0, $max);
+          $question = $base_array[$rand_array[0]]["english"];
+          $answer = $base_array[$rand_array[0]]["japanese"];
+          $dummy1 = $base_array[$rand_array[1]]["japanese"];
+          $dummy2 = $base_array[$rand_array[2]]["japanese"];
+          $dict_array = ["q"=> $question, "a"=> [$answer, $dummy1, $dummy2]];
+          array_push($array, $dict_array);
+        }
+        return $array;
+    }
+}
+
+if (!function_exists('randArray')) {
   function randArray(int $i, int $min, int $max) {
     $rand_array = [];
     array_push($rand_array, $i);

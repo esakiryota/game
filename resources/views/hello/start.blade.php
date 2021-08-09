@@ -19,7 +19,7 @@
 </div>
 <div class="container">
   <div class="row mx-2">
-    <div class="col font-weight-bold" style="font-size: 40px"><a href="/explain" class="text-light"><img src="/img/icon-book.png"> ぼうけんのしょ</a></div>
+    <div class="col font-weight-bold" style="font-size: 40px"><a href="/explain" class="text-light"><img src="/img/icon-book.png"> まちにかえる</a></div>
   </div>
 </div>
 <div class="container">

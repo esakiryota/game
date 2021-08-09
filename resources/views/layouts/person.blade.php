@@ -55,6 +55,13 @@
     background-color: rgba(0, 0, 0, 0.1);
 }
 
+.bottombar:active {
+  background-color: gray;
+}
+.bottombar:hover {
+  background-color: gray;
+}
+
 </style>
   </head>
   <body>
@@ -64,7 +71,8 @@
         <div class="d-flex bd-highlight ml-2">
         <div class="p-2 bd-highlight" style="font-size: 20px;">{{$sql[0]->name}}</div>
         <div class="p-2 bd-highlight" style="font-size: 20px;">Lv{{$sql[0]->level}}</div>
-        <div class="p-2 bd-highlight"><meter class="mt-2" id="experi" value="{{$ex_value}}" style="font-size: 20px;"></meter></div>
+        <div class="p-2 bd-highlight" style="font-size: 20px;">EXP</div>
+        <div class="p-2 bd-highlight"><meter class="pt-2 mt-2" id="experi" value="{{$ex_value}}" style="font-size: 20px;"></meter></div>
         </div>
       <div class="d-flex bd-highlight mb">
       <div class="p-2 bd-highlight"><img id="tmp" src="{{$url}}" style="width: 100px;"></div>
@@ -130,6 +138,8 @@
             <a href="/english" style="color: black;"><div class="" style="font-size: 20px; position: absolute; top: 40px;">えいごのうみ</div></a>
             <a href="/hometown" style="color: black;"><div class="" style="font-size: 20px; position: absolute; top: 120px; left: 70%;">くんれんのまち</div></a>
             <a href="/math" style="color: black;"><div class="" style="font-size: 20px; position: absolute; top: 150px; left: 10%;">さんすうのゆきやま</div></a>
+            <a href="/start" style="color: black;"><div class="" style="font-size: 20px; position: absolute; top: 160px; left: 50%;">はじまりのむら</div></a>
+            <a href="/last" style="color: black;"><div class="" style="font-size: 20px; position: absolute; top: 270px; left: 50%;">さいごのしま</div></a>
       </div>
    </div>
   </div>
@@ -141,18 +151,19 @@
     <!-- <div > -->
       <nav class='fixed-bottom' style="background-color: white; box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);">
       <ul class="nav nav-pills nav-fill">
-   <li class="nav-item">
+   <li class="nav-item bottombar" ontouchstart>
      <!-- <a class="nav-link"　data-toggle="modal" data-target="#exampleModalCenter"><img src="/img/icon-map.png"></a> -->
      <a class="nav-link"  data-toggle="modal" data-target="#exampleModalCenter" style="color: black;"><img src="/img/skyport.gif" width="30px"><br>いどう</a>
    </li>
-   <li class="nav-item">
-     <a class="nav-link" href="/words"　style="color: black;"><img src="/img/icon-book.png" width="30px"><br><span style="color: black;">ずかん</span></a>
+   <li  class="nav-item bottombar" ontouchstart>
+     <a @if ($flag == 'wordsIndex') class="nav-link active" @else class="nav-link" @endif href="/words"　style="color: black;"><img src="/img/icon-book.png" width="30px"><br><span style="color: black;">ずかん</span></a>
    </li>
-   <li class="nav-item">
-     <a class="nav-link" href="/hometown" style="color: black;"><img src="/img/sord0.png" width="30px"><br>くんれん</a>
+   <li class="nav-item bottombar" ontouchstart>
+     <a @if ($flag == 'experience') class="nav-link active" @else class="nav-link" @endif  href="/hometown" style="color: black;"><img src="/img/sord0.png" width="30px"><br>くんれん</a>
    </li>
-   <li class="nav-item">
-    <a class="nav-link"　href="/hometown"　style="color: black;" ><img src="/img/icon-map.png" width="30px"><br><span style="color: black;">まち</span></a>
+
+   <li class="nav-item bottombar" ontouchstart>
+    <a @if ($flag == 'english') class="nav-link active" @else class="nav-link" @endif 　href="/hometown"　style="color: black;" ><img src="/img/icon-map.png" width="30px"><br><span style="color: black;">まち</span></a>
    </li>
  </ul>
      </nav>
@@ -164,7 +175,7 @@
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <!-- <script src="https://www.gstatic.com/firebasejs/6.5.0/firebase-app.js"></script> -->
@@ -178,6 +189,12 @@
 
     <script src="/js/person.js">
     </script>
+    <div class="mask" id="mask" style="position: fixed; top: 0; z-index: 21000000;"></div>
+    @if (session('init') == "init")
+    <script src="/js/mask.js">
+    </script>
+    @endif
+
 
   </body>
 </html>

@@ -24,5 +24,12 @@ class MainTableSeeder extends Seeder
           'name' => 'えいごのうみ',
         ]
       );
+        DB::table('main')->insert(
+        [
+          'bg_image' => "/img/start-bg-last.png",
+          'stagename' => "last",
+          'name' => 'さいごのしま',
+        ]
+      );
     }
 }

@@ -27,6 +27,8 @@ class User_levelTableSeeder extends Seeder
         DB::table('user_level')->insert(['lv' => "14",'experience' => '1500']);
         DB::table('user_level')->insert(['lv' => "16",'experience' => '1800']);
         DB::table('user_level')->insert(['lv' => "17",'experience' => '1800']);
-        DB::table('user_level')->insert(['lv' => "18",'experience' => '1800']);
+        DB::table('user_level')->insert(['lv' => "18",'experience' => '2000']);
+        DB::table('user_level')->insert(['lv' => "19",'experience' => '2000']);
+        DB::table('user_level')->insert(['lv' => "20",'experience' => '3000']);
     }
 }

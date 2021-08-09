@@ -153,6 +153,7 @@
     var i;
     for ( i = 0; i <= 9; i++){
       answers[i].addEventListener('click', function(){
+        console.log(this.textContent);
       answer.textContent += this.textContent;
       })
     }

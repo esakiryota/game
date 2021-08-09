@@ -15,14 +15,16 @@ class UserStageTableSeeder extends Seeder
          [
               'email' => 'demo@example.com',
               'math' => 1,
-              'english' => 1
+              'english' => 1,
+              'last' => 1
            ]
       ]);
       DB::table('user_stage')->insert([
          [
               'email' => 'esaki1217@gmail.com',
               'math' => 1,
-              'english' => 1
+              'english' => 1,
+              'last' => 1
            ]
       ]);
     }

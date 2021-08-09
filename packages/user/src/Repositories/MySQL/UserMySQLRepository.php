@@ -61,6 +61,12 @@ class UserMySQLRepository extends MySQLRepository implements UserRepositoryInter
       {
           $atack = $atack + $stage_atack;
           $defense = $defense + $stage_defense;
+          if ($atack > 100) {
+            $atack = 100;
+          }
+          if ($defense > 100) {
+            $defense = 100;
+          }
           $this->db->table('user_info')->where('email', $this->email)->update(['atack' => $atack, 'defense' => $defense]);
       }
 
@@ -79,9 +85,15 @@ class UserMySQLRepository extends MySQLRepository implements UserRepositoryInter
           $user_lv = $this->getUserInfomation()[0]->level;
           $all_ex = $user_ex + $update_ex;
           $lv_ex = $this->getLevelEx($user_lv);
+          if ($user_lv == 20) {
+            return;
+          }
           if ($all_ex >= $lv_ex) {
             $user_lv += 1;
             $ex = $all_ex - $lv_ex;
+            if ($user_lv == 20) {
+              $ex = 0;
+            }
             $this->db->table('user_info')->where('email', $this->email)->update(['level' => $user_lv, 'experience' => $ex]);
           } else {
             $this->db->table('user_info')->where('email', $this->email)->update(['experience' => $all_ex]);

@@ -76,12 +76,15 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['middleware' => ['auth']], function () {
   Route::get('/math', "DanjonController@danjon1");
-  Route::get('/english', "DanjonController@danjon2");
+  Route::get('/english', "DanjonController@danjon2")->name('english');
+  Route::get('/last', "DanjonController@last")->name('last');
   Route::get('/hometown', "DanjonController@danjon3");
   Route::get('/english/{level}', "TextController@englishindex");
   Route::post('/english/1-1', "TextController@update");
   Route::get('/math/{level}', "TextController@index");
   Route::post('/math/1-1', "TextController@update");
+  Route::get('/last/{level}', "TextController@lastIndex");
+  Route::post('/last/1-1', "TextController@update");
   Route::get('/english/{level}/practice', "TextController@praEnglishIndex");
   Route::post('/english/practice', "TextController@praceticeUpdate");
   Route::get('/words', "DanjonController@wordsIndex");
@@ -98,6 +101,9 @@ Route::group(['middleware' => ['auth']], function () {
 
 Route::get('/account', "DataController@index");
 Route::post('/account', "DataController@store");
+Route::get('/explain', "DataController@explain");
+Route::post('/explain', "DataController@explainpost");
 Route::get('/experience', "DanjonController@experience");
 Route::get('/experience/1-0', "TextController@experienceStage");
 Route::post('/experience/1-0', "TextController@experienceBack");
+Route::get("/messageData", "Api\DataApiController@messageList");

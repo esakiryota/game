@@ -30,6 +30,12 @@ class StageMySQLRepository extends MySQLRepository implements StageRepositoryInt
         return $sql;
     }
 
+    public function getLastStage(string $level) {
+      $sql = $this->db->table('last_stages')
+                ->where('level', $level)->get();
+      return $sql;
+    }
+
     public function getMain(string $stagename)
     {
         $sql = $this->db->table('main')
@@ -49,6 +55,15 @@ class StageMySQLRepository extends MySQLRepository implements StageRepositoryInt
     public function getEnglishStageArray(int $stage_max)
     {
         $sql = $this->db->table('english_stage')
+                ->where('stage_id', '<=' , $stage_max)->get();
+        $sql = json_decode(json_encode($sql), true);
+        $sql = array_reverse($sql);
+        return $sql;
+    }
+
+    public function getLastStageArray(int $stage_max)
+    {
+        $sql = $this->db->table('last_stages')
                 ->where('stage_id', '<=' , $stage_max)->get();
         $sql = json_decode(json_encode($sql), true);
         $sql = array_reverse($sql);

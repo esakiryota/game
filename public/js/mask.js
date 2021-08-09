@@ -1,12 +1,29 @@
 (function(){
   'use strict'
-
-  var hukidasi = document.getElementById('hukidasi');
-  var tmp = document.getElementById('tmp');
-  var display = document.getElementById('display');
   var mask = document.getElementById('mask');
 
-  mask.textContent = "OK"
+  mask.innerHTML = `
+  <div style="width: 100vw; height: 100vh; background-color: rgba(0, 0, 0, 0.7); position: absolute; top: 0;"></div> 
+  <div class="container my-5">
+    <div class="row">
+      <div class="col text-center"><img id="explain_tmp"></div>
+    </div>
+  </div>
+  <div class="container  fixed-bottom my-2">
+    <div class="row mr-2">
+      <div class="col-10">
+        <div class="card" style="height: 6rem;">
+          <div class="card-body" id="hukidasi" style="font-family: 'Fira Sans'; color: black;"></div>
+        </div>
+      </div>
+      <div class="col-2"><img src="/img/face2.png" class="" width="80px" height="80px"></div>
+    </div>
+  </div>
+  `
+  
+  var hukidasi = document.getElementById('hukidasi');
+  var explain_tmp = document.getElementById('explain_tmp');
+  var display = document.getElementById('display');
 
   var serif = null;
 
@@ -49,18 +66,18 @@
       };
     }, 50);
     if (serif[nowserif].image !== "") {
-      tmp.src = serif[nowserif].image;
-      tmp.classList.add('w-50');
-      tmp.classList.add('border');
+      explain_tmp.src = serif[nowserif].image;
+      explain_tmp.classList.add('w-50');
+      explain_tmp.classList.add('border');
     } else {
-      tmp.src = "";
+      explain_tmp.src = "";
     }
   }
 
   function btn() {
     hukidasi.addEventListener('click', function() {
       if (nowserif === serif.length-1) {
-        display.submit();
+        mask.remove();
       };
       if(nowserif === serif[nowserif].message.length-1){
         return;

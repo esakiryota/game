@@ -22,7 +22,7 @@
         src: url(/font/GD-DOTFONT-DQ-TTF_008.ttf);
       }
       body {
-        background-image: url(/img/battle-back-marin.jpg);
+        background-image: url(/img/last_bg.png);
         background-repeat: no-repeat;
         background-attachment: fixed;
         background-size:  600px;
@@ -36,7 +36,7 @@
         z-index:-1;
         width:100vw;
         height:100vh;
-        background:url(/img/battle-back-marin.jpg) center no-repeat;
+        background:url(/img/last_bg.png) center no-repeat;
         background-size:cover;
 }
 
@@ -125,7 +125,7 @@
         <div class="container fixed-top py-2" id="back">
           <div class="row py">
             <!-- <div class="questions col-2 text-center my-1" id=""><img src="/img/candle0.png" class="w-100" id="afuro"></div> -->
-            <div class="questions col text-center my-1" id=""><img class="" id="afuro" width="300px"></div>
+            <div class="questions col text-center my-3" id=""><img class="" id="afuro" width="500px"></div>
             <!-- <div class="questions col-2 text-center my-1" id=""><img src="/img/candle0.png" class="w-50" id="afuro"></div> -->
           </div>
           <!-- <div class="box" id="meter1" style="margin: auto;   width:30%; height:30px; background:linear-gradient(to bottom, #99ccff, #0059b3);border-radius:5%;"></div> -->

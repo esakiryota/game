@@ -1,4 +1,4 @@
-@extends('layouts.english')
+@extends('layouts.last')
 @section('js')
 <script>
 (function(){
@@ -269,7 +269,7 @@
 </script>
 @endsection
 @section('form')
-  <form action="/english/1-1" method="post" id="display">
+  <form action="/last/1-1" method="post" id="display">
     {{ csrf_field() }}
   <input id="input" type="hidden" name="score">
   <input id="input_damage" type="hidden" name="damage" value="{{$damage}}">
