@@ -1,9 +1,10 @@
 (function(){
   'use strict'
   var mask = document.getElementById('mask');
+  var message_id = document.getElementById('message_id');
 
   mask.innerHTML = `
-  <div style="width: 100vw; height: 100vh; background-color: rgba(0, 0, 0, 0.7); position: absolute; top: 0;"></div> 
+  <div style="width: 100vw; height: 100vh; background-color: rgba(0, 0, 0, 0.7); position: absolute; top: 0;"></div>
   <div class="container my-5">
     <div class="row">
       <div class="col text-center"><img id="explain_tmp"></div>
@@ -20,7 +21,7 @@
     </div>
   </div>
   `
-  
+
   var hukidasi = document.getElementById('hukidasi');
   var explain_tmp = document.getElementById('explain_tmp');
   var display = document.getElementById('display');
@@ -30,7 +31,7 @@
   $(function(){
   $.ajax({
     type: "get", //HTTP通信の種類
-    url:'/messageData', //通信したいURL
+    url:`/messageData/${message_id.value}`, //通信したいURL
     dataType: 'json'
   })
   .done((data)=>{

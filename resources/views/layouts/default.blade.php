@@ -12,7 +12,7 @@
     <style>
     @font-face {
       font-family: 'Myfont';
-      src: url(/font/GD-DOTFONT-DQ-TTF_008.ttf);
+      src: url(/font/RocknRollOne-Regular.ttf);
     }
     body {
       font-family: 'Myfont';

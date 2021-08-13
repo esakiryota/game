@@ -19,7 +19,9 @@
 </div>
 <div class="container">
   <div class="row mx-2">
-    <div class="col font-weight-bold" style="font-size: 40px"><a href="/explain" class="text-light"><img src="/img/icon-book.png"> まちにかえる</a></div>
+    <div class="col font-weight-bold" style="font-size: 40px"><a class="text-light" href="{{ route('logout') }}"
+       onclick="event.preventDefault();
+                     document.getElementById('logout-form').submit();"><img src="/img/icon-book.png"> まちにかえる</a></div>
   </div>
 </div>
 <div class="container">
@@ -29,7 +31,7 @@
 </div>
 <div class="container">
   <div class="row mx-2">
-    <div class="col font-weight-bold" style="font-size: 40px"><a href="/explain_web" class="text-light"><img src="/img/icon-mail.png"> サイトせつめい</a></div>
+    <div class="col font-weight-bold" style="font-size: 40px"><a href="/explain_web" class="text-light" ><img src="/img/icon-mail.png"> サイトせつめい</a></div>
   </div>
 </div>
 <!-- The core Firebase JS SDK is always required and must be listed first -->
@@ -41,6 +43,11 @@
 <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-database.js"></script>
 <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-firestore.js"></script>
 
+<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+    @csrf
+</form>
+
 <!-- <script src="/js/firebaseapp.js">
 </script> -->
+
 @endsection

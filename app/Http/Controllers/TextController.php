@@ -3,9 +3,21 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use User\Repositories\UserRepositoryInterface;
+use Stage\Repositories\EnemiesRepositoryInterface;
 
 class TextController extends Controller
 {
+
+  public function __construct(
+    UserRepositoryInterface $userRepository,
+    EnemiesRepositoryInterface $enemyRepository
+    )
+   {
+      $this->userRepository = $userRepository;
+      $this->enemyRepository = $enemyRepository;
+   }
+
     public function index($level){
 
       $url = user_chara()[0]->image;
@@ -29,7 +41,9 @@ class TextController extends Controller
       $stage_lv = english_stage_info($level);
       $question_array = engQuestion($level);
 
-      $enemy_atacks = "img/enemy_atack";
+      $enemy = $this->enemyRepository->getEnemyAtack($stage_lv[0]->image);
+
+      $enemy_atacks = $enemy[0]->action;
       $path= public_path($enemy_atacks);
       $files = \File::files($path);
       $image_list = [];
@@ -39,7 +53,30 @@ class TextController extends Controller
         $i++;
      }
 
-      return view('english.startenglish', compact("sql", "url", "tech", "damage", "image", "stage_lv", "question_array", "image_list"));
+     // var_dump($image_list);
+     // exit();
+
+      $user_atacks = $image;
+      $atack_path= public_path($user_atacks);
+      $atack_files = \File::files($atack_path);
+      $atack_image_list_sub = [];
+      $i = 0;
+      foreach ($atack_files as $v) {
+        $atack_image_list_sub[$i] = $v->getfileName();
+        $i++;
+     }
+
+      natsort($atack_image_list_sub);
+
+      $atack_image_list = [];
+      $i = 0;
+
+      foreach ($atack_image_list_sub as $v) {
+        $atack_image_list[$i] = $v;
+        $i++;
+     }
+
+      return view('english.startenglish', compact("sql", "url", "tech", "damage", "image", "stage_lv", "question_array", "image_list", "atack_image_list", "enemy_atacks", "user_atacks"));
     }
 
     public function lastIndex($level){
@@ -52,7 +89,37 @@ class TextController extends Controller
       $stage_lv = last_stage_info($level);
       $question_array = lastQuestion();
 
-      return view('last.last_stage', compact("sql", "url", "tech", "damage", "image", "stage_lv", "question_array"));
+      $enemy_atacks = "img/beam";
+      $path= public_path($enemy_atacks);
+      $files = \File::files($path);
+      $image_list = [];
+      $i = 0;
+      foreach ($files as $v) {
+        $image_list[$i] = $v->getfileName();
+        $i++;
+     }
+
+     $user_atacks = "img/atack_animation/a_5";
+     $atack_path= public_path($user_atacks);
+     $atack_files = \File::files($atack_path);
+     $atack_image_list_sub = [];
+     $i = 0;
+     foreach ($atack_files as $v) {
+       $atack_image_list_sub[$i] = $v->getfileName();
+       $i++;
+    }
+
+     natsort($atack_image_list_sub);
+
+     $atack_image_list = [];
+     $i = 0;
+
+     foreach ($atack_image_list_sub as $v) {
+       $atack_image_list[$i] = $v;
+       $i++;
+    }
+
+      return view('last.last_stage', compact("sql", "url", "tech", "damage", "image", "stage_lv", "question_array", "image_list", "atack_image_list"));
     }
 
     public function praEnglishIndex($level){
@@ -75,6 +142,7 @@ class TextController extends Controller
     }
 
     public function update(Request $request) {
+      $user_pre_stage = $this->userRepository->getUserStage();
       $atack = user_info()[0]->atack;
       $defense = user_info()[0]->defense;
       $stage_atack = $request->stage_atack;
@@ -88,6 +156,18 @@ class TextController extends Controller
       $stage_max = user_stage()[0][$stage_lv_str[1]];
       $stage_id = $request->stage_id;
       updateStage($stage_max, $stage_id, $stage_lv_str[1]);
+      $user_stage = $this->userRepository->getUserStage();
+
+      if ($user_pre_stage[0]["english"] == 20 && $user_stage[0]["english"] == 21) {
+        // var_dump($user_pre_stage[0]["english"], $user_stage[0]["english"]);
+        // exit();
+        return redirect(route('english'))->with(['message_id' => '2']);
+      }
+      if ($user_pre_stage[0]["last"] == 3 && $user_stage[0]["last"] == 4) {
+        // var_dump($user_pre_stage[0]["english"], $user_stage[0]["english"]);
+        // exit();
+        return redirect(route('last'))->with(['message_id' => '3']);
+      }
       return redirect($url);
     }
 

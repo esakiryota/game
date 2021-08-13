@@ -13,12 +13,9 @@ class DataApiController extends Controller
     $this->messageRepository = $messageRepository;
   }
 
-  public function messageList(Request $request) {
-    $stage = 'explain';
+  public function messageList(Request $request, $stage) {
     $messageList = $this->messageRepository->getMessages($stage);
     $messageList = json_decode(json_encode($messageList), true);
-    // var_dump($messageList);
-    // exit();
     return response()->json($messageList);
   }
 }

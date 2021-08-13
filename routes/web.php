@@ -106,4 +106,12 @@ Route::post('/explain', "DataController@explainpost");
 Route::get('/experience', "DanjonController@experience");
 Route::get('/experience/1-0', "TextController@experienceStage");
 Route::post('/experience/1-0', "TextController@experienceBack");
-Route::get("/messageData", "Api\DataApiController@messageList");
+Route::get("/messageData/{stage}", "Api\DataApiController@messageList");
+Route::get("/pipo_animation", function() {
+  return view("tools.pipo_animation");
+})->name('pipo_animation');
+Route::post("/pipo_animation", "DataController@pipoAnimation");
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

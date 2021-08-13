@@ -221,35 +221,62 @@
       display.submit();
     })
   };
-
+  var atack_image_list = @json($atack_image_list);
   function majicDamage() {
     majic_icon.addEventListener('click', function() {
       if (majic_icon.classList.contains('hidden')) {
         return;
       };
-      setTimeout(meter, 1000, damager)
+      setTimeout(meter, 50*atack_image_list.length, damager)
       majic_icon.classList.add('hidden');
       afuro.classList.add('buruburu');
-      majic_image.innerHTML = `<img src=${url} width="300px">`;
+
+      var long = atack_image_list.length;
+      var l = 1;
+
+      var animation_timer = setInterval(function(){
+        var pre_id = atack_image_list[l-1]
+        var id = atack_image_list[l]
+        if (l >= atack_image_list.length-1) {
+          $(`#atack_${l}`).removeClass('hidden');
+          clearInterval(animation_timer);
+        }
+        $(`#atack_${l-1}`).addClass('hidden');
+        $(`#atack_${l}`).removeClass('hidden');
+        l++;
+      }, 50)
+
       setTimeout(function() {
         majic_image.classList.add('hidden');
         afuro.classList.remove('buruburu');
-      }, 1000);
+      }, 50*atack_image_list.length);
     })
   }
 
+  var image_list = @json($image_list);
+
   function enemyAtack() {
     $('#enemy_atack').removeClass('hidden0');
-    $('#enemy_atack').append("<img src='/img/enemy_atack3.gif' id='atack_img'>");
+    var l = 1;
+    var long = image_list.length;
+
+    var animation_timer = setInterval(function(){
+      var pre_id = image_list[l-1]
+      var id = image_list[l]
+      if (l >= image_list.length-1) {
+        $(`#${l}`).removeClass('hidden');
+        clearInterval(animation_timer);
+      }
+      $(`#${l-1}`).addClass('hidden');
+      $(`#${l}`).removeClass('hidden');
+      l++;
+    }, 50)
     var j = 0;
     var timerId = setInterval(function(){
       j++;
-      var opa = 0.9 - j/10;
+      var opa = 0.9 - j/long;
       $('#enemy_atack').css('background-color', `rgba(255, 0, 0, ${opa})`);
-      if(j>4.5){
-        $('#enemy_atack').empty();
-      }
-      if(j > 10) {
+      if(j > long) {
         clearInterval(timerId);
         $('#enemy_atack').addClass('hidden0');
         timer_ber = timer_ber - 18;

@@ -117,15 +117,23 @@
     </style>
 
     <body>
-      <div class="hidden0" id="enemy_atack" style="width: 100%; height: 100%; position: fixed; z-index: 2147483647;">
-        <!-- <img src="/img/enemy_atack3.gif" alt=""> -->
+      <div class="hidden0" id="enemy_atack" style="width: 100%; height: 100%; position: fixed; z-index: 2147483647; text-align: center;">
+        @foreach($image_list as $key => $value)
+        <img class="hidden" width="600px" src='/img/beam/{{ $value }}' id='{{ $key }}' style="
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%)">
+        @endforeach
       </div>
       <main>
       <div class="container">
         <div class="container fixed-top mt-5" id="back">
           <div class="row py">
             <!-- <div class="questions col-2 text-center my-1" id=""><img src="/img/candle0.png" class="w-100" id="afuro"></div> -->
-            <div class="questions col text-center mt-3" id=""><img class="" id="afuro" width="100%" height="100%" style="max-width: 533px; max-height: 250px; "></div>
+            <div class="questions col text-center mt-3" id=""><img class="" id="afuro" width="100%" height="100%" style="max-width: 600px; max-height: 400px; "></div>
             <!-- <div class="questions col-2 text-center my-1" id=""><img src="/img/candle0.png" class="w-50" id="afuro"></div> -->
           </div>
           <!-- <div class="box" id="meter1" style="margin: auto;   width:30%; height:30px; background:linear-gradient(to bottom, #99ccff, #0059b3);border-radius:5%;"></div> -->
@@ -147,11 +155,19 @@
           </div>
         </div>
       </div>
-      <div class="conteiner">
-        <div class="conteiner fixed-top py-4">
-          <div class="row py-1">
-            <div id="majic_image" class="questions col text-center my-4"></div>
+      <div class="container fixed-top">
+        <div class="row">
+          <div class="col-4"></div>
+          <div id="majic_image" class="questions col-4 text-center">
+            @foreach($atack_image_list as $key => $value)
+            <img id="atack_{{$key}}" class="hidden" src="/img/atack_animation/a_5/{{ $value }}" width="600px;;" style="
+            position: absolute;
+            top: 50%;
+            left:50%;
+            transform: translate(-50%, 0%);">
+            @endforeach
           </div>
+          <div class="col-12"></div>
         </div>
       </div>
       <div class="container fixed-top mt-5">

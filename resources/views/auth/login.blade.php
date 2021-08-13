@@ -1,14 +1,20 @@
-@extends('layouts.app')
+@extends('layouts.default')
 
 @section('content')
-<div class="container">
+<div class="container" style="
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+-webkit-transform: translate(-50%, -50%);
+-ms-transform: translate(-50%, -50%)"
+>
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('ログイン') }}</div>
+            <div class="card" style="box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);">
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}">
+                    <form class="" method="POST" action="{{ route('login') }}">
                         @csrf
 
                         <div class="form-group row">
@@ -53,12 +59,12 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-dark">
                                     {{ __('ログイン') }}
                                 </button>
 
                                 @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
+                                    <a class="btn btn-link" href="{{ route('password.request') }}" style="color: black">
                                         {{ __('パスワードを忘れましたか？') }}
                                     </a>
                                 @endif

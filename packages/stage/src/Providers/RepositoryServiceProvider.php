@@ -8,6 +8,8 @@ use Stage\Repositories\MySQL\EnglishWordsMySQLRepository;
 use Stage\Repositories\MySQL\StageMySQLRepository;
 use Stage\Repositories\MySQL\MessagesMySQLRepository;
 use Stage\Repositories\MessagesRepositoryInterface;
+use Stage\Repositories\MySQL\EnemiesMySQLRepository;
+use Stage\Repositories\EnemiesRepositoryInterface;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -23,6 +25,7 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(StageRepositoryInterface::class, StageMySQLRepository::class);
         $this->app->bind(EnglishWordsRepositoryInterface::class, EnglishWordsMySQLRepository::class);
         $this->app->bind(MessagesRepositoryInterface::class, MessagesMySQLRepository::class);
+        $this->app->bind(EnemiesRepositoryInterface::class, EnemiesMySQLRepository::class);
     }
 
     /**

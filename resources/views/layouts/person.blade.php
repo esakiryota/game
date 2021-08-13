@@ -12,7 +12,7 @@
     <style>
     @font-face {
       font-family: 'Myfont';
-      src: url(/font/GD-DOTFONT-DQ-TTF_008.ttf);
+      src: url(/font/RocknRollOne-Regular.ttf);
     }
     body {
       font-family: 'Myfont';
@@ -33,23 +33,12 @@
       }
       header {
         content:"";
-        /* display:block; */
-        /* position:fixed; */
-        /* top:0;
-        left:0;
-        z-index:-1; */
-        /* width:100vw; */
-        /* height:100vh; */
         background:url(/img/status_field3.png) no-repeat;
         background-size:100% 100%;
       }
       #main {
         color: @yield('main-color');
       }
-      /* .modal-body {
-    max-height:400px;
-    overflow-y: auto;
-} */
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
     color: #fff;
     background-color: rgba(0, 0, 0, 0.1);
@@ -59,7 +48,17 @@
   background-color: gray;
 }
 .bottombar:hover {
-  background-color: gray;
+  background-color: rgba(128, 128, 128, 0.3);
+}
+@media screen and (max-width: 800px) {
+	#right-nav {
+    display: none;
+  }
+}
+@media screen and (min-width: 800px) {
+	#bottom-nav {
+    display: none;
+  }
 }
 
 </style>
@@ -139,7 +138,11 @@
             <a href="/hometown" style="color: black;"><div class="" style="font-size: 20px; position: absolute; top: 120px; left: 70%;">くんれんのまち</div></a>
             <a href="/math" style="color: black;"><div class="" style="font-size: 20px; position: absolute; top: 150px; left: 10%;">さんすうのゆきやま</div></a>
             <a href="/start" style="color: black;"><div class="" style="font-size: 20px; position: absolute; top: 160px; left: 50%;">はじまりのむら</div></a>
+            @if (isset($stage_max))
+            @if($stage_max >= 21)
             <a href="/last" style="color: black;"><div class="" style="font-size: 20px; position: absolute; top: 270px; left: 50%;">さいごのしま</div></a>
+            @endif
+            @endif
       </div>
    </div>
   </div>
@@ -148,22 +151,40 @@
   </main>
   @if (Auth::check())
   <footer>
+    <nav class='d-flex' style="box-shadow: 0px 0px 10px rgba(50, 50, 50, 0.5); background-color: rgba(0,0,0,0.9); position: fixed; top: 0; right: 0; border-bottom-left-radius: 20px;">
+    <ul class="nav justify-content-end" id="right-nav">
+      <li class="nav-item bottombar px-3" ontouchstart>
+        <!-- <a class="nav-link"　data-toggle="modal" data-target="#exampleModalCenter"><img src="/img/icon-map.png"></a> -->
+        <a class="nav-link"  data-toggle="modal" data-target="#exampleModalCenter"><img src="/img/skyport.gif" width="30px"><br>いどう</a>
+      </li>
+      <li  class="nav-item bottombar px-3" ontouchstart>
+        <a @if ($flag == 'wordsIndex') class="nav-link active" @else class="nav-link" @endif href="/words"><img src="/img/icon-book.png" width="30px"><br><span style="color: white;">ずかん</span></a>
+      </li>
+      <li class="nav-item bottombar px-3" ontouchstart>
+        <a class="nav-link" @if ($flag == 'experience') style="background-color: rgba(128, 128, 128, 0.3)" @else  @endif  href="/hometown"><img src="/img/sord0.png" width="30px"><br><span style="color: white;">くんれん</span></a>
+      </li>
+
+      <li class="nav-item bottombar px-3" ontouchstart>
+       <a class="nav-link" @if ($flag == 'english') style="background-color: rgba(128, 128, 128, 0.3)" @endif 　href="/hometown"><img src="/img/icon-map.png" width="30px"><br>まち</a>
+      </li>
+</ul>
+</nav>
     <!-- <div > -->
-      <nav class='fixed-bottom' style="background-color: white; box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);">
+      <nav class='fixed-bottom' style="box-shadow: 0px 0px 10px rgba(50, 50, 50, 0.5); background-color: rgba(0,0,0,0.9)" id="bottom-nav">
       <ul class="nav nav-pills nav-fill">
    <li class="nav-item bottombar" ontouchstart>
      <!-- <a class="nav-link"　data-toggle="modal" data-target="#exampleModalCenter"><img src="/img/icon-map.png"></a> -->
-     <a class="nav-link"  data-toggle="modal" data-target="#exampleModalCenter" style="color: black;"><img src="/img/skyport.gif" width="30px"><br>いどう</a>
+     <a class="nav-link"  data-toggle="modal" data-target="#exampleModalCenter"><img src="/img/skyport.gif" width="30px"><br>いどう</a>
    </li>
    <li  class="nav-item bottombar" ontouchstart>
-     <a @if ($flag == 'wordsIndex') class="nav-link active" @else class="nav-link" @endif href="/words"　style="color: black;"><img src="/img/icon-book.png" width="30px"><br><span style="color: black;">ずかん</span></a>
+     <a @if ($flag == 'wordsIndex') class="nav-link active" @else class="nav-link" @endif href="/words"><img src="/img/icon-book.png" width="30px"><br><span style="color: white;">ずかん</span></a>
    </li>
    <li class="nav-item bottombar" ontouchstart>
-     <a @if ($flag == 'experience') class="nav-link active" @else class="nav-link" @endif  href="/hometown" style="color: black;"><img src="/img/sord0.png" width="30px"><br>くんれん</a>
+     <a class="nav-link" @if ($flag == 'experience') style="background-color: rgba(128, 128, 128, 0.3)" @else  @endif  href="/hometown"><img src="/img/sord0.png" width="30px"><br><span style="color: white;">くんれん</span></a>
    </li>
 
    <li class="nav-item bottombar" ontouchstart>
-    <a @if ($flag == 'english') class="nav-link active" @else class="nav-link" @endif 　href="/hometown"　style="color: black;" ><img src="/img/icon-map.png" width="30px"><br><span style="color: black;">まち</span></a>
+    <a class="nav-link" @if ($flag == 'english') style="background-color: rgba(128, 128, 128, 0.3)" @endif 　href="/hometown"><img src="/img/icon-map.png" width="30px"><br>まち</a>
    </li>
  </ul>
      </nav>
@@ -189,8 +210,9 @@
 
     <script src="/js/person.js">
     </script>
+    @if (session('message_id') != null)
     <div class="mask" id="mask" style="position: fixed; top: 0; z-index: 21000000;"></div>
-    @if (session('init') == "init")
+    <input type="hidden" name="message_id" value="{{ session('message_id') }}" id="message_id">
     <script src="/js/mask.js">
     </script>
     @endif
