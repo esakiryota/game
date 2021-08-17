@@ -39,9 +39,9 @@
       <div class="card mb-3" style="max-width: 540px;" id="charaA">
       <div class="row no-gutters">
       <div class="col-5 col-md-12">
-        <img src="/img/characters/charaA-1.png" width="200px" height="200px" style="max-height: 200px;">
+        <img src="/img/characters/charaA-1.png" style="position: relative; bottom: 0; left: 0; max-height: 200px; width: 100%; max-width: 200px;">
       </div>
-      <div class="col-7 col-md-12">
+      <div class="col-7 col-md-12 ">
         <div class="card-body">
           <h5 class="card-title">村人A</h5>
           <p class="card-text">まほうつかいきぼう<br>きがつよいせいかく<br>まけずぎらい</p>
@@ -54,12 +54,12 @@
       <div class="card mb-3" style="max-width: 540px;">
       <div class="row no-gutters">
         <div class="col-5 col-md-12">
-        <img src="/img/characters/charaB-1.png" width="200px" height="200px" style="max-height: 200px;" id="charaA">
+        <img src="/img/characters/charaB-1.png" style="position: relative; bottom: 0; left: 0; max-height: 200px; width: 100%;  max-width: 200px;">
       </div>
       <div class="col-7 col-md-12">
         <div class="card-body">
           <h5 class="card-title">村人B</h5>
-          <p class="card-text">ソードマスターきぼう<br>あたまがいい<br>つねにれいせい</p>
+          <p class="card-text" >かくとうかきぼう<br>リーダーシップがある<br>ゆうきがある</p>
         </div>
       </div>
       </div>
@@ -69,12 +69,12 @@
       <div class="card mb-3" style="max-width: 540px;">
       <div class="row no-gutters">
       <div class="col-5 col-md-12">
-        <img src="/img/characters/charaC-1.png" width="200px" height="200px" style="max-height: 200px;" id="charaA">
+        <img src="/img/characters/charaC-1.png" style="position: relative; bottom: 0; left: 0; max-height: 200px; width: 100%; max-width: 200px;">
       </div>
-      <div class="col-7 col-md-12">
+      <div class="col-7 col-md-12 ">
         <div class="card-body">
           <h5 class="card-title">村人C</h5>
-          <p class="card-text">かくとうかきぼう<br>リーダーシップがある<br>ゆうきがある</p>
+          <p class="card-text">ソードマスターきぼう<br>あたまがいい<br>つねにれいせい</p>
         </div>
       </div>
       </div>
