@@ -13,9 +13,11 @@ class AddLastToUserStageTable extends Migration
      */
     public function up()
     {
+      if (!Schema::hasTable('user_stage')) {
         Schema::table('user_stage', function (Blueprint $table) {
             $table->integer('last');
         });
+      }
     }
 
     /**
@@ -25,8 +27,8 @@ class AddLastToUserStageTable extends Migration
      */
     public function down()
     {
-        Schema::table('user_stage', function (Blueprint $table) {
-            $table->integer('last');
-        });
+        // Schema::table('user_stage', function (Blueprint $table) {
+        //     $table->integer('last');
+        // });
     }
 }

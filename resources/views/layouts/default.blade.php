@@ -39,7 +39,7 @@
      <h2 style="font-size: 80px; font-weight: bold;">@yield('person')</h2>
      </div>
   </header>
-  <main class="text-light">
+  <main class="text">
     @yield('header')
   </main>
   <footer>

@@ -22,20 +22,29 @@
 
     @font-face {
       font-family: 'Myfont';
-      src: url(/font/GD-DOTFONT-DQ-TTF_008.ttf);
+      src: url(/font/Triforce-y07d.ttf);
+    }
+
+    @font-face {
+      font-family: 'Second font';
+      src: url(/font/RocknRollOne-Regular.ttf);
     }
 
   #dannjon {
-    font-size: 45px;
+    font-size: 60px;
     font-family: 'Myfont';
   }
   #sub {
-    font-size: 27px;
+    font-size: 35px;
     font-family: 'Myfont';
   }
   #login, #start {
-    font-size: 27px;
-    font-family: 'Myfont';
+    font-size: 15px;
+    font-family: 'Second font';
+  }
+
+  p:hover {
+    color: gray;
   }
 
 
@@ -45,20 +54,44 @@
   <body>
     <div class="conteiner fixed-top my-5">
       <div class="row mt-5 pt-5">
-        <div class="col text-center mt-5" id="dannjon">スマートダンジョン</div>
+        <div class="col text-center mt-5" id="dannjon">Smart danjon</div>
       </div>
       <div class="row">
-        <div class="col text-center" id="sub">ーけんじゃへのみちー</div>
+        <div class="col text-center" id="sub">- road of smarter -</div>
       </div>
       <div class="row">
-        <div class="col text-center mt-3" id="login"><a href="/math" class="text-light">ぼうけん</a></div>
+        <div class="col text-center mt-3" id="login">
+          <div class="box" style="position: relative;">
+            <a href="/english" style="color: black;">
+            <img src="/img/index_btn.png" width="100px"alt="" class="img">
+            <p style="
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            -webkit-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%)">ぼうけん</p>
+          </a>
+          </div>
+          <!-- <a href="/math" class="text-light">ぼうけん<img src="/img/index_btn.png" width="100px"></a> -->
+        </div>
       </div>
       <div class="row">
-        <div class="col text-center" id="start"><a href="/start" class="text-light">はじめて</a></div>
+        <div class="col text-center mt-3" id="login">
+        <div class="box" style="position: relative;">
+          <img src="/img/index_btn.png" width="100px"alt="" class="img">
+          <a href="/start" style="color: black;">
+          <p style="
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          -webkit-transform: translate(-50%, -50%);
+          -ms-transform: translate(-50%, -50%)">はじめて</p>
+        </a>
+        </div>
       </div>
-      <div class="row">
-        <div class="col text-center" id="start"><a href="/import" class="text-light">システム</a></div>
-      </div>
+    </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>

@@ -29,6 +29,6 @@ class CreateEnemiesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('enemies');
+        // Schema::dropIfExists('enemies');
     }
 }

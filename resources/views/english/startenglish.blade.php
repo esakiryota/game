@@ -179,7 +179,7 @@
         i = 0;
       };
       if (life < 1) {
-        bone.classList.remove('hidden');
+        bone.classList.remove('hidden0');
         afuro.classList.add('hidden');
         clearInterval(timerId2);
         timer.innerHTML = "";
@@ -224,14 +224,16 @@
   };
 
   var atack_image_list = @json($atack_image_list);
+  var skill_card = document.getElementById('skill_card');
+
 
   function majicDamage() {
     majic_icon.addEventListener('click', function() {
-      if (majic_icon.classList.contains('hidden')) {
+      if (skill_card.classList.contains('disable')) {
         return;
       };
       setTimeout(meter, 50*atack_image_list.length, damager)
-      majic_icon.classList.add('hidden');
+      skill_card.classList.add('disable');
       afuro.classList.add('buruburu');
 
       var long = atack_image_list.length;
@@ -269,24 +271,25 @@
       if (l >= image_list.length) {
         $(`#${l}`).removeClass('hidden');
         clearInterval(animation_timer);
+        $('#enemy_atack').addClass('hidden0');
       }
       $(`#${l-1}`).addClass('hidden');
       $(`#${l}`).removeClass('hidden');
+      var opa = 0.9 - l/long;
+      $('#enemy_atack').css('background-color', `rgba(255, 0, 0, ${opa})`);
       l++;
     }, 50)
     var j = 0;
+    var damaged = 20;
     var timerId = setInterval(function(){
       j++;
-      var opa = 0.9 - j/long;
-      $('#enemy_atack').css('background-color', `rgba(255, 0, 0, ${opa})`);
-      if(j > long) {
+      timer_ber -= 1;
+      $('#timer').width(`${timer_ber}%`);
+      if(j > damaged) {
         clearInterval(timerId);
-        $('#enemy_atack').addClass('hidden0');
-        timer_ber = timer_ber - 18;
         i += en/5
-        $('#timer').width(`${timer_ber}%`);
       }
-    }, 100)
+    }, 10)
   }
 
   set();

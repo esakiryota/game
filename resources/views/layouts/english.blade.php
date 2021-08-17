@@ -19,13 +19,14 @@
       } */
       @font-face {
         font-family: 'Myfont';
-        src: url(/font/GD-DOTFONT-DQ-TTF_008.ttf);
+        src: url(/font/RocknRollOne-Regular.ttf);
       }
       body {
         background-image: url(/img/battle-back-marin.jpg);
         background-repeat: no-repeat;
         background-attachment: fixed;
         background-size:  600px;
+        font-family: 'Myfont';
       }
       body:before{
         content:"";
@@ -55,6 +56,10 @@
       }
       .answers {
         font-size: 25px;
+      }
+
+      .disable {
+        background-color: gray;
       }
       /* .answers:active {
         color: gray;
@@ -110,9 +115,15 @@
         }
         #clear_modal {
           background:url(/img/after_battle.png) center no-repeat;
-          background-size:cover;
+          background-size:　cover;
+          /* background-color: rgba(0, 0, 0, 0.1); */
           height: 280px;
           font-family: 'Myfont';
+          color: white;
+        }
+
+        .modal_btn:hover {
+          background-color: gray;
         }
     </style>
 
@@ -172,11 +183,7 @@
         </div>
       <div class="container fixed-top mt-5">
         <div class="row mt-5">
-          <a class="questions col text-center mt-5" data-toggle="modal" data-target="#exampleModalCenter"><img src="/img/rotate-guard.gif" class="hidden" id="bone" width="100px" height="100px"></a>
-        </div>
-          <div class="row">
-            <div class="col-4" style="font-family: 'Myfont'; font-size: 50px; font-weight: bold;"><img src="/img/majic-icon0.png" width="100px"  id="majic_icon"></div>
-            <div class="col-8" style="font-family: 'Myfont'; font-size: 50px; font-weight: bold;"></div>
+          <a class="questions col text-center mt-5" data-toggle="modal" data-target="#exampleModalCenter"><img src="/img/rotate-guard.gif" class="hidden0" id="bone" width="100px" height="100px"></a>
         </div>
       </div>
     </main>
@@ -215,10 +222,10 @@
       </div>
     </div>
   </div>
-  <div class="col-6">
-    <div class="card cards" ontouchstart>
+  <div class="col-6" id="majic_icon">
+    <div class="card cards" id="skill_card" ontouchstart>
       <div class="card-body answers text-center" style="font-size: 15px;">
-        わからない
+        <img src="/img/skill_word.png" height="25px">
       </div>
     </div>
   </div>
@@ -230,38 +237,38 @@
     </div>
     <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
+        <div class="modal-content" style="background-color: rgba(0,0,0,0)">
           <div class="modal-body" id="clear_modal">
             <div class="" id="modal_1"  style="">
-              <div class="">
+              <div class="" style="font-size: 20px;">
                 こうげきが <span id="ko_spa"></span> あがった<br>
                 ぼうぎょが <span id="bo_spa"></span> あがった<br>
                 けいけんちが <span id="ex_spa"></span> あがった
               </div>
               <div class="" id="next_btn" style="position: absolute; top: 80%; left: 40%">
-                つぎにすすむ
+                <button type="button" name="button" class="modal_btn">次に進む</button>
               </div>
             </div>
             <div class="" id="modal_2" style="">
-              <div class="" style="position: absolute; top: 5%;">
+              <div class="" style="position: absolute; top: 5%; font-size: 30px;">
                 てきににげられた。
               </div>
               @if (Auth::check())
-              <a href="{{$stage_lv[0]->url}}" style="color: black; text-decoration: none;">
-                <div class="" id="replay_btn" style="position: absolute; top: 80%; left: 40%">
-                  もういちどたたかう
+              <a href="{{$stage_lv[0]->url}}" style="color: white; text-decoration: none;">
+                <div class="" id="replay_btn" style="position: absolute; top: 80%; left: 20%;">
+                  <button type="button" name="button" class="modal_btn">もういちどたたかう</button>
                 </div>
                 </a>
               @else
-              <a href="/experience/1-0" style="color: black; text-decoration: none;">
-                <div class="" id="replay_btn" style="position: absolute; top: 80%; left: 40%">
-                  もういちどたたかう
+              <a href="/experience/1-0" style="color: white; text-decoration: none;">
+                <div class="" id="replay_btn" style=" position: absolute; top: 80%; left: 0">
+                  <button type="button" name="button" class="modal_btn">もういちどたたかう</button>
                 </div>
                 </a>
               @endif
-              <a href="/experience" style="color: black; text-decoration: none;">
+              <a href="/experience" style="color: white; text-decoration: none;">
                 <div class="" id="back_btn" style="position: absolute; top: 80%; left: 70%">
-                もどる
+                   <button type="button" name="button" class="modal_btn">戻る</button>
                 </div>
               </a>
             </div>

@@ -60,7 +60,7 @@ class DanjonController extends Controller
     $user_ex = $sql[0]->experience;
     $user_lv = $sql[0]->level;
     $lv_ex = $this->userRepository->getLevelEx($user_lv);
-    $ex_value = $user_ex/$lv_ex;
+    $ex_value = ($user_ex/$lv_ex)*200;
     $flag = "english";
 
 

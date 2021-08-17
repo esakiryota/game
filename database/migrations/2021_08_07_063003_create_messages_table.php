@@ -13,6 +13,7 @@ class CreateMessagesTable extends Migration
      */
     public function up()
     {
+      if (!Schema::hasTable('messages')) {
         Schema::create('messages', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('message');
@@ -21,6 +22,7 @@ class CreateMessagesTable extends Migration
             $table->string('speaker');
             $table->timestamps();
         });
+      }
     }
 
     /**
@@ -30,6 +32,6 @@ class CreateMessagesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('messages');
+        // Schema::dropIfExists('messages');
     }
 }

@@ -13,6 +13,7 @@ class CreateEnglishwordTable extends Migration
      */
     public function up()
     {
+      if (!Schema::hasTable('englishword')) {
         Schema::create('englishword', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('english');
@@ -20,6 +21,7 @@ class CreateEnglishwordTable extends Migration
             $table->string('level');
             $table->timestamps();
         });
+      }
     }
 
     /**
@@ -29,6 +31,6 @@ class CreateEnglishwordTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('englishword');
+        // Schema::dropIfExists('englishword');
     }
 }

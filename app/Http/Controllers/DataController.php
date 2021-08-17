@@ -22,7 +22,7 @@ class DataController extends Controller
       $user_info = new User_info;
       $user = Auth::user();
       $email = $user->email;
-      $user_info->name = $request->name;
+      $user_info->name = $user->name;
       $user_info->level = 1;
       $user_info->atack = 50;
       $user_info->defense = 50;

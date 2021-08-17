@@ -4,20 +4,39 @@
   var message_id = document.getElementById('message_id');
 
   mask.innerHTML = `
-  <div style="width: 100vw; height: 100vh; background-color: rgba(0, 0, 0, 0.7); position: absolute; top: 0;"></div>
-  <div class="container my-5">
+  <div style="width: 100vw; height: 100vh; background-color: rgba(0, 0, 0, 0.9); position: absolute; top: 0;"></div>
+  <img id="explain_tmp" width="50%" style="position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  max-height: 300px;
+  max-width: 400px;">
+  <div class="container" style="position: fixed; bottom: 0; left: 0;">
     <div class="row">
-      <div class="col text-center"><img id="explain_tmp"></div>
-    </div>
-  </div>
-  <div class="container  fixed-bottom my-2">
-    <div class="row mr-2">
-      <div class="col-10">
-        <div class="card" style="height: 6rem;">
-          <div class="card-body" id="hukidasi" style="font-family: 'Fira Sans'; color: black;"></div>
-        </div>
+      <div class="col-12">
+        <!-- <div class="card" style="height: 6rem;">
+          <div class="card-body" id="hukidasi" style="font-family: 'Myfont'; color: black;"></div>
+        </div> -->
+        <img src="/img/parts/text_box.png" style="width: 90vw; height: 20vh;">
+        <p style="
+        position: absolute;
+        top: 10%;
+        left: 10%;
+        right: 10%"
+        >
+        アーサー
+        </p>
+        <p id="hukidasi" style="
+        position: absolute;
+        top: 40%;
+        left: 10%;
+        right: 10%"
+        ></p>
+            <img src="/img/face2.png" style="position: absolute; top: -10vh; right: 10%; height: 15vh">
       </div>
-      <div class="col-2"><img src="/img/face2.png" class="" width="80px" height="80px"></div>
+      <!-- <div class="col-2"><img src="/img/face2.png" class="" width="80px" height="80px"></div> -->
     </div>
   </div>
   `
