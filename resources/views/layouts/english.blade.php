@@ -183,7 +183,7 @@
         </div>
       <div class="container fixed-top mt-5">
         <div class="row mt-5">
-          <a class="questions col text-center mt-5" data-toggle="modal" data-target="#exampleModalCenter"><img src="/img/rotate-guard.gif" class="hidden0" id="bone" width="100px" height="100px"></a>
+          <a class="questions col text-center mt-5" data-toggle="modal" data-target="#exampleModalCenter"><img src="/img/cristal.gif" class="hidden0" id="bone" width="100px" height="100px"></a>
         </div>
       </div>
     </main>

@@ -39,7 +39,7 @@
       <div class="card mb-3" style="max-width: 540px;" id="charaA">
       <div class="row no-gutters">
       <div class="col-5 col-md-12">
-        <img src="/img/characters/1116010401.png" width="200px" height="200px" style="max-height: 200px;">
+        <img src="/img/characters/charaA-1.png" width="200px" height="200px" style="max-height: 200px;">
       </div>
       <div class="col-7 col-md-12">
         <div class="card-body">
@@ -54,7 +54,7 @@
       <div class="card mb-3" style="max-width: 540px;">
       <div class="row no-gutters">
         <div class="col-5 col-md-12">
-        <img src="/img/characters/1177010401.png" width="200px" height="200px" style="max-height: 200px;" id="charaA">
+        <img src="/img/characters/charaB-1.png" width="200px" height="200px" style="max-height: 200px;" id="charaA">
       </div>
       <div class="col-7 col-md-12">
         <div class="card-body">
@@ -69,7 +69,7 @@
       <div class="card mb-3" style="max-width: 540px;">
       <div class="row no-gutters">
       <div class="col-5 col-md-12">
-        <img src="/img/characters/1288010401.png" width="200px" height="200px" style="max-height: 200px;" id="charaA">
+        <img src="/img/characters/charaC-1.png" width="200px" height="200px" style="max-height: 200px;" id="charaA">
       </div>
       <div class="col-7 col-md-12">
         <div class="card-body">
