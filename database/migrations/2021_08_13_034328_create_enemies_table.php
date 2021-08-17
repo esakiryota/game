@@ -13,6 +13,7 @@ class CreateEnemiesTable extends Migration
      */
     public function up()
     {
+      if (!Schema::hasTable('enemies')) {
         Schema::create('enemies', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('enemy');
@@ -20,6 +21,7 @@ class CreateEnemiesTable extends Migration
             $table->string('sound');
             $table->timestamps();
         });
+        if (!Schema::hasTable('messages')) {
     }
 
     /**
