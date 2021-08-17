@@ -21,7 +21,7 @@ class CreateEnemiesTable extends Migration
             $table->string('sound');
             $table->timestamps();
         });
-        if (!Schema::hasTable('messages')) {
+      }
     }
 
     /**
