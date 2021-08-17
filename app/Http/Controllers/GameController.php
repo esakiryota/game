@@ -12,7 +12,8 @@ class GameController extends Controller
     }
 
     public function start() {
-      return view('hello.start');
+      $message_id = '4';
+      return view('hello.start', compact('message_id'));
     }
 
     public function explainWeb() {

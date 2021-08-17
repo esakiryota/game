@@ -70,6 +70,10 @@
     }, 3)
   }
 
+  var atack_sound = new Audio("/sound/action_sounds/default.mp3");
+  atack_sound.preload = "auto";
+  atack_sound.load();
+
   afuro.src = stage_image.value;
 
   var questions = @json($question_array);
@@ -92,6 +96,8 @@
   var correctQuestion = shuffle(questions);
 
   var hidden = function() {
+    atack_sound.pause();
+    atack_sound.currentTime = 0;
     image.classList.add('hidden');
     afuro.classList.remove('buruburu');
     set();
@@ -120,6 +126,7 @@
       return;
     }
     if (node.textContent === correctQuestion[nowQuestion].a[0]){
+      atack_sound.play();
       score += 10
       setTimeout(meter, 500, level1);
       image.classList.remove('hidden');
@@ -259,11 +266,16 @@
   }
 
   var image_list = @json($image_list);
+  var enemy_sound = @json($enemy_sound);
+  var enemy_atack_sound = new Audio(enemy_sound);
+  enemy_atack_sound.preload = "auto";
+  enemy_atack_sound.load();
 
   function enemyAtack() {
     $('#enemy_atack').removeClass('hidden0');
     var l = 1;
     var long = image_list.length;
+    enemy_atack_sound.play();
 
     var animation_timer = setInterval(function(){
       var pre_id = image_list[l-1]
@@ -271,6 +283,8 @@
       if (l >= image_list.length) {
         $(`#${l}`).removeClass('hidden');
         clearInterval(animation_timer);
+        enemy_atack_sound.pause();
+        enemy_atack_sound.currentTime = 0;
         $('#enemy_atack').addClass('hidden0');
       }
       $(`#${l-1}`).addClass('hidden');

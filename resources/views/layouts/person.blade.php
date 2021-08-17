@@ -268,15 +268,17 @@ $(".position-marker").hover(function() {
 })
 })
     </script>
-
-    <!-- <script src="/js/person.js">
-    </script> -->
-    @if (session('message_id') != null)
-    <div class="mask" id="mask" style="position: fixed; top: 0; z-index: 21000000;"></div>
-    <input type="hidden" name="message_id" value="1" id="message_id">
+@if (session('message_id') != null)
+    <div class="mask" style="position: fixed; top: 0; z-index: 21000000;">
+      <div class="mask" style="width: 100vw; height: 100vh; background-color: rgba(0, 0, 0, 0.9); position: absolute; top: 0;"></div>
+      <div id="mask">
+      </div>
+    </div>
+    <input type="hidden" name="message_id" value="{{ session('message_id')}}" id="message_id">
     <script src="/js/mask.js">
     </script>
-    @endif
+@endif
+
 
 
 

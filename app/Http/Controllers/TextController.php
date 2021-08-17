@@ -44,6 +44,8 @@ class TextController extends Controller
       $enemy = $this->enemyRepository->getEnemyAtack($stage_lv[0]->image);
 
       $enemy_atacks = $enemy[0]->action;
+      $enemy_sound = $enemy[0]->sound;
+
       $path= public_path($enemy_atacks);
       $files = \File::files($path);
       $image_list = [];
@@ -76,7 +78,9 @@ class TextController extends Controller
         $i++;
      }
 
-      return view('english.startenglish', compact("sql", "url", "tech", "damage", "image", "stage_lv", "question_array", "image_list", "atack_image_list", "enemy_atacks", "user_atacks"));
+      return view('english.startenglish', compact("sql", "url", "tech", "damage", "image",
+      "stage_lv", "question_array", "image_list", "atack_image_list", "enemy_atacks",
+      "user_atacks", "enemy_sound"));
     }
 
     public function lastIndex($level){

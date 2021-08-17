@@ -2,9 +2,9 @@
   'use strict'
   var mask = document.getElementById('mask');
   var message_id = document.getElementById('message_id');
+  var masks = document.getElementsByClassName('mask');
 
   mask.innerHTML = `
-  <div style="width: 100vw; height: 100vh; background-color: rgba(0, 0, 0, 0.9); position: absolute; top: 0;"></div>
   <img id="explain_tmp" width="50%" style="position: fixed;
   top: 50%;
   left: 50%;
@@ -19,8 +19,9 @@
         <!-- <div class="card" style="height: 6rem;">
           <div class="card-body" id="hukidasi" style="font-family: 'Myfont'; color: black;"></div>
         </div> -->
-        <img src="/img/parts/text_box.png" style="width: 90vw; height: 20vh;">
+        <img src="/img/parts/text_box.png" style="width: 90vw; height: 20vh;" id="card">
         <p style="
+        color: white;
         position: absolute;
         top: 10%;
         left: 10%;
@@ -29,6 +30,7 @@
         アーサー
         </p>
         <p id="hukidasi" style="
+        color: white;
         position: absolute;
         top: 40%;
         left: 10%;
@@ -44,6 +46,24 @@
   var hukidasi = document.getElementById('hukidasi');
   var explain_tmp = document.getElementById('explain_tmp');
   var display = document.getElementById('display');
+  var card = document.getElementById('card');
+  var audio = document.getElementById('audio');
+  var message_sound = new Audio("/sound/system_sounds/messages.mp3");
+  var click_sound = new Audio("/sound/system_sounds/click2.mp3");
+  message_sound.preload = "auto";
+  message_sound.load();
+  message_sound.loop = true;
+
+  var click_audio = document.getElementsByClassName('click_audio');
+
+  for (var i = 0; i < click_audio.length; i++) {
+    click_audio[i].addEventListener('click', function() {
+      click_sound.play();
+    })
+  }
+
+
+
 
   var serif = null;
 
@@ -59,15 +79,12 @@
     serif = data;
   })
   .then((serif)=>{
-    setserif()
+    setserif();
   })
   .fail((error)=>{
     console.log(error.statusText)
   })
 });
-
-
-
 
   var moji = [];
   var nowserif = 0;
@@ -82,6 +99,8 @@
       hukidasi.textContent += hitomoji;
       i += 1;
       if (i === len-1) {
+        message_sound.pause();
+        message_sound.currentTime = 0;
         clearInterval();
       };
     }, 50);
@@ -95,9 +114,14 @@
   }
 
   function btn() {
-    hukidasi.addEventListener('click', function() {
+    card.addEventListener('click', function() {
       if (nowserif === serif.length-1) {
-        mask.remove();
+        for (var i = 0; i < masks.length; i++) {
+          message_sound.pause();
+          message_sound.currentTime = 0;
+          masks[i].remove();
+        }
+        return;
       };
       if(nowserif === serif[nowserif].message.length-1){
         return;
@@ -105,9 +129,10 @@
       if (hukidasi.textContent !== serif[nowserif].message ) {
         return;
       }
-        nowserif += 1;
-        hukidasi.textContent = '';
-        setserif();
+      message_sound.play();
+      nowserif += 1;
+      hukidasi.textContent = '';
+      setserif();
     });
   }
   btn()
