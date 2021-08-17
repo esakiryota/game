@@ -43,7 +43,6 @@
     @yield('header')
   </main>
   <footer>
-    <button type="hidden" name="button" id="audio"></button>
   </footer>
 
 
