@@ -13,19 +13,20 @@
   -ms-transform: translate(-50%, -50%);
   max-height: 300px;
   max-width: 400px;">
-  <div class="container" style="position: fixed; bottom: 0; left: 0;">
+
+  <div class="container" style="position: fixed; bottom: 0; left: 0; " id="card">
     <div class="row">
       <div class="col-12">
         <!-- <div class="card" style="height: 6rem;">
           <div class="card-body" id="hukidasi" style="font-family: 'Myfont'; color: black;"></div>
         </div> -->
-        <img src="/img/parts/text_box.png" style="width: 90vw; height: 20vh;" id="card">
+        <button type="button" style="position: absolute; top: 70%; left: 70%;font-size: 10px;" id="skip">SKIP>></button>
+        <img src="/img/parts/text_box.png" style="width: 90vw; height: 20vh;">
         <p style="
         color: white;
         position: absolute;
         top: 10%;
-        left: 10%;
-        right: 10%"
+        left: 10%;"
         >
         アーサー
         </p>
@@ -48,21 +49,7 @@
   var display = document.getElementById('display');
   var card = document.getElementById('card');
   var audio = document.getElementById('audio');
-  var message_sound = new Audio("/sound/system_sounds/messages.mp3");
-  var click_sound = new Audio("/sound/system_sounds/click2.mp3");
-  message_sound.preload = "auto";
-  message_sound.load();
-  message_sound.loop = true;
-
-  var click_audio = document.getElementsByClassName('click_audio');
-
-  for (var i = 0; i < click_audio.length; i++) {
-    click_audio[i].addEventListener('click', function() {
-      click_sound.play();
-    })
-  }
-
-
+  var skip = document.getElementById('skip');
 
 
   var serif = null;
@@ -117,8 +104,6 @@
     card.addEventListener('click', function() {
       if (nowserif === serif.length-1) {
         for (var i = 0; i < masks.length; i++) {
-          message_sound.pause();
-          message_sound.currentTime = 0;
           masks[i].remove();
         }
         return;
@@ -129,11 +114,19 @@
       if (hukidasi.textContent !== serif[nowserif].message ) {
         return;
       }
-      message_sound.play();
       nowserif += 1;
       hukidasi.textContent = '';
       setserif();
     });
   }
+
+  function skipBtn() {
+    skip.addEventListener('click', function() {
+      for (var i = 0; i < masks.length; i++) {
+        masks[i].remove();
+      }
+    })
+  }
+  skipBtn();
   btn()
 })();

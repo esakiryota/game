@@ -22,7 +22,7 @@
       <div class="row mb-4 bg-light py-4 mx-2">
         <div class="col">
             このゲームは主に英単語の勉強を楽しくできるようにするために作成させていただきました。
-            楽しんでいただけると嬉しいです。
+            楽しんでいただけると嬉しいです。今の英単語レベルは英語の海というステージで中学一年生レベルです。
         </div>
       </div>
       <div class="row bg-light pt-4 mx-2">
@@ -47,7 +47,7 @@
     </div>
     <div class="row text-center my-5">
       <div class="col text-muted">
-        サイト管理人 江崎亮太
+        サイト管理人 ryota
       </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

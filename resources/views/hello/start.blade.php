@@ -12,24 +12,29 @@
 <link href="https://fonts.googleapis.com/css?family=Kosugi+Maru|Press+Start+2P|Sawarabi+Gothic&display=swap" rel="stylesheet">
 <div class="container">
   <div class="row mx-2 mb-3 click_audio">
-    <div class="col font-weight-bold" style="font-size: 25px"><a href="/experience" class="text-light"><img src="/img/icon-yumi.png"> たいけん</a></div>
+    <div class="col font-weight-bold" style="font-size: 25px"><a href="/experience" class="text-light"><img src="/img/icons/ico_controller1_5.gif"> たいけん</a></div>
   </div>
 </div>
 <div class="container">
   <div class="row mx-2 mb-3 click_audio">
     <div class="col font-weight-bold" style="font-size: 25px"><a class="text-light" href="{{ route('logout') }}"
        onclick="event.preventDefault();
-                     document.getElementById('logout-form').submit();"><img src="/img/icon-book.png"> まちにかえる</a></div>
+                     document.getElementById('logout-form').submit();"><img src="/img/icons/house_5.gif"> まちにかえる</a></div>
   </div>
 </div>
 <div class="container">
   <div class="row mx-2 mb-3 click_audio">
-    <div class="col font-weight-bold" style="font-size: 25px"><a href="/register" class="text-light"><img src="/img/icon-hat.png"> ぼうけんにでる</a></div>
+    <div class="col font-weight-bold" style="font-size: 25px"><a href="/register" class="text-light"><img src="/img/icons/space_earth.gif"> ぼうけんにでる</a></div>
   </div>
 </div>
 <div class="container">
   <div class="row mx-2 mb-3 click_audio">
-    <div class="col font-weight-bold" style="font-size: 25px"><a href="/explain_web" class="text-light" ><img src="/img/icon-mail.png"> サイトせつめい</a></div>
+    <div class="col font-weight-bold" style="font-size: 25px"><a href="/explain_web" class="text-light" ><img src="/img/icons/sketchbook.gif"> サイトせつめい</a></div>
+  </div>
+</div>
+<div class="container">
+  <div class="row mx-2 mb-3 click_audio">
+    <div class="col font-weight-bold" style="font-size: 25px"><a href="/contact" class="text-light" ><img src="/img/icons/kami_airplane.gif"> お問い合わせ</a></div>
   </div>
 </div>
 <!-- The core Firebase JS SDK is always required and must be listed first -->

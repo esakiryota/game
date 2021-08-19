@@ -177,7 +177,37 @@ class TextController extends Controller
 
     public function experienceStage() {
       $question_array = engQuestion('1-1');
-      return view('experience.experience_stage', compact("question_array"));
+      $image_list =
+      $user_atacks = "img/atack_animation/a_1";
+      $atack_path= public_path($user_atacks);
+      $atack_files = \File::files($atack_path);
+      $atack_image_list_sub = [];
+      $i = 0;
+      foreach ($atack_files as $v) {
+        $atack_image_list_sub[$i] = $v->getfileName();
+        $i++;
+     }
+
+      natsort($atack_image_list_sub);
+
+      $atack_image_list = [];
+      $i = 0;
+
+      foreach ($atack_image_list_sub as $v) {
+        $atack_image_list[$i] = $v;
+        $i++;
+     }
+
+     $enemy_atacks = "img/atack_animation/enemy_atack_1";
+     $path= public_path($enemy_atacks);
+     $files = \File::files($path);
+     $image_list = [];
+     $i = 0;
+     foreach ($files as $v) {
+       $image_list[$i] = $v->getfileName();
+       $i++;
+    }
+      return view('experience.experience_stage', compact("question_array", "image_list", "atack_image_list", "enemy_atacks", "user_atacks"));
     }
 
     public function experienceBack() {

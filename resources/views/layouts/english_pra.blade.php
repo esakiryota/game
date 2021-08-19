@@ -19,13 +19,14 @@
       } */
       @font-face {
         font-family: 'Myfont';
-        src: url(/font/GD-DOTFONT-DQ-TTF_008.ttf);
+        src: url(/font/RocknRollOne-Regular.ttf);
       }
       body {
         background-image: #ddd url(/img/tougijo640.jpg) no-repeat center center;
         background-size: cover;
         background-repeat: no-repeat;
         background-attachment: fixed;
+        font-family: 'Myfont';
       }
       body:before{
         content:"";

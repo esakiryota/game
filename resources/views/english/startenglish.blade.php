@@ -70,10 +70,6 @@
     }, 3)
   }
 
-  var atack_sound = new Audio("/sound/action_sounds/default.mp3");
-  atack_sound.preload = "auto";
-  atack_sound.load();
-
   afuro.src = stage_image.value;
 
   var questions = @json($question_array);
@@ -96,8 +92,6 @@
   var correctQuestion = shuffle(questions);
 
   var hidden = function() {
-    atack_sound.pause();
-    atack_sound.currentTime = 0;
     image.classList.add('hidden');
     afuro.classList.remove('buruburu');
     set();
@@ -126,7 +120,6 @@
       return;
     }
     if (node.textContent === correctQuestion[nowQuestion].a[0]){
-      atack_sound.play();
       score += 10
       setTimeout(meter, 500, level1);
       image.classList.remove('hidden');
@@ -134,7 +127,8 @@
       afuro.classList.add('buruburu');
       nowQuestion += 1;
     } else {
-      enemyAtack();
+      var fl = enemyAtack();
+      setTimeout(enemy_danaged, fl);
       nowQuestion += 1;
     };
     if (life > 1) {
@@ -266,16 +260,11 @@
   }
 
   var image_list = @json($image_list);
-  var enemy_sound = @json($enemy_sound);
-  var enemy_atack_sound = new Audio(enemy_sound);
-  enemy_atack_sound.preload = "auto";
-  enemy_atack_sound.load();
 
   function enemyAtack() {
     $('#enemy_atack').removeClass('hidden0');
     var l = 1;
     var long = image_list.length;
-    enemy_atack_sound.play();
 
     var animation_timer = setInterval(function(){
       var pre_id = image_list[l-1]
@@ -283,8 +272,6 @@
       if (l >= image_list.length) {
         $(`#${l}`).removeClass('hidden');
         clearInterval(animation_timer);
-        enemy_atack_sound.pause();
-        enemy_atack_sound.currentTime = 0;
         $('#enemy_atack').addClass('hidden0');
       }
       $(`#${l-1}`).addClass('hidden');
@@ -293,6 +280,13 @@
       $('#enemy_atack').css('background-color', `rgba(255, 0, 0, ${opa})`);
       l++;
     }, 50)
+
+    var function_length = long*50;
+
+    return function_length
+  }
+
+  var enemy_danaged = function() {
     var j = 0;
     var damaged = 20;
     var timerId = setInterval(function(){
@@ -303,7 +297,7 @@
         clearInterval(timerId);
         i += en/5
       }
-    }, 10)
+    }, 10);
   }
 
   set();
