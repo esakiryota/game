@@ -4,7 +4,8 @@
     <meta charset="utf-8">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>ダンジョン</title>
+    <title>EiDan</title>
+    <link rel="shortcut icon" href="/img/icons/favicon.ico">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <style media="screen">
     body:before{
@@ -54,7 +55,7 @@
   <body>
     <div class="conteiner fixed-top my-5">
       <div class="row mt-5 pt-5">
-        <div class="col text-center mt-5" id="dannjon">Smart danjon</div>
+        <div class="col text-center mt-5" id="dannjon">Eitan danjon</div>
       </div>
       <div class="row">
         <div class="col text-center" id="sub">- road of smarter -</div>

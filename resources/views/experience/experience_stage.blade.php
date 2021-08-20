@@ -127,7 +127,8 @@
       afuro.classList.add('buruburu');
       nowQuestion += 1;
     } else {
-      enemyAtack();
+      var fl = enemyAtack();
+      setTimeout(enemy_danaged, fl);
       nowQuestion += 1;
     };
     if (life > 1) {
@@ -279,6 +280,15 @@
       $('#enemy_atack').css('background-color', `rgba(255, 0, 0, ${opa})`);
       l++;
     }, 50)
+
+    var function_length = long*50;
+
+    return function_length
+  }
+
+
+
+  var enemy_danaged = function() {
     var j = 0;
     var damaged = 20;
     var timerId = setInterval(function(){
@@ -289,7 +299,7 @@
         clearInterval(timerId);
         i += en/5
       }
-    }, 10)
+    }, 10);
   }
 
   set();

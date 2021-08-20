@@ -76,14 +76,14 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['middleware' => ['auth']], function () {
   Route::group(['middleware' => ['CheckUserInformation']], function() {
-    Route::get('/math', "DanjonController@danjon1");
+    // Route::get('/math', "DanjonController@danjon1");
     Route::get('/english', "DanjonController@danjon2")->name('english');
     Route::get('/last', "DanjonController@last")->name('last');
     Route::get('/hometown', "DanjonController@danjon3");
     Route::get('/english/{level}', "TextController@englishindex");
     Route::post('/english/1-1', "TextController@update");
-    Route::get('/math/{level}', "TextController@index");
-    Route::post('/math/1-1', "TextController@update");
+    // Route::get('/math/{level}', "TextController@index");
+    // Route::post('/math/1-1', "TextController@update");
     Route::get('/last/{level}', "TextController@lastIndex");
     Route::post('/last/1-1', "TextController@update");
     Route::get('/english/{level}/practice', "TextController@praEnglishIndex");

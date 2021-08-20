@@ -40,7 +40,7 @@ class DanjonController extends Controller
     $user_ex = $sql[0]->experience;
     $user_lv = $sql[0]->level;
     $lv_ex = $this->userRepository->getLevelEx($user_lv);
-    $ex_value = $user_ex/$lv_ex;
+    $ex_value = ($user_ex/$lv_ex)*200;
     $flag = "english";
 
 
@@ -83,7 +83,7 @@ class DanjonController extends Controller
     $user_ex = $sql[0]->experience;
     $user_lv = $sql[0]->level;
     $lv_ex = $this->userRepository->getLevelEx($user_lv);
-    $ex_value = $user_ex/$lv_ex;
+    $ex_value = ($user_ex/$lv_ex)*200;
     $flag = "experience";
 
 
@@ -102,7 +102,7 @@ class DanjonController extends Controller
     $user_ex = $sql[0]->experience;
     $user_lv = $sql[0]->level;
     $lv_ex = $this->userRepository->getLevelEx($user_lv);
-    $ex_value = $user_ex/$lv_ex;
+    $ex_value = ($user_ex/$lv_ex)*200;
     $flag = "english";
 
     return view('hello.danjon1', compact("sql", "url", "tech", "damage", "stage", "main", "ex_value", "stage_max", "flag"));
@@ -122,7 +122,7 @@ class DanjonController extends Controller
     $user_ex = $sql[0]->experience;
     $user_lv = $sql[0]->level;
     $lv_ex = $this->userRepository->getLevelEx($user_lv);
-    $ex_value = $user_ex/$lv_ex;
+    $ex_value = ($user_ex/$lv_ex)*200;
     $englishWords = $this->englishWordsRepository->getWords();
     $flag = "wordsIndex";
 
@@ -131,7 +131,7 @@ class DanjonController extends Controller
 
   public function experience(Request $request) {
     if (Auth::check()) {
-      return redirect('/math');
+      return redirect('/english');
     }
     return view('hello.experience');
   }

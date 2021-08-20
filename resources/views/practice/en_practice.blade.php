@@ -92,7 +92,7 @@
 
   function Answer(){
     var i;
-    for ( i = 0; i <= 2; i++){
+    for ( i = 0; i <= 3; i++){
       if(navigator.userAgent.match(/(iPhone|iPad|iPod|Android)/i)){
         answers[i].addEventListener('touchstart', function(){
           console.log("start");

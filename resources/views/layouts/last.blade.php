@@ -10,8 +10,9 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="shortcut icon" href="/img/icons/favicon.ico">
 </head>
-    <title>STUDY ROOM</title>
+    <title>EiDan</title>
     <style media="screen">
     /* #tabber {
       font-family: 'Press Start 2P', cursive;
@@ -250,20 +251,12 @@
               <div class="" style="position: absolute; top: 5%; font-size: 30px;">
                 てきににげられた。
               </div>
-              @if (Auth::check())
               <a href="{{$stage_lv[0]->url}}" style="color: white; text-decoration: none;">
                 <div class="" id="replay_btn" style="position: absolute; top: 80%; left: 20%;">
                   <button type="button" name="button" class="modal_btn">もういちどたたかう</button>
                 </div>
                 </a>
-              @else
-              <a href="/experience/1-0" style="color: white; text-decoration: none;">
-                <div class="" id="replay_btn" style=" position: absolute; top: 80%; left: 0">
-                  <button type="button" name="button" class="modal_btn">もういちどたたかう</button>
-                </div>
-                </a>
-              @endif
-              <a href="/experience" style="color: white; text-decoration: none;">
+              <a href="/last" style="color: white; text-decoration: none;">
                 <div class="" id="back_btn" style="position: absolute; top: 80%; left: 70%">
                    <button type="button" name="button" class="modal_btn">戻る</button>
                 </div>

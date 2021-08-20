@@ -7,7 +7,8 @@
     <link href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" rel="stylesheet">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <title>STUDY ROOM</title>
+    <link rel="shortcut icon" href="/img/icons/favicon.ico">
+    <title>EiDan</title>
     <style>
     @font-face {
       font-family: 'Myfont';
@@ -130,7 +131,7 @@
                 <p>こうげき: {{$sql[0]->atack}}   ぼうぎょ: {{$sql[0]->defense}}</p>
               </div>
               <div class="row">
-                <p>わざ：{{$tech}}<br>せつめい：てきに<span id="damager">{{$damage}}</span>のダメージ</p>
+                <p>スキル{{$tech}}<br>せつめい：てきに<span id="damager">{{$damage}}</span>のダメージ</p>
               </div>
 
             </div>
@@ -188,7 +189,6 @@
             </div>
           </a>
             <a href="/hometown" style="color: black;"><div class="" style="font-size: 20px; position: absolute; top: 120px; left: 70%;"><button type="button" id="" class="position-marker" data-toggle="tooltip" data-placement="right" title="くんれんのむら"></button></div></a>
-            <a href="/math" style="color: black;"><div class="" style="font-size: 20px; position: absolute; top: 150px; left: 35%;"><button type="button" id="" class="position-marker" data-toggle="tooltip" data-placement="right" title="さんすうのゆきやま"></button></div></a>
             <a href="/start" style="color: black;"><div class="" style="font-size: 20px; position: absolute; top: 160px; left: 50%;"><button type="button" id="" class="position-marker" data-toggle="tooltip" data-placement="right" title="はじまりのまち"></button></div></a>
             @if (isset($stage_max))
             @if($stage_max >= 21)

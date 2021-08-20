@@ -27,8 +27,9 @@
         position: absolute;
         top: 10%;
         left: 10%;"
+        id="name"
         >
-        アーサー
+
         </p>
         <p id="hukidasi" style="
         color: white;
@@ -37,7 +38,7 @@
         left: 10%;
         right: 10%"
         ></p>
-            <img src="/img/face2.png" style="position: absolute; top: -10vh; right: 10%; height: 15vh">
+            <img id="message_face" style="position: absolute; top: -10vh; right: 10%; height: 15vh">
       </div>
       <!-- <div class="col-2"><img src="/img/face2.png" class="" width="80px" height="80px"></div> -->
     </div>
@@ -50,6 +51,8 @@
   var card = document.getElementById('card');
   var audio = document.getElementById('audio');
   var skip = document.getElementById('skip');
+  var message_face = document.getElementById('message_face');
+  var name = document.getElementById('name');
 
 
   var serif = null;
@@ -70,6 +73,9 @@
   })
   .fail((error)=>{
     console.log(error.statusText)
+    for (var i = 0; i < masks.length; i++) {
+      masks[i].remove();
+    }
   })
 });
 
@@ -86,11 +92,13 @@
       hukidasi.textContent += hitomoji;
       i += 1;
       if (i === len-1) {
-        message_sound.pause();
-        message_sound.currentTime = 0;
         clearInterval();
       };
     }, 50);
+    console.log(serif[nowserif].speaker);
+    console.log(serif[nowserif].name);
+    name.textContent = serif[nowserif].name
+    message_face.src = serif[nowserif].speaker
     if (serif[nowserif].image !== "") {
       explain_tmp.src = serif[nowserif].image;
       explain_tmp.classList.add('w-50');

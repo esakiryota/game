@@ -11,7 +11,7 @@
       <div class="card-header" style="color: white;">
         Lv{{$key}}
       </div>
-      <ul class="list-group list-group-flush" style="font-family: italic; background-color: rgba(0,0,0,0.2);">
+      <ul class="list-group list-group-flush" style="font-family: 'Myfont'; background-color: rgba(0,0,0,0.2);">
         @foreach($array as $value)
         <li class="list-group-item" style="background-color: rgba(0,0,0,0.2); color: white;">{{$value->english}}: {{$value->japanese}}</li>
         @endforeach
