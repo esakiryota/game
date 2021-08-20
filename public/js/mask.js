@@ -73,9 +73,7 @@
   })
   .fail((error)=>{
     console.log(error.statusText)
-    for (var i = 0; i < masks.length; i++) {
-      masks[i].remove();
-    }
+    mask.remove();
   })
 });
 
@@ -87,6 +85,7 @@
     len = serif[nowserif].message.length;
     var i = 0;
     var str = serif[nowserif].message;
+    console.log(serif[nowserif]);
     setInterval(function() {
       var hitomoji = str.substr(i, 1);
       hukidasi.textContent += hitomoji;
@@ -104,7 +103,7 @@
       explain_tmp.classList.add('w-50');
       explain_tmp.classList.add('border');
     } else {
-      explain_tmp.src = "";
+      explain_tmp.classList.add('hidden0');
     }
   }
 
@@ -114,15 +113,16 @@
         for (var i = 0; i < masks.length; i++) {
           masks[i].remove();
         }
+        console.log('1');
         return;
       };
-      if(nowserif === serif[nowserif].message.length-1){
-        return;
-      }
       if (hukidasi.textContent !== serif[nowserif].message ) {
+        console.log('3');
         return;
       }
+      console.log('4');
       nowserif += 1;
+      console.log(nowserif);
       hukidasi.textContent = '';
       setserif();
     });
@@ -130,9 +130,7 @@
 
   function skipBtn() {
     skip.addEventListener('click', function() {
-      for (var i = 0; i < masks.length; i++) {
-        masks[i].remove();
-      }
+      mask.remove();
     })
   }
   skipBtn();
