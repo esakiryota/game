@@ -13,11 +13,9 @@ class AddNameToMessagesTable extends Migration
      */
     public function up()
     {
-      if (!Schema::hasTable('messages')) {
         Schema::table('messages', function (Blueprint $table) {
             $table->string('name');
         });
-      }
     }
 
     /**
