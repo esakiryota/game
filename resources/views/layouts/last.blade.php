@@ -13,6 +13,17 @@
     <link rel="shortcut icon" href="/img/icons/favicon.ico">
 </head>
     <title>EiDan</title>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    @if(env('APP_ENV') == 'production')
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4WGDPTQD3S"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-4WGDPTQD3S');
+    </script>
+    @endif
     <style media="screen">
     /* #tabber {
       font-family: 'Press Start 2P', cursive;

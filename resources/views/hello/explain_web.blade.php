@@ -3,9 +3,20 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>サイトについて</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="shortcut icon" href="/img/icons/favicon.ico">
+    <title>EiDan</title>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    @if(env('APP_ENV') == 'production')
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4WGDPTQD3S"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
+    gtag('config', 'G-4WGDPTQD3S');
+    </script>
+    @endif
   </head>
   <body>
     <div class="conteiner">
@@ -43,6 +54,51 @@
           <li>七三ゆきのアトリエ　https://nanamiyuki.com/</li>
           <li>白螺子屋　http://hi79.web.fc2.com/</li>
         </ul>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          プライバシーポリシー
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col"><h2>取得する個人情報の利用目的</h2></div>
+      </div>
+      <div class="row">
+        個人情報はアカウントを作成する際のメールアドレスのみ取得させていただきます。
+        利用目的はログインする際のアカウント取得、お問い合わせに対する返信です。
+      </div>
+      <div class="row">
+        <div class="col"><h2>個人情報の管理</h2></div>
+      </div>
+      <div class="row">
+        メールアドレスなどの漏洩のために、csrfトークンを発行し、セキュリティ対策を行っております。
+      </div>
+      <div class="row">
+        <div class="col"><h2>開示等の請求に応じる手続き</h2></div>
+      </div>
+      <div class="row">
+        個人情報の開示はメールアドレスのみなので基本的に行いません。
+      </div>
+      <div class="row">
+        <div class="col"><h2>第三者提供について</h2></div>
+      </div>
+      <div class="row">
+        個人情報の第三者への提供は行いません。
+      </div>
+      <div class="row">
+        <div class="col"><h2>お問い合わせ窓口</h2></div>
+      </div>
+      <div class="row">
+        お問い合わせページにいっていただければお問い合わせが可能となっています。
+      </div>
+      <div class="row">
+        <div class="col"><h2>サイト分析について</h2></div>
+      </div>
+      <div class="row">
+        このサイトはアクセス数分析のため、google analyticsを使用しています。
       </div>
     </div>
     <div class="row text-center my-5">
