@@ -139,7 +139,7 @@
     <body>
       <div class="hidden0" id="enemy_atack" style="width: 100%; height: 100%; position: fixed; z-index: 2147483647; text-align: center;">
         @foreach($image_list as $key => $value)
-        <img class="hidden" width="600px" src='/img/beam/{{ $value }}' id='{{ $key }}' style="
+        <img class="hidden" width="600px" src='{{ $enemy_atacks }}/{{ $value }}' id='{{ $key }}' style="
         position: absolute;
         top: 50%;
         left: 50%;
@@ -180,7 +180,7 @@
           <div class="col-4"></div>
           <div id="majic_image" class="questions col-4 text-center">
             @foreach($atack_image_list as $key => $value)
-            <img id="atack_{{$key}}" class="hidden" src="/img/atack_animation/a_5/{{ $value }}" width="600px;;" style="
+            <img id="atack_{{$key}}" class="hidden" src="{{ $user_atacks }}/{{ $value }}" width="600px;;" style="
             position: absolute;
             top: 50%;
             left:50%;
@@ -192,7 +192,7 @@
       </div>
       <div class="container fixed-top mt-5">
         <div class="row mt-5">
-          <a class="questions col text-center mt-5" data-toggle="modal" data-target="#exampleModalCenter"><img src="/img/rotate-guard.gif" class="hidden0" id="bone" width="100px" height="100px"></a>
+          <a class="questions col text-center mt-5" data-toggle="modal" data-target="#exampleModalCenter"><img src="/img/dark_cristal.gif" class="hidden0" id="bone" width="100px" height="100px"></a>
         </div>
       </div>
     </main>

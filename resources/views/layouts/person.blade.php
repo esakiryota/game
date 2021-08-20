@@ -228,7 +228,7 @@
       </li>
 
       <li class="nav-item bottombar px-3" ontouchstart>
-       <a class="nav-link" href="/start" style="color: white;"><img src="/img/icon-map.png" width="30px"><br>まち</a>
+       <a class="nav-link" href="/start" style="color: white;"><img src="/img/icons/house_5.gif" width="30px"><br>まち</a>
       </li>
 </ul>
 </nav>

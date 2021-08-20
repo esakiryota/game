@@ -93,7 +93,11 @@ class TextController extends Controller
       $stage_lv = last_stage_info($level);
       $question_array = lastQuestion();
 
-      $enemy_atacks = "img/beam";
+      $enemy = $this->enemyRepository->getEnemyAtack($stage_lv[0]->image);
+
+      $enemy_atacks = $enemy[0]->action;
+      $enemy_sound = $enemy[0]->sound;
+
       $path= public_path($enemy_atacks);
       $files = \File::files($path);
       $image_list = [];
@@ -103,7 +107,7 @@ class TextController extends Controller
         $i++;
      }
 
-     $user_atacks = "img/atack_animation/a_5";
+     $user_atacks = $image;
      $atack_path= public_path($user_atacks);
      $atack_files = \File::files($atack_path);
      $atack_image_list_sub = [];
@@ -123,7 +127,8 @@ class TextController extends Controller
        $i++;
     }
 
-      return view('last.last_stage', compact("sql", "url", "tech", "damage", "image", "stage_lv", "question_array", "image_list", "atack_image_list"));
+      return view('last.last_stage', compact("sql", "url", "tech", "damage", "image", "stage_lv", "question_array", "image_list", "atack_image_list", "enemy_atacks",
+      "user_atacks", "enemy_sound"));
     }
 
     public function praEnglishIndex($level){
