@@ -56,51 +56,53 @@
         </ul>
       </div>
     </div>
-    <div class="container">
-      <div class="row">
+      <div class="row pt-4 mx-2 bg-light">
         <div class="col">
-          プライバシーポリシー
+          <h2>プライバシーポリシー</h2>
         </div>
       </div>
-
-      <div class="row">
-        <div class="col"><h2>取得する個人情報の利用目的</h2></div>
+      <div class="row pt-4 bg-light py-4 mx-2">
+        <div class="col"><h4></h4></div>
+        <ul>
+          <li>取得する個人情報の利用目的</li>
+          <div class="row">
+            <div class="col">
+              個人情報はアカウントを作成する際のメールアドレスのみ取得させていただきます。
+              利用目的はログインする際のアカウント取得、お問い合わせに対する返信です。
+            </div>
+          </div>
+          <li>個人情報の管理</li>
+          <div class="row">
+            <div class="col">
+              メールアドレスなどの漏洩のために、csrfトークンを発行し、セキュリティ対策を行っております。
+            </div>
+          </div>
+          <li>開示等の請求に応じる手続き</li>
+          <div class="row">
+            <div class="col">
+              個人情報の開示はメールアドレスのみなので基本的に行いません。
+            </div>
+          </div>
+          <li>第三者提供について</li>
+          <div class="row">
+            <div class="col">
+              個人情報の第三者への提供は行いません。
+            </div>
+          </div>
+          <li>お問い合わせ窓口</li>
+          <div class="row">
+            <div class="col">
+              お問い合わせページにいっていただければお問い合わせが可能となっています。
+            </div>
+          </div>
+          <li>サイト分析について</li>
+          <div class="row">
+            <div class="col">
+              このサイトはアクセス数分析のため、google analyticsを使用しています。
+            </div>
+          </div>
+        </ul>
       </div>
-      <div class="row">
-        個人情報はアカウントを作成する際のメールアドレスのみ取得させていただきます。
-        利用目的はログインする際のアカウント取得、お問い合わせに対する返信です。
-      </div>
-      <div class="row">
-        <div class="col"><h2>個人情報の管理</h2></div>
-      </div>
-      <div class="row">
-        メールアドレスなどの漏洩のために、csrfトークンを発行し、セキュリティ対策を行っております。
-      </div>
-      <div class="row">
-        <div class="col"><h2>開示等の請求に応じる手続き</h2></div>
-      </div>
-      <div class="row">
-        個人情報の開示はメールアドレスのみなので基本的に行いません。
-      </div>
-      <div class="row">
-        <div class="col"><h2>第三者提供について</h2></div>
-      </div>
-      <div class="row">
-        個人情報の第三者への提供は行いません。
-      </div>
-      <div class="row">
-        <div class="col"><h2>お問い合わせ窓口</h2></div>
-      </div>
-      <div class="row">
-        お問い合わせページにいっていただければお問い合わせが可能となっています。
-      </div>
-      <div class="row">
-        <div class="col"><h2>サイト分析について</h2></div>
-      </div>
-      <div class="row">
-        このサイトはアクセス数分析のため、google analyticsを使用しています。
-      </div>
-    </div>
     <div class="row text-center my-5">
       <div class="col text-muted">
         サイト管理人 ryota
