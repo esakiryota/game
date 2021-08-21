@@ -126,10 +126,12 @@
       judge.classList.remove('hidden');
       afuro.classList.add('buruburu');
       nowQuestion += 1;
+      console.log(i);
     } else {
       var fl = enemyAtack();
       setTimeout(enemy_danaged, fl);
       nowQuestion += 1;
+      console.log(i);
     };
     if (life > 1) {
       setTimeout(hidden, 500);
@@ -158,13 +160,16 @@
 
   var modal_1 = document.getElementById('modal_1');
   var modal_2 = document.getElementById('modal_2');
-
+  // iは体力
   var i = 0;
 
   function Timer2() {
     var timerId2 = setInterval(function(){
       i+=0.1;
       // timer.textContent = en - i;
+      console.log(`timer:${i}`);
+      console.log(`timer:${timer_ber}`);
+
       timer_red = timer_red + timer_color_per;
       timer_blue = timer_blue +-timer_color_per;
       timer_ber = timer_ber - timer_per/10;
@@ -286,17 +291,21 @@
     return function_length
   }
 
+  console.log(en);
+
+
   var enemy_danaged = function() {
     var j = 0;
     var damaged = 20;
     var timerId = setInterval(function(){
+      if(j >= damaged-1) {
+        clearInterval(timerId);
+        //五回間違えたらアウト
+        i += en/5;
+      }
       j++;
       timer_ber -= 1;
       $('#timer').width(`${timer_ber}%`);
-      if(j > damaged) {
-        clearInterval(timerId);
-        i += en/5
-      }
     }, 10);
   }
 

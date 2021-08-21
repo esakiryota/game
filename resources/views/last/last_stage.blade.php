@@ -287,13 +287,14 @@
     var j = 0;
     var damaged = 20;
     var timerId = setInterval(function(){
+      if(j >= damaged-1) {
+        clearInterval(timerId);
+        //五回間違えたらアウト
+        i += en/5;
+      }
       j++;
       timer_ber -= 1;
       $('#timer').width(`${timer_ber}%`);
-      if(j > damaged) {
-        clearInterval(timerId);
-        i += en/5
-      }
     }, 10);
   }
 
