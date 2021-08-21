@@ -189,7 +189,7 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div> -->
-      <div class="modal-body" style="background:url(/img/start-bg-7.jpg) center; height: 500px;">
+      <div class="modal-body" style="background:url(/img/start-bg-7.jpg) center; height: 470px;">
         <!-- <h5 class="modal-title" id="exampleModalCenterTitle"><img src="/img/skyport.gif" width="50px"> </h5> -->
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
