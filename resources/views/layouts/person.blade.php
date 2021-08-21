@@ -195,15 +195,28 @@
           <span aria-hidden="true">&times;</span>
         </button>
           <a href="/english" style="color: black;">
-            <div class="mark" style="font-size: 20px; position: absolute; top: 40px;">
+            <div class="" style="font-size: 20px; position: absolute; top: 40px;">
               <button type="button" id="" class="position-marker" data-toggle="tooltip" data-placement="right" title="えいごのうみ"></button>
             </div>
           </a>
-            <a href="/hometown" style="color: black;"><div class="" style="font-size: 20px; position: absolute; top: 120px; left: 70%;"><button type="button" id="" class="position-marker" data-toggle="tooltip" data-placement="right" title="くんれんのむら"></button></div></a>
-            <a href="/start" style="color: black;"><div class="" style="font-size: 20px; position: absolute; top: 160px; left: 50%;"><button type="button" id="" class="position-marker" data-toggle="tooltip" data-placement="right" title="はじまりのまち"></button></div></a>
+            <a href="/hometown" style="color: black;">
+              <div class="" style="font-size: 20px; position: absolute; top: 120px; left: 70%;">
+                <button type="button" id="" class="position-marker" data-toggle="tooltip" data-placement="right" title="くんれんのむら">
+                </button>
+              </div>
+            </a>
+            <a href="/start" style="color: black;">
+              <div class="" style="font-size: 20px; position: absolute; top: 160px; left: 50%;">
+              <button type="button" id="" class="position-marker" data-toggle="tooltip" data-placement="right" title="はじまりのまち"></button>
+            </div>
+          </a>
             @if (isset($stage_max))
             @if($stage_max >= 21)
-            <a href="/last" style="color: black;"><div class="" style="font-size: 20px; position: absolute; top: 270px; left: 50%;"><button type="button" id="" class="position-marker" data-toggle="tooltip" data-placement="right" title="さいごのしま"></button></div></a>
+            <a href="/last" style="color: black;">
+              <div class="" style="font-size: 20px; position: absolute; top: 270px; left: 50%;">
+                <button type="button" id="" class="position-marker" data-toggle="tooltip" data-placement="right" title="さいごのしま"></button>
+              </div>
+            </a>
             @endif
             @endif
       </div>
