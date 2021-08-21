@@ -178,8 +178,11 @@ return [
         App\Providers\RepositoryServiceProvider::class,
         User\Providers\RepositoryServiceProvider::class,
         Stage\Providers\RepositoryServiceProvider::class,
+        App\Providers\SlackServiceProvider::class,
 
     ],
+
+    'slack_url' => env('SLACK_URL'),
 
     /*
     |--------------------------------------------------------------------------
@@ -229,6 +232,7 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+        'Slack' => App\Services\Slack\SlackFacade::class,
 
     ],
 

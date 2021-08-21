@@ -30,6 +30,7 @@ class DataController extends Controller
       $user_info->experience = 0;
       $user_info->email = $email;
       $user_info->save();
+      \Slack::send('新しいユーザーが登録されました!');
       app('db')->table('user_stage')->insert(['email'=>$email, 'math'=>'1', 'english'=>'1', 'last'=>'1']);
       return redirect(route('english'))->with(['message_id' => '1']);
     }

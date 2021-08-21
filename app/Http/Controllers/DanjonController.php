@@ -27,7 +27,7 @@ class DanjonController extends Controller
     // $url = $this->userRepository->getUserInfomation();
     // var_dump($url);
     // exit();
-    // $url = user_chara()[0]->image;
+    // $url = user_chara()[0]->image
     $url = $this->userRepository->getUserCharacter()[0]->image;
     $tech = $this->userRepository->getUserTechnique()[0]->technique;
     $damage = $this->userRepository->getUserTechnique()[0]->damage;
