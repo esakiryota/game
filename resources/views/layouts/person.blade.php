@@ -142,7 +142,7 @@
                 <p>こうげき: {{$sql[0]->atack}}   ぼうぎょ: {{$sql[0]->defense}}</p>
               </div>
               <div class="row">
-                <p>スキル{{$tech}}<br>せつめい：てきに<span id="damager">{{$damage}}</span>のダメージ</p>
+                <p>スキル: {{$tech}}<br>せつめい：てきに<span id="damager">{{$damage}}</span>のダメージ</p>
               </div>
 
             </div>
