@@ -63,11 +63,8 @@
   </head>
   <body>
     <div class="conteiner fixed-top my-5">
-      <div class="row mt-5 pt-5">
+      <div class="row mt-5 pt-5 mb-5">
         <div class="col text-center mt-5" id="dannjon">Eitan danjon</div>
-      </div>
-      <div class="row">
-        <div class="col text-center" id="sub">- road of smarter -</div>
       </div>
       <div class="row">
         <div class="col text-center mt-3" id="login">
