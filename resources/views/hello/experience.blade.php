@@ -153,6 +153,11 @@
     </div>
 
   <main class="" style="margin-top: 200px;" id="main">
+    <div class="row mb-3">
+      <div class="col">
+        <a href="/start" style="text-decoration: none; font-size: 20px; color: black;"><<戻る<a/>
+      </div>
+    </div>
     <div class="row">
       <div class="col-sm-4">
         <a href=" /experience/1-0" id="searchLink" style="color: black; text-decoration: none;">

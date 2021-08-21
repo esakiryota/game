@@ -53,6 +53,7 @@
           <li>ぴぽや倉庫 https://pipoya.net/</li>
           <li>七三ゆきのアトリエ　https://nanamiyuki.com/</li>
           <li>白螺子屋　http://hi79.web.fc2.com/</li>
+          <li>ゆるどらシル　フリー素材　https://yurudora.com/tkool/</li>
         </ul>
       </div>
     </div>
