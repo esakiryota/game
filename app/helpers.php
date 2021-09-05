@@ -283,6 +283,30 @@ if (!function_exists('randArray')) {
   }
 }
 
+if (!function_exists('makeImageList')) {
+  function makeImageList($path) {
+    $atack_files = \File::files($path);
+    $atack_image_list_sub = [];
+    $i = 0;
+    foreach ($atack_files as $v) {
+      $atack_image_list_sub[$i] = $v->getfileName();
+      $i++;
+   }
+
+    natsort($atack_image_list_sub);
+
+    $atack_image_list = [];
+    $i = 0;
+
+    foreach ($atack_image_list_sub as $v) {
+      $atack_image_list[$i] = $v;
+      $i++;
+   }
+
+   return $atack_image_list;
+  }
+}
+
 //["1-1"=>additionArray()]のような辞書を作成するhelper関数を定義する。
 
 

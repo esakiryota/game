@@ -100,13 +100,30 @@ class UserMySQLRepository extends MySQLRepository implements UserRepositoryInter
           };
       }
 
+      public function updateUserMagicStone(int $magic_stone) {
+        $user = Auth::user();
+        $this->email = $user->email;
+        $result = $this->getUserInfomation()[0];
+        $stone_num = $result->magic_stone;
+        $update_stone_num = $stone_num + $magic_stone ;
+        $this->db->table('user_info')->where('email', $this->email)->update(['magic_stone' => $update_stone_num]);
+      }
+
       public function updateUserStage(int $user_stage, int $stage_id, string $stage_name)
       {
         $user = Auth::user();
         $this->email = $user->email;
           $upstage = $user_stage + 1;
           if ($user_stage <= $stage_id) {
+            $magic_stone = $this->db->table('user_info')->where('email', $this->email)->get()->first()->magic_stone;
             $this->db->table('user_stage')->where('email', $this->email)->update([$stage_name => $upstage]);
+            $this->updateUserMagicStone(1);
           }
+      }
+
+      public function updateUserSkill(int $s_id) {
+        $user = Auth::user();
+        $this->email = $user->email;
+        $this->db->table('user_info')->where('email', $this->email)->update(['s_id' => $s_id]);
       }
  }

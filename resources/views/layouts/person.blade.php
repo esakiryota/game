@@ -126,6 +126,7 @@
             <img id="tmp" src="{{$url}}" style="position: absolute; top: 30px; left: 10px;" width="130px">
             <img src="/img/status_field4.png" alt="" style="position: absolute; top: 0; left: 0; max-width: 450px;" width="100%" height="200px">
             <p style="position: absolute; top: 15px; left: 180px;">{{$sql[0]->name}} Lv{{$sql[0]->level}}</p>
+            <p style="position: absolute; top: 15px; left: 350px;"><img src="/img/parts/magic_stone.png">x<span>{{$sql[0]->magic_stone}}</span></p>
             <div style="position: absolute; top: 40px; left: 190px;">
               <div class="row" width="">
                 <div class="">
@@ -142,7 +143,7 @@
                 <p>こうげき: {{$sql[0]->atack}}   ぼうぎょ: {{$sql[0]->defense}}</p>
               </div>
               <div class="row">
-                <p>スキル: {{$tech}}<br>せつめい：てきに<span id="damager">{{$damage}}</span>のダメージ</p>
+                <p>スキル: {{$skill->name}}<br>せつめい：てきに<span id="damager">{{$skill->damage}}</span>のダメージ</p>
               </div>
 
             </div>
@@ -183,14 +184,7 @@
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
-      <!-- <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalCenterTitle"><img src="/img/skyport.gif" width="50px"> </h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div> -->
       <div class="modal-body" style="background:url(/img/start-bg-7.jpg) center; height: 470px;">
-        <!-- <h5 class="modal-title" id="exampleModalCenterTitle"><img src="/img/skyport.gif" width="50px"> </h5> -->
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -237,7 +231,7 @@
         <a @if ($flag == 'wordsIndex') class="nav-link active" @else class="nav-link" @endif href="/words"><img src="/img/icon-book.png" width="30px"><br><span style="color: white;">ずかん</span></a>
       </li>
       <li class="nav-item bottombar px-3" ontouchstart>
-        <a class="nav-link" @if ($flag == 'experience') style="background-color: rgba(128, 128, 128, 0.3)" @else  @endif  href="/hometown"><img src="/img/sord0.png" width="30px"><br><span style="color: white;">くんれん</span></a>
+        <a class="nav-link" @if ($flag == 'experience') style="background-color: rgba(128, 128, 128, 0.3)" @else  @endif  href="/skill"><img src="/img/sord0.png" width="30px"><br><span style="color: white;">スキル</span></a>
       </li>
 
       <li class="nav-item bottombar px-3" ontouchstart>
@@ -256,7 +250,7 @@
      <a @if ($flag == 'wordsIndex') class="nav-link active" @else class="nav-link" @endif href="/words"><img src="/img/icon-book.png" width="30px"><br><span style="color: white;">ずかん</span></a>
    </li>
    <li class="nav-item bottombar" ontouchstart>
-     <a class="nav-link" @if ($flag == 'experience') style="background-color: rgba(128, 128, 128, 0.3)" @else  @endif  href="/hometown"><img src="/img/sord0.png" width="30px"><br><span style="color: white;">くんれん</span></a>
+     <a class="nav-link" @if ($flag == 'experience') style="background-color: rgba(128, 128, 128, 0.3)" @else  @endif  href="/skill"><img src="/img/sord0.png" width="30px"><br><span style="color: white;">スキル</span></a>
    </li>
 
    <li class="nav-item bottombar" ontouchstart>

@@ -89,6 +89,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/english/{level}/practice', "TextController@praEnglishIndex");
     Route::post('/english/practice', "TextController@praceticeUpdate");
     Route::get('/words', "DanjonController@wordsIndex");
+    Route::get('/skill', "DanjonController@skillLists");
   });
   Route::get('/account', "DataController@index")->middleware('RegisterUserCheck');
   Route::post('/account', "DataController@store");
@@ -113,6 +114,9 @@ Route::get('/experience', "DanjonController@experience");
 Route::get('/experience/1-0', "TextController@experienceStage");
 Route::post('/experience/1-0', "TextController@experienceBack");
 Route::get("/messageData/{stage}", "Api\DataApiController@messageList");
+Route::get("/skill_gacha", "Api\DataApiController@skillGacha");
+Route::get("/set_skill", "Api\DataApiController@setSkill");
+
 Route::get("/pipo_animation", function() {
   return view("tools.pipo_animation");
 })->name('pipo_animation');

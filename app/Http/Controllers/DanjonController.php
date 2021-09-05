@@ -7,6 +7,7 @@ use Auth;
 use Stage\Repositories\StageRepositoryInterface;
 use Stage\Repositories\EnglishWordsRepositoryInterface;
 use User\Repositories\UserRepositoryInterface;
+use User\Repositories\SkillsRepositoryInterface;
 
 class DanjonController extends Controller
 {
@@ -14,12 +15,14 @@ class DanjonController extends Controller
   public function __construct(
     StageRepositoryInterface $stageRepository,
     UserRepositoryInterface $userRepository,
-    EnglishWordsRepositoryInterface $englishWordsRepository
+    EnglishWordsRepositoryInterface $englishWordsRepository,
+    SkillsRepositoryInterface $skillsRepository
     )
    {
       $this->stageRepository = $stageRepository;
       $this->userRepository = $userRepository;
       $this->englishWordsRepository = $englishWordsRepository;
+      $this->skillsRepository = $skillsRepository;
    }
 
   public function danjon1(Request $request) {
@@ -32,6 +35,8 @@ class DanjonController extends Controller
     $tech = $this->userRepository->getUserTechnique()[0]->technique;
     $damage = $this->userRepository->getUserTechnique()[0]->damage;
     $sql = $this->userRepository->getUserInfomation();
+    $s_id = $this->userRepository->getUserInfomation()[0]->s_id;
+    $skill = $this->skillsRepository->getSkillById($s_id);
     $page = $_SERVER['REQUEST_URI'];
     $name = explode("/", $page);
     $stage_max = $this->userRepository->getUserStage()[0][$name[1]];
@@ -44,7 +49,7 @@ class DanjonController extends Controller
     $flag = "english";
 
 
-    return view('hello.danjon1', compact("sql", "url", "tech", "damage", "stage", "main", "ex_value", "stage_max", "flag"));
+    return view('hello.danjon1', compact("sql", "url", "tech", "damage", "stage", "main", "ex_value", "stage_max", "flag", "skill"));
   }
 
   public function danjon2(Request $request) {
@@ -52,6 +57,8 @@ class DanjonController extends Controller
     $tech = $this->userRepository->getUserTechnique()[0]->technique;
     $damage = $this->userRepository->getUserTechnique()[0]->damage;
     $sql = $this->userRepository->getUserInfomation();
+    $s_id = $this->userRepository->getUserInfomation()[0]->s_id;
+    $skill = $this->skillsRepository->getSkillById($s_id);
     $page = $_SERVER['REQUEST_URI'];
     $name = explode("/", $page);
     $stage_max = $this->userRepository->getUserStage()[0][$name[1]];
@@ -64,7 +71,7 @@ class DanjonController extends Controller
     $flag = "english";
 
 
-    return view('hello.danjon1', compact("sql", "url", "tech", "damage", "stage", "main", "ex_value", "stage_max", "flag"));
+    return view('hello.danjon1', compact("sql", "url", "tech", "damage", "stage", "main", "ex_value", "stage_max", "flag", "skill"));
   }
 
   public function danjon3(Request $request) {
@@ -72,6 +79,8 @@ class DanjonController extends Controller
     $tech = $this->userRepository->getUserTechnique()[0]->technique;
     $damage = $this->userRepository->getUserTechnique()[0]->damage;
     $sql = $this->userRepository->getUserInfomation();
+    $s_id = $this->userRepository->getUserInfomation()[0]->s_id;
+    $skill = $this->skillsRepository->getSkillById($s_id);
     // $page = $_SERVER['REQUEST_URI'];
     // $name = explode("/", $page);
     $en_stage_max = $this->userRepository->getUserStage()[0]["english"];
@@ -87,7 +96,7 @@ class DanjonController extends Controller
     $flag = "experience";
 
 
-    return view('hello.danjon2', compact("sql", "url", "tech", "damage", "stage","en_stage", "main", "en_main", "ex_value", "stage_max", "en_stage_max", "flag"));
+    return view('hello.danjon2', compact("sql", "url", "tech", "damage", "stage","en_stage", "main", "en_main", "ex_value", "stage_max", "en_stage_max", "flag", "skill"));
   }
 
   public function last(Request $request) {
@@ -95,6 +104,8 @@ class DanjonController extends Controller
     $tech = $this->userRepository->getUserTechnique()[0]->technique;
     $damage = $this->userRepository->getUserTechnique()[0]->damage;
     $sql = $this->userRepository->getUserInfomation();
+    $s_id = $this->userRepository->getUserInfomation()[0]->s_id;
+    $skill = $this->skillsRepository->getSkillById($s_id);
 
     $stage_max = $this->userRepository->getUserStage()[0]["last"];
     $stage = $this->stageRepository->getLastStageArray($stage_max);
@@ -105,7 +116,7 @@ class DanjonController extends Controller
     $ex_value = ($user_ex/$lv_ex)*200;
     $flag = "english";
 
-    return view('hello.danjon1', compact("sql", "url", "tech", "damage", "stage", "main", "ex_value", "stage_max", "flag"));
+    return view('hello.danjon1', compact("sql", "url", "tech", "damage", "stage", "main", "ex_value", "stage_max", "flag", "skill"));
   }
 
   public function wordsIndex(Request $request) {
@@ -113,6 +124,8 @@ class DanjonController extends Controller
     $tech = $this->userRepository->getUserTechnique()[0]->technique;
     $damage = $this->userRepository->getUserTechnique()[0]->damage;
     $sql = $this->userRepository->getUserInfomation();
+    $s_id = $this->userRepository->getUserInfomation()[0]->s_id;
+    $skill = $this->skillsRepository->getSkillById($s_id);
     $en_stage_max = $this->userRepository->getUserStage()[0]["english"];
     $en_stage = $this->stageRepository->getEnglishStageArray($en_stage_max);
     $en_main = $this->stageRepository->getMain("english");
@@ -126,7 +139,7 @@ class DanjonController extends Controller
     $englishWords = $this->englishWordsRepository->getWords();
     $flag = "wordsIndex";
 
-    return view('words.word', compact("sql", "url", "tech", "damage", "stage","en_stage", "main", "en_main", "ex_value", "stage_max", "en_stage_max", "englishWords", "flag"));
+    return view('words.word', compact("sql", "url", "tech", "damage", "stage","en_stage", "main", "en_main", "ex_value", "stage_max", "en_stage_max", "englishWords", "flag", "skill"));
   }
 
   public function experience(Request $request) {
@@ -134,6 +147,31 @@ class DanjonController extends Controller
       return redirect('/english');
     }
     return view('hello.experience');
+  }
+
+  public function skillLists(Request $request) {
+    $url = $this->userRepository->getUserCharacter()[0]->image;
+    $tech = $this->userRepository->getUserTechnique()[0]->technique;
+    $damage = $this->userRepository->getUserTechnique()[0]->damage;
+    $sql = $this->userRepository->getUserInfomation();
+    $s_id = $this->userRepository->getUserInfomation()[0]->s_id;
+    $skill = $this->skillsRepository->getSkillById($s_id);
+    $en_stage_max = $this->userRepository->getUserStage()[0]["english"];
+    $en_stage = $this->stageRepository->getEnglishStageArray($en_stage_max);
+    $en_main = $this->stageRepository->getMain("english");
+    $stage_max = $this->userRepository->getUserStage()[0]["math"];
+    $stage = $this->stageRepository->getStageArray($stage_max);
+    $main = $this->stageRepository->getMain("math");
+    $user_ex = $sql[0]->experience;
+    $user_lv = $sql[0]->level;
+    $lv_ex = $this->userRepository->getLevelEx($user_lv);
+    $ex_value = ($user_ex/$lv_ex)*200;
+    $englishWords = $this->englishWordsRepository->getWords();
+    $flag = "wordsIndex";
+    $uid = Auth::user()->id;
+    [$user_skills, $skill_images] = $this->skillsRepository->getUserSkills($uid);
+
+    return view('skill_list.skill_list', compact("sql", "url", "tech", "damage", "stage","en_stage", "main", "en_main", "ex_value", "stage_max", "en_stage_max", "englishWords", "flag", "user_skills", "skill", "skill_images"));
   }
 
   public function csvImport(Request $request) {

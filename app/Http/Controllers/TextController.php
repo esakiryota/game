@@ -5,25 +5,31 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use User\Repositories\UserRepositoryInterface;
 use Stage\Repositories\EnemiesRepositoryInterface;
+use User\Repositories\SkillsRepositoryInterface;
 
 class TextController extends Controller
 {
 
   public function __construct(
     UserRepositoryInterface $userRepository,
-    EnemiesRepositoryInterface $enemyRepository
+    EnemiesRepositoryInterface $enemyRepository,
+    SkillsRepositoryInterface $skillsRepository
     )
    {
       $this->userRepository = $userRepository;
       $this->enemyRepository = $enemyRepository;
+      $this->skillsRepository = $skillsRepository;
    }
 
     public function index($level){
 
       $url = user_chara()[0]->image;
-      $tech = user_tech()[0]->technique;
-      $damage = user_tech()[0]->damage;
-      $image = user_tech()[0]->image;
+      $sql = $this->userRepository->getUserInfomation();
+      $s_id = $this->userRepository->getUserInfomation()[0]->s_id;
+      $skill = $this->skillsRepository->getSkillById($s_id);
+      $tech = $skill->name;
+      $damage = $skill->damage;
+      $image = $skill->image;
       $sql = user_info();
       $stage_lv = stage_info($level);
       $question_array = math_question($level);
@@ -34,9 +40,12 @@ class TextController extends Controller
     public function englishindex($level){
 
       $url = user_chara()[0]->image;
-      $tech = user_tech()[0]->technique;
-      $damage = user_tech()[0]->damage;
-      $image = user_tech()[0]->image;
+      $sql = $this->userRepository->getUserInfomation();
+      $s_id = $this->userRepository->getUserInfomation()[0]->s_id;
+      $skill = $this->skillsRepository->getSkillById($s_id);
+      $tech = $skill->name;
+      $damage = $skill->damage;
+      $image = $skill->image;
       $sql = user_info();
       $stage_lv = english_stage_info($level);
       $question_array = engQuestion($level);
@@ -86,9 +95,12 @@ class TextController extends Controller
     public function lastIndex($level){
 
       $url = user_chara()[0]->image;
-      $tech = user_tech()[0]->technique;
-      $damage = user_tech()[0]->damage;
-      $image = user_tech()[0]->image;
+      $sql = $this->userRepository->getUserInfomation();
+      $s_id = $this->userRepository->getUserInfomation()[0]->s_id;
+      $skill = $this->skillsRepository->getSkillById($s_id);
+      $tech = $skill->name;
+      $damage = $skill->damage;
+      $image = $skill->image;
       $sql = user_info();
       $stage_lv = last_stage_info($level);
       $question_array = lastQuestion();
@@ -134,9 +146,12 @@ class TextController extends Controller
     public function praEnglishIndex($level){
 
       $url = user_chara()[0]->image;
-      $tech = user_tech()[0]->technique;
-      $damage = user_tech()[0]->damage;
-      $image = user_tech()[0]->image;
+      $sql = $this->userRepository->getUserInfomation();
+      $s_id = $this->userRepository->getUserInfomation()[0]->s_id;
+      $skill = $this->skillsRepository->getSkillById($s_id);
+      $tech = $skill->name;
+      $damage = $skill->damage;
+      $image = $skill->image;
       $sql = user_info();
       $stage_lv = english_stage_info($level);
       $question_array = engQuestion($level);
@@ -164,7 +179,7 @@ class TextController extends Controller
       $url = "/" . $stage_lv_str[1];
       $stage_max = user_stage()[0][$stage_lv_str[1]];
       $stage_id = $request->stage_id;
-      updateStage($stage_max, $stage_id, $stage_lv_str[1]);
+      $this->userRepository->updateUserStage($stage_max, $stage_id, $stage_lv_str[1]);
       $user_stage = $this->userRepository->getUserStage();
 
       if ($user_pre_stage[0]["english"] == 20 && $user_stage[0]["english"] == 21) {
