@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="shortcut icon" href="/img/icons/favicon.ico">
-    <title>EiDan</title>
+    <title>英単語ダンジョン</title>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     @if(env('APP_ENV') == 'production')
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-4WGDPTQD3S"></script>
