@@ -32,7 +32,7 @@
 
     @font-face {
       font-family: 'Myfont';
-      src: url(/font/Triforce-y07d.ttf);
+      src: url(/font/GenEi-P-Heavy_ver8.ttf);
     }
 
     @font-face {
@@ -64,7 +64,7 @@
   <body>
     <div class="conteiner fixed-top my-5">
       <div class="row mt-5 pt-5 mb-5">
-        <div class="col text-center mt-5" id="dannjon">Eitan danjon</div>
+        <div class="col text-center mt-5" id="dannjon">英単語<br>ダンジョン</div>
       </div>
       <div class="row">
         <div class="col text-center mt-3" id="login">
