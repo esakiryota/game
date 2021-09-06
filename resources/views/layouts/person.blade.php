@@ -221,7 +221,7 @@
   </main>
   @if (Auth::check())
   <footer>
-    <nav class='d-flex' style="box-shadow: 0px 0px 10px rgba(50, 50, 50, 0.5); background-color: rgba(0,0,0,0.9); position: fixed; top: 0; right: 0; border-bottom-left-radius: 20px;">
+    <nav class='d-flex' style="box-shadow: 0px 0px 10px rgba(50, 50, 50, 0.5); background-color: rgba(0,0,0,0.9); position: fixed; top: 0; right: 0; border-bottom-left-radius: 20px; border-left: solid gray; border-bottom: solid gray;">
     <ul class="nav justify-content-end" id="right-nav">
       <li class="nav-item bottombar px-3" ontouchstart>
         <!-- <a class="nav-link"　data-toggle="modal" data-target="#exampleModalCenter"><img src="/img/icon-map.png"></a> -->
@@ -231,7 +231,7 @@
         <a @if ($flag == 'wordsIndex') class="nav-link active" @else class="nav-link" @endif href="/words"><img src="/img/icon-book.png" width="30px"><br><span style="color: white;">ずかん</span></a>
       </li>
       <li class="nav-item bottombar px-3" ontouchstart>
-        <a class="nav-link" @if ($flag == 'experience') style="background-color: rgba(128, 128, 128, 0.3)" @else  @endif  href="/skill"><img src="/img/sord0.png" width="30px"><br><span style="color: white;">スキル</span></a>
+        <a class="nav-link" href="/skill"><img src="/img/sord0.png" width="30px"><br><span style="color: white;">スキル</span></a>
       </li>
 
       <li class="nav-item bottombar px-3" ontouchstart>
@@ -240,7 +240,7 @@
 </ul>
 </nav>
     <!-- <div > -->
-      <nav class='fixed-bottom' style="box-shadow: 0px 0px 10px rgba(50, 50, 50, 0.5); background-color: rgba(0,0,0,0.9)" id="bottom-nav">
+      <nav class='fixed-bottom' style="box-shadow: 0px 0px 15px rgba(50, 50, 50, 0.7); background-color: rgba(0,0,0,0.9); border-top: solid gray;" id="bottom-nav">
       <ul class="nav nav-pills nav-fill">
    <li class="nav-item bottombar" ontouchstart>
      <!-- <a class="nav-link"　data-toggle="modal" data-target="#exampleModalCenter"><img src="/img/icon-map.png"></a> -->

@@ -127,6 +127,9 @@
     </style>
 
     <body>
+      <div class="" style="position: fixed; top:0; left:0; font-size: 10px; color: gray;">
+         英語漬け.com英単語使用 <a href="https://eigo-duke.com">https://eigo-duke.com</a>
+      </div>
       <main>
         <div class="d-flex justify-content-center bd-highlight mb-3">
          <div class="p-2 bd-highlight"></div>

@@ -16,5 +16,8 @@ body {
 <p>
   {{ $data["message"] }}
 </p>
+<p>
+  返信用メールアドレス{{ $data["return_address"] }}
+</p>
 </body>
 </html>

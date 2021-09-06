@@ -140,6 +140,9 @@
     </style>
 
     <body>
+      <div class="" style="position: fixed; top:0; left:0; font-size: 10px; color: gray;">
+         英語漬け.com英単語使用 <a href="https://eigo-duke.com">https://eigo-duke.com</a>
+      </div>
       <div class="hidden0" id="enemy_atack" style="width: 100%; height: 100%; position: fixed; z-index: 2147483647; text-align: center;">
         @foreach($image_list as $key => $value)
         <img class="hidden" width="600px" src='{{ $enemy_atacks }}/{{ $value }}' id='{{ $key }}' style="
@@ -249,7 +252,7 @@
     </div>
     <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content" style="background-color: rgba(0,0,0,0)">
+        <div class="modal-content" style="background-color: rgba(0,0,0,0); border: solid white;">
           <div class="modal-body" id="clear_modal">
             <div class="" id="modal_1"  style="">
               <div class="" style="font-size: 20px;">

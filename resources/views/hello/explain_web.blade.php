@@ -56,6 +56,15 @@
           <li>ゆるどらシル　フリー素材　https://yurudora.com/tkool/</li>
         </ul>
       </div>
+      <div class="row bg-light pt-4 mx-2">
+        <div class="col"><h2>相互リンク</h2></div>
+      </div>
+      <div class="row mb-4 bg-light py-4 mx-2">
+        <ul>
+          <li><a href="https://www.eigo-duke.com/">英語漬け.com</a></li>
+          このサイトの英単語を載せさせていただいています。
+        </ul>
+      </div>
     </div>
       <div class="row pt-4 mx-2 bg-light">
         <div class="col">
