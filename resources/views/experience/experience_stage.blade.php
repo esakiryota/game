@@ -326,7 +326,7 @@
   <input id="stage_defense" type="hidden" name="stage_defense" value="0">
   <input id="stage_image" type="hidden" name="stage_image" value="/img/enemy0.png">
   <input id="stage_experiment" type="hidden" name="stage_experiment" value="0">
-  <input id="stage_life" type="hidden" name="stage_life" value="100">
+  <input id="stage_life" type="hidden" name="stage_life" value="300">
   <input id="stage_id" type="hidden" name="stage_id" value="1">
 </form>
 @endsection
