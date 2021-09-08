@@ -73,6 +73,7 @@
       location.reload();
     })
     .fail((error)=>{
+      mask.innerHTML = "";
     })
   });
   }

@@ -73,7 +73,7 @@ border-bottom: none;
   </div>
 </div>
 <a href="#" class="btn-real" style="position: fixed; bottom: 15%; right: 0;">
-  <p data-toggle="modal" data-target="#gachaModal">宝箱</p>
+  <p data-toggle="modal" data-target="#gachaModal"><img src="/img/icons/box.png" width="50px"></p>
 </a>
 
 <div class="modal fade" id="gachaModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">

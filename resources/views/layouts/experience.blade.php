@@ -140,7 +140,7 @@
     </style>
 
     <body>
-      <div class="" style="position: fixed; top:0; left:0; font-size: 10px; color: gray;">
+      <div class="" style="position: relative; font-size: 10px; color: gray">
          英語漬け.com英単語使用 <a href="https://eigo-duke.com">https://eigo-duke.com</a>
       </div>
       <div class="hidden0" id="enemy_atack" style="width: 100%; height: 100%; position: fixed; z-index: 2147483647; text-align: center;">

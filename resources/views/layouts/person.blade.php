@@ -188,29 +188,29 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
-          <a href="/english" style="color: black;">
+          <!-- <a href="/english" style="color: black;"> -->
             <div class="" style="font-size: 20px; position: absolute; top: 40px;">
-              <button type="button" id="" class="position-marker" data-toggle="tooltip" data-placement="right" title="えいごのうみ"></button>
+              <button  type="button" id="" class="position-marker" data-href="/english" data-name="えいごのうみ" data-level="中学一年レベルの英単語" data-toggle="tooltip" data-placement="right" title="えいごのうみ"></button>
             </div>
-          </a>
-            <a href="/hometown" style="color: black;">
-              <div class="" style="font-size: 20px; position: absolute; top: 120px; left: 70%;">
-                <button type="button" id="" class="position-marker" data-toggle="tooltip" data-placement="right" title="くんれんのむら">
+          <!-- </a> -->
+            <!-- <a href="/hometown" style="color: black;"> -->
+              <div  style="font-size: 20px; position: absolute; top: 120px; left: 70%;">
+                <button  type="button" id="" class="position-marker" data-href="/hometown" data-name="くんれんのむら" data-level="独自の暗記法で効率的に暗記" data-toggle="tooltip" data-placement="right" title="くんれんのむら">
                 </button>
               </div>
-            </a>
-            <a href="/start" style="color: black;">
-              <div class="" style="font-size: 20px; position: absolute; top: 160px; left: 50%;">
-              <button type="button" id="" class="position-marker" data-toggle="tooltip" data-placement="right" title="はじまりのまち"></button>
+            <!-- </a> -->
+            <!-- <a href="/start" style="color: black;"> -->
+              <div  style="font-size: 20px; position: absolute; top: 160px; left: 50%;">
+              <button type="button" id="" class="position-marker" data-href="/start" data-name="はじまりのまち" data-level="始まりのまちに戻る" data-toggle="tooltip" data-placement="right" title="はじまりのまち"></button>
             </div>
-          </a>
+          <!-- </a> -->
             @if (isset($stage_max))
             @if($stage_max >= 21)
-            <a href="/last" style="color: black;">
-              <div class="" style="font-size: 20px; position: absolute; top: 270px; left: 50%;">
-                <button type="button" id="" class="position-marker" data-toggle="tooltip" data-placement="right" title="さいごのしま"></button>
+            <!-- <a href="/last" style="color: black;"> -->
+              <div  style="font-size: 20px; position: absolute; top: 270px; left: 50%;">
+                <button type="button" id="" class="position-marker" data-href="/last" data-name="さいごのしま" data-level="中学一年レベルの英単語がランダムに3ステージ"   data-toggle="tooltip" data-placement="right" title="さいごのしま"></button>
               </div>
-            </a>
+            <!-- </a> -->
             @endif
             @endif
       </div>
@@ -250,7 +250,7 @@
      <a @if ($flag == 'wordsIndex') class="nav-link active" @else class="nav-link" @endif href="/words"><img src="/img/icon-book.png" width="30px"><br><span style="color: white;">ずかん</span></a>
    </li>
    <li class="nav-item bottombar" ontouchstart>
-     <a class="nav-link" @if ($flag == 'experience') style="background-color: rgba(128, 128, 128, 0.3)" @else  @endif  href="/skill"><img src="/img/sord0.png" width="30px"><br><span style="color: white;">スキル</span></a>
+     <a class="nav-link"  href="/skill"><img src="/img/sord0.png" width="30px"><br><span style="color: white;">スキル</span></a>
    </li>
 
    <li class="nav-item bottombar" ontouchstart>
@@ -260,6 +260,9 @@
      </nav>
      <!-- </div> -->
   </footer>
+  <div id="move_mask">
+
+  </div>
   @endif
 
 
@@ -272,6 +275,16 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
     <script src="/js/popper.min.js"></script>
+    <div id="move_mask" class="mask" style="position: fixed; top: 0; z-index: 21000000;">
+@if (session('message_id') != null)
+      <div class="mask" style="width: 100vw; height: 100vh; background-color: rgba(0, 0, 0, 0.9); position: absolute; top: 0;"></div>
+      <div id="mask">
+      </div>
+    <input type="hidden" name="message_id" value="{{ session('message_id')}}" id="message_id">
+    <script src="/js/mask.js">
+    </script>
+@endif
+</div>
     <script type="text/javascript">
     (function(){
       var e = @json($ex_value);
@@ -285,17 +298,73 @@ $(".position-marker").hover(function() {
   $("#english").css('display', 'inline');
 })
 })
+
+var move_mask = document.getElementById('move_mask');
+var position_marker = document.getElementsByClassName('position-marker');
+
+function setMove() {
+  var i;
+  for ( i = 0; i < position_marker.length; i++){
+    position_marker[i].addEventListener('click', function(){
+      var move_href = this.dataset.href;
+      console.log(move_href);
+      var name = this.dataset.name;
+      var level = this.dataset.level;
+      move_mask.innerHTML = `
+      <div class="mask" style="width: 100vw; height: 100vh; background-color: rgba(0, 0, 0, 0.9); position: absolute; top: 0; z-index:21000000; "></div>
+      <div style="position: fixed;
+      top: 30%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      max-height: 300px;
+      max-width: 400px;
+      z-index:21000000;">${name}</div>
+      <div style="position: fixed;
+      top: 40%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      max-height: 300px;
+      max-width: 400px;
+      z-index:21000000;">${level}</div>
+
+      <button id="back" style="position: fixed;
+      top: 60%;
+      left: 40%;
+      transform: translate(-50%, -50%);
+      -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      max-height: 300px;
+      max-width: 400px;
+      z-index:21000000;"
+      >戻る</button>
+      <button id="set" style="position: fixed;
+      top: 60%;
+      left: 60%;
+      transform: translate(-50%, -50%);
+      -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      max-height: 300px;
+      max-width: 400px;
+      z-index:21000000;"
+      >いどうする</button>
+      `
+      document.getElementById('back').addEventListener('click', function(){
+        move_mask.innerHTML = "";
+      });
+      document.getElementById('set').addEventListener('click', function(){
+        move_mask.innerHTML = "";
+        window.location.href = move_href;
+      })
+
+    })
+  }
+}
+setMove()
     </script>
-@if (session('message_id') != null)
-    <div class="mask" style="position: fixed; top: 0; z-index: 21000000;">
-      <div class="mask" style="width: 100vw; height: 100vh; background-color: rgba(0, 0, 0, 0.9); position: absolute; top: 0;"></div>
-      <div id="mask">
-      </div>
-    </div>
-    <input type="hidden" name="message_id" value="{{ session('message_id')}}" id="message_id">
-    <script src="/js/mask.js">
-    </script>
-@endif
 
 
 
