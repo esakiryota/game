@@ -146,6 +146,7 @@ class DanjonController extends Controller
     if (Auth::check()) {
       return redirect('/english');
     }
+    \Slack::send('体験ページが表示されました!');
     return view('hello.experience');
   }
 
